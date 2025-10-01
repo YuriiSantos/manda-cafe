@@ -51,8 +51,6 @@ function MenuCarousel() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   return (
     <div className="relative w-full max-w-md mx-auto md:max-w-lg lg:max-w-xl">
       {/* Carousel Container */}
