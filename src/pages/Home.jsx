@@ -12,7 +12,7 @@ function Home() {
       </section>
 
       {/* Restaurant Info Section */}
-      <section className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-10">
+      <section className=" ">
         <VisitUsSection />
       </section>
     </div>
