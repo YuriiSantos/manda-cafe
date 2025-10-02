@@ -17,21 +17,11 @@ function Footer() {
         <div className="flex-1 bg-[#62876b]"></div>
       </div>
       <div className="bg-[#c9b896] px-4 py-4">
-        <div className="flex justify-between items-center max-w-md mx-auto md:max-w-lg lg:max-w-xl">
-          <div className="flex items-center justify-center">
-            {" "}
-            {/* Menu Hamburger */}
-            <button className="w-10 h-10 rounded-full flex items-center justify-center hover:shadow-lg hover:scale-105 transition-all duration-300 md:w-14 md:h-14 lg:w-16 lg:h-16">
-              <div className="flex flex-col gap-1">
-                <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
-                <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
-                <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
-                <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
-              </div>
-            </button>
-          </div>
+        <div className="flex flex-col justify-between items-center max-w-md mx-auto md:max-w-lg lg:max-w-xl">
+          <h1 className="text-sm text-white pb-3">
+            ©2025. All rights reserved by MandaCafé
+          </h1>
           <div className="flex items-center justify-center gap-4">
-            {" "}
             {/* Location */}
             <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 md:w-14 md:h-14 lg:w-16 lg:h-16">
               <svg

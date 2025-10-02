@@ -68,7 +68,7 @@ function MenuCarousel() {
                         <div className="absolute inset-0 bg-gradient-to-br from-black/45 to-black/35" />
                         {/* conteúdo centralizado */}
                         <div className="absolute inset-0 flex items-center justify-center text-center">
-                          <h3 className="font-lobster text-white text-4xl md:text-4xl font-bold drop-shadow-lg translate-y-6">
+                          <h3 className="font-lobster text-white text-3xl md:text-4xl font-bold drop-shadow-lg translate-y-6">
                             {card.title}
                           </h3>
                         </div>
