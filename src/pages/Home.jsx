@@ -6,12 +6,10 @@ import VisitUsSection from "../components/ui/VisitUsSection";
 function Home() {
   return (
     <div className="space-y-6 md:space-y-8 lg:space-y-10">
-      {/* Main Cards Grid */}
       <section className="flex gap-4 md:gap-6 lg:grid-cols-4 lg:gap-8">
         <MenuCarousel />
       </section>
 
-      {/* Restaurant Info Section */}
       <section className=" ">
         <VisitUsSection />
       </section>

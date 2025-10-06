@@ -90,7 +90,7 @@ export default function Sidebar() {
               active
             />
             <Item href="/reservas" icon={CalendarCheck} label="Reservas" />
-            <Item href="/eventos" icon={CalendarDays} label="Eventos" />
+            <Item href="/events" icon={CalendarDays} label="Eventos" />
             <Item href="/galeria" icon={Images} label="Galeria" />
             <Item href="/localizacao" icon={MapPin} label="Localização" />
           </nav>
@@ -98,7 +98,7 @@ export default function Sidebar() {
           <div className="mx-4 my-2 h-px bg-white/30" />
 
           <nav className="relative px-4 pb-4 space-y-1">
-            <Item href="/quem-somos" icon={Users} label="Quem somos" />
+            <Item href="/about" icon={Users} label="Quem somos" />
             <Item href="/contato" icon={Mail} label="Contato" badge={17} />
           </nav>
         </div>

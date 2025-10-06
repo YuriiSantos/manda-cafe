@@ -1,12 +1,15 @@
+import key from "../assets/key.png";
+
 function About() {
   return (
     <div className="py-16 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl font-bold text-orange-800 mb-6">
-          ℹ️ Quem Somos
+      <div className="flex flex-col justify-center items-center max-w-4xl mx-auto text-center ">
+        <h1 className="font-lobster text-6xl font-bold text-[#5a5a5a] ">
+          Eventos
         </h1>
-        <p className="text-xl text-orange-700">
-          Conheça nossa história, valores e a paixão por café que nos move
+        <img src={key} alt="key" className="w-35 h-auto" />{" "}
+        <p className="text-xl text-[#9ea3a3]">
+          DE PORTAS ABERTAS PARA RECEBER VOCÊ E SEUS CONVIDADOS
         </p>
       </div>
     </div>
