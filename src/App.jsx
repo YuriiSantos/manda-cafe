@@ -16,7 +16,7 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/manda-cafe">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
