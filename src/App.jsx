@@ -7,7 +7,7 @@ import Menu from "./pages/Menu";
 import Reservations from "./pages/Reservations";
 import Events from "./pages/Events";
 import Occasions from "./pages/Occasions";
-import Frozen from "./pages/Frozen";
+import Cardapio from "./pages/Cardapio";
 import Orders from "./pages/Orders";
 import Gallery from "./pages/Gallery";
 import Location from "./pages/Location";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/events" element={<Events />} />
           <Route path="/occasions" element={<Occasions />} />
-          <Route path="/frozen" element={<Frozen />} />
+          <Route path="/cardapio" element={<Cardapio />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/location" element={<Location />} />

@@ -67,19 +67,14 @@ export default function Events() {
       </div>
 
       {/* section (igual) */}
-      {/* section (igual, porém mais compacto em md/lg) */}
+
       <section className="relative mt-10 w-screen left-[50%] right-[50%] -ml-[50vw] -mr-[50vw]">
         <div className="absolute inset-0 top-1/2 -translate-y-1/2 h-20 bg-[#e4d6b8]" />
 
-        {/* ↓ menor largura e menos espaçamento em telas grandes */}
         <div
-          className="
-      relative mx-auto
-      max-w-3xl md:max-w-[900px] lg:max-w-[980px]
-      grid grid-cols-2 sm:grid-cols-4
-      gap-3 md:gap-4
-      justify-items-center
-    "
+          className="relative mx-auto max-w-[750px] md:max-w-[800px] lg:max-w-[850px] 
+    grid grid-cols-2 sm:grid-cols-4 gap-x-2 md:gap-x-3
+    gap-y-4 justify-items-center"
         >
           {items.map(({ label, Icon }) => (
             <button
@@ -102,14 +97,7 @@ export default function Events() {
       {/* ====== ÁREA PRINCIPAL (RESPONSIVA) ======
     sm: layout original
     md+: carrossel fixo (não encolhe no lg) + sidebar */}
-      <div
-        className="
-  mx-auto mt-15
-  md:max-w-[980px]               /* trava a largura total do bloco */
-  md:grid md:grid-cols-[640px_260px] /* coluna esquerda fixa + sidebar */
-  md:gap-8 md:justify-center md:items-start
-"
-      >
+      <div className=" mx-auto mt-15 md:max-w-[980px] md:grid md:grid-cols-[640px_260px] md:gap-8 md:justify-center md:items-start">
         {/* CARROSSEL (tamanho travado em md+) */}
         <div
           className="relative w-full rounded-3xl overflow-hidden shadow-lg
