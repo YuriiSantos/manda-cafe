@@ -99,10 +99,10 @@ export default function Sidebar() {
               active={is("/cardapio")}
             />
             <Item
-              to="/reservations"
+              to="/special"
               icon={CalendarCheck}
-              label="Reservas"
-              active={is("/reservations")}
+              label="Ocasiões especiais"
+              active={is("/special")}
             />
             <Item
               to="/events"

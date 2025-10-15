@@ -4,9 +4,8 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Bistro from "./pages/Bistro";
 import Menu from "./pages/Menu";
-import Reservations from "./pages/Reservations";
+import Special from "./pages/Special";
 import Events from "./pages/Events";
-import Occasions from "./pages/Occasions";
 import Cardapio from "./pages/Cardapio";
 import Orders from "./pages/Orders";
 import Gallery from "./pages/Gallery";
@@ -22,9 +21,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/bistro" element={<Bistro />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/reservations" element={<Reservations />} />
+          <Route path="/special" element={<Special />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/occasions" element={<Occasions />} />
           <Route path="/cardapio" element={<Cardapio />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/gallery" element={<Gallery />} />
