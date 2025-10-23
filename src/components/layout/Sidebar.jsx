@@ -116,12 +116,6 @@ export default function Sidebar() {
               label="Galeria"
               active={is("/gallery")}
             />
-            <Item
-              to="/location"
-              icon={MapPin}
-              label="Localização"
-              active={is("/location")}
-            />
           </nav>
 
           <div className="mx-4 my-2 h-px bg-white/30" />

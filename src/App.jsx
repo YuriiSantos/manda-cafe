@@ -9,7 +9,6 @@ import Events from "./pages/Events";
 import Cardapio from "./pages/Cardapio";
 import Orders from "./pages/Orders";
 import Gallery from "./pages/Gallery";
-import Location from "./pages/Location";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -26,7 +25,6 @@ function App() {
           <Route path="/cardapio" element={<Cardapio />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/location" element={<Location />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

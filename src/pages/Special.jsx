@@ -1,13 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import {
-  Globe,
-  BarChart2,
-  Heart,
-  Video,
-  House,
-  FileText,
-  CalendarDays,
-} from "lucide-react";
+
 import pena from "../assets/pena.png";
 import dog from "../assets/dog.png";
 
