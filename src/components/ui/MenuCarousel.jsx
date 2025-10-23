@@ -110,7 +110,7 @@ function MenuCarousel() {
       {currentSlide < slides.length - 1 && (
         <button
           onClick={nextSlide}
-          className="absolute right-2 sm:right-4 md:-right-2 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#e6ad44] hover:bg-[#d49a2e] rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:scale-105 z-10"
+          className="absolute right-2 sm:right-4 md:-right-2 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#c9b896] hover:bg-[#7c715c] rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:scale-105 z-10"
           aria-label="Próximo"
         >
           <svg
@@ -133,7 +133,7 @@ function MenuCarousel() {
       {currentSlide > 0 && (
         <button
           onClick={prevSlide}
-          className="absolute left-2 sm:left-4 md:-left-2 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#e6ad44] hover:bg-[#d49a2e] rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:scale-105 z-10"
+          className="absolute left-2 sm:left-4 md:-left-2 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#c9b896] hover:bg-[#7c715c] rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:scale-105 z-10"
           aria-label="Anterior"
         >
           <svg
