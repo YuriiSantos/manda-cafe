@@ -41,16 +41,16 @@ export default function Header() {
           <NavLink to="/special">Ocasiões Especiais</NavLink>
         </nav>
 
-        {/* Logo centralizado */}
+        {/* Logo - maior e à direita no mobile, centralizado no desktop */}
         <Link
           to="/"
           aria-label="Ir para a página inicial"
-          className="lg:mx-auto"
+          className="ml-auto lg:mx-auto"
         >
           <img
             src={logoMandaCafe}
             alt="Manda Café"
-            className="h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 object-contain"
+            className="h-25 w-25 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 object-contain"
           />
         </Link>
 
@@ -61,9 +61,6 @@ export default function Header() {
           <NavLink to="/about">Quem Somos</NavLink>
           <NavLink to="/contact">Contato</NavLink>
         </nav>
-
-        {/* Espaço vazio no mobile para balancear o layout */}
-        <div className="lg:hidden w-10 sm:w-12" />
       </div>
     </header>
   );

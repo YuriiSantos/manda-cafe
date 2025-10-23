@@ -59,7 +59,7 @@ function MenuCarousel() {
         >
           {slides.map((slide, slideIndex) => (
             <div key={slideIndex} className="w-full flex-shrink-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 h-[400px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px]">
+              <div className="grid grid-cols-2 gap-2 p-2 h-[300px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px]">
                 {/* CARD PRINCIPAL */}
                 <div className="relative overflow-hidden rounded-xl duration-300 h-full">
                   <div
@@ -70,7 +70,7 @@ function MenuCarousel() {
                     <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/30" />
                     {/* conteúdo centralizado */}
                     <div className="absolute inset-0 flex items-center justify-center text-center p-4">
-                      <h3 className="font-lobster text-white text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-lg">
+                      <h3 className="font-lobster text-white text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-lg">
                         {slide.main.title}
                       </h3>
                     </div>
@@ -92,7 +92,7 @@ function MenuCarousel() {
                         <div className="absolute inset-0 bg-gradient-to-br from-black/45 to-black/35" />
                         {/* conteúdo centralizado */}
                         <div className="absolute inset-0 flex items-center justify-center text-center p-4">
-                          <h3 className="font-lobster text-white text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold drop-shadow-lg">
+                          <h3 className="font-lobster text-white text-xl sm:text-3xl md:text-3xl lg:text-4xl font-bold drop-shadow-lg">
                             {card.title}
                           </h3>
                         </div>
