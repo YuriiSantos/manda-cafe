@@ -1,16 +1,18 @@
-// Home.jsx - Cards de Conteúdo Mobile First
+// Home.jsx - Layout Responsivo com Tamanhos Controlados
 import React from "react";
 import MenuCarousel from "../components/ui/MenuCarousel";
 import VisitUsSection from "../components/ui/VisitUsSection";
 
 function Home() {
   return (
-    <div className="space-y-6 md:space-y-8 lg:space-y-10">
-      <section className="flex gap-4 md:gap-6 lg:grid-cols-4 lg:gap-8">
+    <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-14 xl:space-y-16">
+      {/* Menu Carousel Section */}
+      <section className="w-full">
         <MenuCarousel />
       </section>
 
-      <section className=" ">
+      {/* Visit Us Section */}
+      <section className="w-full">
         <VisitUsSection />
       </section>
     </div>

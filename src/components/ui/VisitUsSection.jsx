@@ -1,29 +1,29 @@
-// VisitUsSection.jsx - BG da imagem atrás do texto
+// VisitUsSection.jsx - BG da imagem atrás do texto (Tamanhos Reduzidos)
 import React from "react";
 import Casa from "../../assets/casa.png";
 
 function VisitUsSection() {
   return (
-    <section className="flex justify-center">
-      <div className="grid grid-cols-1 max-w-md w-full md:max-w-lg lg:max-w-xl">
+    <section className="flex justify-center px-4 md:px-8 lg:px-12 xl:px-16">
+      <div className="grid grid-cols-1 w-full max-w-6xl">
         <div
           className="
             relative rounded-xl overflow-hidden text-center
-            min-h-[260px] md:min-h-[320px]
-            p-6 md:p-8
+            min-h-[260px] md:min-h-[350px] lg:min-h-[400px] xl:min-h-[450px]
+            p-6 md:p-8 lg:p-10 xl:p-12
             bg-center bg-cover
           "
           style={{ backgroundImage: `url(${Casa})` }}
         >
           <div className="absolute inset-0 bg-[#fffdf9]/80 md:bg-[#fffdf9]/70" />
           <div className="relative z-10">
-            <h2 className="font-raleway text-sm md:text-base font-light text-gray-700 tracking-widest mb-4 uppercase">
+            <h2 className="font-raleway text-sm md:text-base lg:text-lg font-light text-gray-700 tracking-widest mb-4 uppercase">
               NOS VISITE
             </h2>
 
             <div className="flex justify-center mb-2">
               <svg
-                className="w-4 h-4 text-gray-700"
+                className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-gray-700"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -35,14 +35,14 @@ function VisitUsSection() {
               href="https://www.google.com/maps/place/R.+Dona+Germaine+Burchard,+458"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-raleway text-sm font-light text-gray-700 leading-relaxed underline underline-offset-2 hover:text-blue-600"
+              className="font-raleway text-sm md:text-base lg:text-lg font-light text-gray-700 leading-relaxed underline underline-offset-2 hover:text-blue-600"
             >
               R. Dona Germaine Burchard, 458
             </a>
 
             <div className="flex justify-center mb-2 mt-4">
               <svg
-                className="w-4 h-4 text-gray-700"
+                className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-gray-700"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -55,13 +55,13 @@ function VisitUsSection() {
                 />
               </svg>
             </div>
-            <p className="font-raleway text-xs md:text-sm font-light text-gray-700 mb-4">
+            <p className="font-raleway text-xs md:text-sm lg:text-base font-light text-gray-700 mb-4">
               +55 11 98876-5337
             </p>
 
             <div className="flex justify-center mb-2">
               <svg
-                className="w-4 h-4 text-gray-700"
+                className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-gray-700"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -70,21 +70,21 @@ function VisitUsSection() {
                 <polyline points="12,6 12,12 16,14" strokeWidth={1.5} />
               </svg>
             </div>
-            <p className="font-raleway text-xs md:text-sm font-light text-gray-700 mb-1">
+            <p className="font-raleway text-xs md:text-sm lg:text-base font-light text-gray-700 mb-1">
               11.00AM - 3.30PM
             </p>
-            <p className="font-raleway text-xs font-light text-gray-600 tracking-widest uppercase">
+            <p className="font-raleway text-xs md:text-sm font-light text-gray-600 tracking-widest uppercase">
               Segunda - Sábado
             </p>
 
             <a
               href="/reservas"
-              className="mt-5 inline-flex items-center justify-center bg-[#00796b] hover:bg-[#00695c] text-white font-raleway px-6 py-2 rounded-full shadow-md transition-all duration-300"
+              className="mt-5 inline-flex items-center justify-center bg-[#00796b] hover:bg-[#00695c] text-white font-raleway px-6 py-2 md:px-8 md:py-2.5 lg:px-10 lg:py-3 text-sm md:text-base lg:text-lg rounded-full shadow-md transition-all duration-300 hover:shadow-lg"
             >
               Reservas
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 ml-2"
+                className="w-5 h-5 md:w-6 md:h-6 ml-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
