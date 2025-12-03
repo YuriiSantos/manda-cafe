@@ -1,19 +1,123 @@
-// Home.jsx - Layout Responsivo com Tamanhos Controlados
+// Home.jsx
 import React from "react";
 import MenuCarousel from "../components/ui/MenuCarousel";
 import VisitUsSection from "../components/ui/VisitUsSection";
+import bolonhesa from "../assets/Bolonhesa.jpg"; // mesma foto para todos os cards
 
 function Home() {
   return (
-    <div className="space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-14 xl:space-y-16">
-      {/* Menu Carousel Section */}
-      <section className="w-full">
+    <div className="">
+      {/* HERO FULL-WIDTH */}
+      <section
+        className="
+          relative
+          left-1/2 right-1/2
+          -ml-[50vw] -mr-[50vw]
+          w-screen
+        "
+      >
         <MenuCarousel />
       </section>
 
-      {/* Visit Us Section */}
-      <section className="w-full">
-        <VisitUsSection />
+      {/* SEÇÃO 2x2 ESTILO DOM, COM BG CLARO #fffcf8 */}
+      <section className="bg-[#fffcf8] text-[#3c3021] py-12 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          {/* LINHA 1 */}
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+            {/* Texto esquerda */}
+            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left">
+              <div className="space-y-3">
+                <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
+                  O Restaurante
+                </h3>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">
+                  Manda Café
+                </p>
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#56452f]">
+                  Um espaço acolhedor em Perdizes, onde a gastronomia brasileira
+                  ganha toques autorais, respeitando a sazonalidade dos
+                  ingredientes e valorizando produtores locais.
+                </p>
+              </div>
+              <button className="mt-6 text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition">
+                Saiba mais
+              </button>
+            </div>
+
+            {/* Imagem direita */}
+            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm overflow-hidden">
+              <img
+                src={bolonhesa}
+                alt="Restaurante"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* LINHA 2 (imagem esquerda, texto direita) */}
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+            {/* Imagem esquerda */}
+            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm overflow-hidden">
+              <img
+                src={bolonhesa}
+                alt="Chef"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Texto direita */}
+            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left">
+              <div className="space-y-3">
+                <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
+                  Nosso time
+                </h3>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">
+                  Cozinha & salão
+                </p>
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#56452f]">
+                  A equipe do Manda Café é apaixonada por receber bem. Da
+                  cozinha ao salão, todos trabalham para criar uma experiência
+                  calorosa, leve e memorável em cada visita.
+                </p>
+              </div>
+              <button className="mt-6 text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition">
+                Ver equipe
+              </button>
+            </div>
+          </div>
+
+          {/* LINHA 3 (texto esquerda, imagem direita) */}
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+            {/* Texto esquerda */}
+            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left">
+              <div className="space-y-3">
+                <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
+                  Eventos
+                </h3>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">
+                  Ocasiões especiais
+                </p>
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#56452f]">
+                  Do jantar intimista às celebrações com amigos, o Manda Café
+                  oferece menus personalizados, bebidas selecionadas e um clima
+                  perfeito para brindar momentos únicos.
+                </p>
+              </div>
+              <button className="mt-6 text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition">
+                Ver opções
+              </button>
+            </div>
+
+            {/* Imagem direita */}
+            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm overflow-hidden">
+              <img
+                src={bolonhesa}
+                alt="Eventos"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

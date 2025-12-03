@@ -11,7 +11,7 @@ import { useMemo } from "react"; // opcional, sรณ para deixar claro que images ร
 import key from "../assets/key.png";
 import dog from "../assets/dog.png";
 import bolonhesa from "../assets/Bolonhesa.jpg";
-import casa from "../assets/casa.png";
+const casa = "/casa.png";
 import cacto from "../assets/cacto.png";
 import PhotoGalleryCard from "../components/PhotoGalleryCard";
 

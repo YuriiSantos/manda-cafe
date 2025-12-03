@@ -1,6 +1,6 @@
 // VisitUsSection.jsx - BG da imagem atrás do texto (Tamanhos Reduzidos)
 import React from "react";
-import Casa from "../../assets/casa.png";
+const Casa = "/casa.png";
 
 function VisitUsSection() {
   return (
@@ -11,7 +11,7 @@ function VisitUsSection() {
             relative rounded-xl overflow-hidden text-center
             min-h-[260px] md:min-h-[350px] lg:min-h-[400px] xl:min-h-[450px]
             p-6 md:p-8 lg:p-10 xl:p-12
-            bg-center bg-cover
+            bg-center bg-contain bg-no-repeat
           "
           style={{ backgroundImage: `url(${Casa})` }}
         >

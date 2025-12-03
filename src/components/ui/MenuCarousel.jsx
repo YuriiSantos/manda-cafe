@@ -1,4 +1,4 @@
-// MenuCarousel.jsx - Totalmente Responsivo com Unsplash (Tamanhos Reduzidos)
+// MenuCarousel.jsx - Hero full-width estilo D.O.M.
 import React, { useState } from "react";
 
 function MenuCarousel() {
@@ -6,42 +6,24 @@ function MenuCarousel() {
 
   const slides = [
     {
-      main: {
-        title: "Cardápio",
-        image:
-          "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&h=600&fit=crop", // pasta italiana
-      },
-      secondary: [
-        {
-          title: "Reservas",
-          image:
-            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop", // restaurante
-        },
-        {
-          title: "Eventos",
-          image:
-            "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop", // celebração
-        },
-      ],
+      eyebrow: "BEM-VINDO AO",
+      title: "Manda Café",
+      subtitle: "Gastronomia brasileira",
+      description:
+        "Sabores afetivos, ingredientes frescos e um ambiente acolhedor para celebrar bons momentos na Casa Manda Café.",
+      image:
+        "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=1600&h=900&fit=crop&auto=format&q=80",
+      cta: "Ver cardápio",
     },
     {
-      main: {
-        title: "Galeria",
-        image:
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop", // pratos gourmet
-      },
-      secondary: [
-        {
-          title: "Localização",
-          image:
-            "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop", // restaurante exterior
-        },
-        {
-          title: "Sobre",
-          image:
-            "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop", // chef cozinhando
-        },
-      ],
+      eyebrow: "OCASIÕES ESPECIAIS",
+      title: "Reservas & Eventos",
+      subtitle: "Celebrações inesquecíveis",
+      description:
+        "Aniversários, encontros e comemorações com menu exclusivo, serviço atencioso e o clima perfeito para receber quem você ama.",
+      image:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&h=900&fit=crop&auto=format&q=80",
+      cta: "Fazer reserva",
     },
   ];
 
@@ -49,108 +31,118 @@ function MenuCarousel() {
   const prevSlide = () =>
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
-  return (
-    <div className="relative w-full mx-auto px-4 md:px-8 lg:px-12 xl:px-16 max-w-6xl">
-      {/* Carousel Container */}
-      <div className="relative overflow-hidden rounded-2xl">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {slides.map((slide, slideIndex) => (
-            <div key={slideIndex} className="w-full flex-shrink-0">
-              <div className="grid grid-cols-2 gap-2 p-2 h-[300px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px]">
-                {/* CARD PRINCIPAL */}
-                <div className="relative overflow-hidden rounded-xl duration-300 h-full">
-                  <div
-                    className="h-full relative bg-center bg-cover"
-                    style={{ backgroundImage: `url(${slide.main.image})` }}
-                  >
-                    {/* overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/30" />
-                    {/* conteúdo centralizado */}
-                    <div className="absolute inset-0 flex items-center justify-center text-center p-4">
-                      <h3 className="font-lobster text-white text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-lg">
-                        {slide.main.title}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
+  const slide = slides[currentSlide];
 
-                {/* CARDS SECUNDÁRIOS */}
-                <div className="flex flex-col gap-2 h-full">
-                  {slide.secondary.map((card, cardIndex) => (
-                    <div
-                      key={cardIndex}
-                      className="relative overflow-hidden rounded-xl transition-shadow duration-300 flex-1"
-                    >
-                      <div
-                        className="h-full relative bg-center bg-cover"
-                        style={{ backgroundImage: `url(${card.image})` }}
-                      >
-                        {/* overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-black/45 to-black/35" />
-                        {/* conteúdo centralizado */}
-                        <div className="absolute inset-0 flex items-center justify-center text-center p-4">
-                          <h3 className="font-lobster text-white text-xl sm:text-3xl md:text-3xl lg:text-4xl font-bold drop-shadow-lg">
-                            {card.title}
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+  return (
+    <div className="relative w-screen bg-black text-white">
+      {/* linha inteira do hero */}
+      <div className="flex flex-col md:flex-row w-full min-h-[320px] md:h-[60vh] lg:h-[70vh]">
+        {/* IMAGEM ESQUERDA */}
+        <div className="relative w-full md:w-1/2 h-[260px] md:h-full">
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* TEXTO DIREITO – COR IGUAL AO HEADER */}
+        <div className="w-full md:w-1/2 flex items-center justify-center px-6 sm:px-10 lg:px-16 py-8 md:py-0 bg-[#c9b896]">
+          <div className="max-w-xl space-y-4 sm:space-y-5 text-[#3c3021]">
+            {slide.eyebrow && (
+              <p className="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#856b3c]">
+                {slide.eyebrow}
+              </p>
+            )}
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-[#2a2117]">
+              {slide.title}
+            </h2>
+
+            {slide.subtitle && (
+              <div className="space-y-1">
+                <div className="w-10 h-[2px] bg-[#856b3c]" />
+                <p className="text-xs sm:text-sm text-[#4f3d26] font-medium">
+                  {slide.subtitle}
+                </p>
               </div>
-            </div>
-          ))}
+            )}
+
+            {slide.description && (
+              <p className="text-xs sm:text-sm md:text-base text-[#3c3021] leading-relaxed">
+                {slide.description}
+              </p>
+            )}
+
+            {slide.cta && (
+              <button
+                type="button"
+                className="mt-3 inline-flex items-center justify-center rounded-full border border-[#4f3d26] px-6 py-2.5 text-xs sm:text-sm font-medium text-[#4f3d26] hover:bg-[#4f3d26] hover:text-[#fdf7ea] transition-colors duration-200"
+              >
+                {slide.cta}
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Botão Próximo */}
-      {currentSlide < slides.length - 1 && (
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 sm:right-4 md:-right-2 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#c9b896] hover:bg-[#7c715c] rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:scale-105 z-10"
-          aria-label="Próximo"
+      {/* SETAS LATERAIS */}
+      <button
+        type="button"
+        onClick={prevSlide}
+        className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 border border-white/60 rounded-full items-center justify-center bg-black/40 hover:bg-black/70 transition-colors"
+        aria-label="Slide anterior"
+      >
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          <svg
-            className="w-5 h-5 md:w-6 md:h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-      )}
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
 
-      {/* Botão Anterior */}
-      {currentSlide > 0 && (
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 sm:left-4 md:-left-2 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-[#c9b896] hover:bg-[#7c715c] rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:scale-105 z-10"
-          aria-label="Anterior"
+      <button
+        type="button"
+        onClick={nextSlide}
+        className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 border border-white/60 rounded-full items-center justify-center bg-black/40 hover:bg-black/70 transition-colors"
+        aria-label="Próximo slide"
+      >
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          <svg
-            className="w-5 h-5 md:w-6 md:h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-      )}
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
+
+      {/* BULLETS */}
+      <div className="absolute bottom-4 right-6 flex gap-2">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => setCurrentSlide(idx)}
+            className={`w-2 h-2 rounded-full border border-white/60 transition-colors ${
+              idx === currentSlide ? "bg-white" : "bg-transparent"
+            }`}
+            aria-label={`Ir para slide ${idx + 1}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

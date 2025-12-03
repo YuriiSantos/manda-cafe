@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar";
 export default function Header() {
   const { pathname } = useLocation();
 
-  // Item de navegação para desktop
   const NavLink = ({ to, children }) => {
     const isActive = pathname === to;
     return (
@@ -28,12 +27,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[#c9b896] shadow-md">
       <div className="mx-auto w-full max-w-screen-xl px-6 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4 md:py-5 flex items-center justify-between">
-        {/* Menu hamburguer - APENAS MOBILE */}
         <div className="lg:hidden">
           <Sidebar />
         </div>
 
-        {/* Navegação Desktop - APENAS TELAS GRANDES */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/bistro">Bistrô</NavLink>
@@ -41,7 +38,6 @@ export default function Header() {
           <NavLink to="/special">Ocasiões Especiais</NavLink>
         </nav>
 
-        {/* Logo - maior e à direita no mobile, centralizado no desktop */}
         <Link
           to="/"
           aria-label="Ir para a página inicial"
@@ -54,7 +50,6 @@ export default function Header() {
           />
         </Link>
 
-        {/* Navegação Desktop (lado direito) - APENAS TELAS GRANDES */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           <NavLink to="/events">Eventos</NavLink>
           <NavLink to="/gallery">Galeria</NavLink>

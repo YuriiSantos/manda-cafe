@@ -1,3 +1,5 @@
+// src/App.jsx
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 
@@ -12,7 +14,15 @@ import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
+import IntroHero from "./components/ui/IntroHero";
+
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  if (showIntro) {
+    return <IntroHero onEnter={() => setShowIntro(false)} />;
+  }
+
   return (
     <Router basename="/manda-cafe">
       <Layout>
