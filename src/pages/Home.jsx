@@ -19,13 +19,16 @@ function Home() {
         <MenuCarousel />
       </section>
 
-      {/* SEÇÃO 2x2 ESTILO DOM, COM BG CLARO #fffcf8 */}
-      <section className="bg-[#fffcf8] text-[#3c3021] py-12 sm:py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="bg-[#fffcf8] text-[#3c3021]">
+        <div className="max-w-5xl mx-auto">
           {/* LINHA 1 */}
-          <div className="grid md:grid-cols-2 gap-8 items-stretch">
-            {/* Texto esquerda */}
-            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left">
+          <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
+            {/* Texto */}
+            <div
+              className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 
+                            flex flex-col justify-between 
+                            text-center md:text-left h-full"
+            >
               <div className="space-y-3">
                 <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
                   O Restaurante
@@ -44,8 +47,8 @@ function Home() {
               </button>
             </div>
 
-            {/* Imagem direita */}
-            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm overflow-hidden">
+            {/* Imagem */}
+            <div className="bg-[#fffcf8] overflow-hidden h-full">
               <img
                 src={bolonhesa}
                 alt="Restaurante"
@@ -54,19 +57,15 @@ function Home() {
             </div>
           </div>
 
-          {/* LINHA 2 (imagem esquerda, texto direita) */}
-          <div className="grid md:grid-cols-2 gap-8 items-stretch">
-            {/* Imagem esquerda */}
-            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm overflow-hidden">
-              <img
-                src={bolonhesa}
-                alt="Chef"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Texto direita */}
-            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left">
+          {/* LINHA 2 */}
+          <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
+            {/* Texto */}
+            <div
+              className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 
+                            flex flex-col justify-between 
+                            text-center md:text-left 
+                            order-1 md:order-2 h-full"
+            >
               <div className="space-y-3">
                 <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
                   Nosso time
@@ -84,12 +83,25 @@ function Home() {
                 Ver equipe
               </button>
             </div>
+
+            {/* Imagem */}
+            <div className="bg-[#fffcf8] overflow-hidden order-2 md:order-1 h-full">
+              <img
+                src={bolonhesa}
+                alt="Chef"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
-          {/* LINHA 3 (texto esquerda, imagem direita) */}
-          <div className="grid md:grid-cols-2 gap-8 items-stretch">
-            {/* Texto esquerda */}
-            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left">
+          {/* LINHA 3 */}
+          <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
+            {/* Texto */}
+            <div
+              className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 
+                            flex flex-col justify-between 
+                            text-center md:text-left h-full"
+            >
               <div className="space-y-3">
                 <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
                   Eventos
@@ -108,8 +120,8 @@ function Home() {
               </button>
             </div>
 
-            {/* Imagem direita */}
-            <div className="bg-[#fffcf8] border border-[#e2d7c4] shadow-sm overflow-hidden">
+            {/* Imagem */}
+            <div className="bg-[#fffcf8] overflow-hidden h-full">
               <img
                 src={bolonhesa}
                 alt="Eventos"

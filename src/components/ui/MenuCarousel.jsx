@@ -1,4 +1,4 @@
-// MenuCarousel.jsx - Hero full-width estilo D.O.M.
+// MenuCarousel.jsx - Hero full-width com efeito carrossel
 import React, { useState } from "react";
 
 function MenuCarousel() {
@@ -28,62 +28,72 @@ function MenuCarousel() {
   ];
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+
   const prevSlide = () =>
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
-  const slide = slides[currentSlide];
-
   return (
-    <div className="relative w-screen bg-black text-white">
-      {/* linha inteira do hero */}
-      <div className="flex flex-col md:flex-row w-full min-h-[320px] md:h-[60vh] lg:h-[70vh]">
-        {/* IMAGEM ESQUERDA */}
-        <div className="relative w-full md:w-1/2 h-[260px] md:h-full">
-          <img
-            src={slide.image}
-            alt={slide.title}
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
+    <div className="relative w-screen bg-black text-white overflow-hidden">
+      {/* WRAPPER QUE DESLIZA */}
+      <div
+        className="flex transition-transform duration-700 ease-out"
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+      >
+        {slides.map((slide, index) => (
+          // cada slide ocupa 100% da largura da tela
+          <div
+            key={index}
+            className="flex flex-col md:flex-row w-full min-h-[320px] md:h-[60vh] lg:h-[70vh] flex-shrink-0"
+          >
+            {/* IMAGEM ESQUERDA */}
+            <div className="relative w-full md:w-1/2 h-[260px] md:h-full">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
 
-        {/* TEXTO DIREITO – COR IGUAL AO HEADER */}
-        <div className="w-full md:w-1/2 flex items-center justify-center px-6 sm:px-10 lg:px-16 py-8 md:py-0 bg-[#c9b896]">
-          <div className="max-w-xl space-y-4 sm:space-y-5 text-[#3c3021]">
-            {slide.eyebrow && (
-              <p className="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#856b3c]">
-                {slide.eyebrow}
-              </p>
-            )}
+            {/* TEXTO DIREITO – COR IGUAL AO HEADER */}
+            <div className="w-full md:w-1/2 flex items-center justify-center px-6 sm:px-10 lg:px-16 py-8 md:py-0 bg-[#c9b896]">
+              <div className="max-w-xl space-y-4 sm:space-y-5 text-[#3c3021]">
+                {slide.eyebrow && (
+                  <p className="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#856b3c]">
+                    {slide.eyebrow}
+                  </p>
+                )}
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-[#2a2117]">
-              {slide.title}
-            </h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-[#2a2117]">
+                  {slide.title}
+                </h2>
 
-            {slide.subtitle && (
-              <div className="space-y-1">
-                <div className="w-10 h-[2px] bg-[#856b3c]" />
-                <p className="text-xs sm:text-sm text-[#4f3d26] font-medium">
-                  {slide.subtitle}
-                </p>
+                {slide.subtitle && (
+                  <div className="space-y-1">
+                    <div className="w-10 h-[2px] bg-[#856b3c]" />
+                    <p className="text-xs sm:text-sm text-[#4f3d26] font-medium">
+                      {slide.subtitle}
+                    </p>
+                  </div>
+                )}
+
+                {slide.description && (
+                  <p className="text-xs sm:text-sm md:text-base text-[#3c3021] leading-relaxed">
+                    {slide.description}
+                  </p>
+                )}
+
+                {slide.cta && (
+                  <button
+                    type="button"
+                    className="mt-3 inline-flex items-center justify-center rounded-full border border-[#4f3d26] px-6 py-2.5 text-xs sm:text-sm font-medium text-[#4f3d26] hover:bg-[#4f3d26] hover:text-[#fdf7ea] transition-colors duration-200"
+                  >
+                    {slide.cta}
+                  </button>
+                )}
               </div>
-            )}
-
-            {slide.description && (
-              <p className="text-xs sm:text-sm md:text-base text-[#3c3021] leading-relaxed">
-                {slide.description}
-              </p>
-            )}
-
-            {slide.cta && (
-              <button
-                type="button"
-                className="mt-3 inline-flex items-center justify-center rounded-full border border-[#4f3d26] px-6 py-2.5 text-xs sm:text-sm font-medium text-[#4f3d26] hover:bg-[#4f3d26] hover:text-[#fdf7ea] transition-colors duration-200"
-              >
-                {slide.cta}
-              </button>
-            )}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
 
       {/* SETAS LATERAIS */}
