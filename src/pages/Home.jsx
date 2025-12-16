@@ -1,34 +1,37 @@
-// Home.jsx
 import React from "react";
-import MenuCarousel from "../components/ui/MenuCarousel";
-import VisitUsSection from "../components/ui/VisitUsSection";
-import bolonhesa from "../assets/Bolonhesa.jpg"; // mesma foto para todos os cards
+import bolonhesa from "../assets/Bolonhesa.jpg";
 
 function Home() {
   return (
-    <div className="">
-      {/* HERO FULL-WIDTH */}
+    <div>
       <section
         className="
           relative
+          w-screen
+          overflow-hidden
+          aspect-[21/9]
           left-1/2 right-1/2
           -ml-[50vw] -mr-[50vw]
-          w-screen
         "
       >
-        <MenuCarousel />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${bolonhesa})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-[#fffcf8]" />
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full" />
+        </div>
       </section>
 
       <section className="bg-[#fffcf8] text-[#3c3021]">
-        <div className="max-w-5xl mx-auto">
-          {/* LINHA 1 */}
+        <div className="max-w-5xl mx-auto mt-10 space-y-20 pb-24">
           <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
-            {/* Texto */}
-            <div
-              className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 
-                            flex flex-col justify-between 
-                            text-center md:text-left h-full"
-            >
+            <div className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left h-full">
               <div className="space-y-3">
                 <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
                   O Restaurante
@@ -47,7 +50,6 @@ function Home() {
               </button>
             </div>
 
-            {/* Imagem */}
             <div className="bg-[#fffcf8] overflow-hidden h-full">
               <img
                 src={bolonhesa}
@@ -57,21 +59,14 @@ function Home() {
             </div>
           </div>
 
-          {/* LINHA 2 */}
           <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
-            {/* Texto */}
-            <div
-              className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 
-                            flex flex-col justify-between 
-                            text-center md:text-left 
-                            order-1 md:order-2 h-full"
-            >
+            <div className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left order-1 md:order-2 h-full">
               <div className="space-y-3">
                 <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
                   Nosso time
                 </h3>
                 <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">
-                  Cozinha & salão
+                  Cozinha &amp; salão
                 </p>
                 <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#56452f]">
                   A equipe do Manda Café é apaixonada por receber bem. Da
@@ -84,7 +79,6 @@ function Home() {
               </button>
             </div>
 
-            {/* Imagem */}
             <div className="bg-[#fffcf8] overflow-hidden order-2 md:order-1 h-full">
               <img
                 src={bolonhesa}
@@ -94,14 +88,8 @@ function Home() {
             </div>
           </div>
 
-          {/* LINHA 3 */}
           <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
-            {/* Texto */}
-            <div
-              className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 
-                            flex flex-col justify-between 
-                            text-center md:text-left h-full"
-            >
+            <div className="bg-[#fffcf8] p-8 sm:p-9 lg:p-10 flex flex-col justify-between text-center md:text-left h-full">
               <div className="space-y-3">
                 <h3 className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
                   Eventos
@@ -120,7 +108,6 @@ function Home() {
               </button>
             </div>
 
-            {/* Imagem */}
             <div className="bg-[#fffcf8] overflow-hidden h-full">
               <img
                 src={bolonhesa}

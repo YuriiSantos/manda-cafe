@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import logoMandaCafe from "../../assets/logo.png";
+import headerBg from "../../assets/header-bg.jpg";
 import Sidebar from "./Sidebar";
 
 export default function Header() {
@@ -11,9 +12,11 @@ export default function Header() {
       <Link
         to={to}
         className={`
-          font-raleway text-sm lg:text-base font-medium tracking-wide
+          font-raleway text-[13px] lg:text-[18px] font-medium
+          tracking-[0.11em]
           transition-all duration-300 relative
-          ${isActive ? "text-white" : "text-white/80 hover:text-white"}
+          whitespace-nowrap
+          ${isActive ? "text-white" : "text-white/90 hover:text-white"}
         `}
       >
         {children}
@@ -25,37 +28,69 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#c9b896] shadow-md">
-      <div className="mx-auto w-full max-w-screen-xl px-6 sm:px-8 md:px-12 lg:px-16 py-3 sm:py-4 md:py-5 flex items-center justify-between">
+    <header
+      className="sticky top-0 z-70 shadow-md"
+      style={{
+        backgroundImage: `url(${headerBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-black/2" />
+
+      <div className="relative mx-auto w-full max-w-screen-xl flex items-center">
         <div className="lg:hidden">
           <Sidebar />
         </div>
 
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/bistro">Bistrô</NavLink>
-          <NavLink to="/cardapio">Cardápio</NavLink>
-          <NavLink to="/special">Ocasiões Especiais</NavLink>
+        <nav className="hidden lg:flex flex-1 items-center justify-end gap-7 xl:gap-12 text-center">
+          <NavLink to="/eventos">Eventos</NavLink>
+          <NavLink to="/encomendas">
+            <span className="leading-[1.05] inline-block">
+              Encomendas
+              <br />
+              Congelados
+            </span>
+          </NavLink>
+          <NavLink to="/bistro-cardapio">
+            <span className="leading-[1.05] inline-block">
+              Bistrô
+              <br />
+              Cardápio
+            </span>
+          </NavLink>
         </nav>
 
         <Link
           to="/"
           aria-label="Ir para a página inicial"
-          className="ml-auto lg:mx-auto"
+          className="mx-auto px-3"
         >
           <img
             src={logoMandaCafe}
             alt="Manda Café"
-            className="h-25 w-25 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 object-contain"
+            className="h-20 w-20 sm:h-24 sm:w-24 md:h-35 md:w-35 lg:h-30 lg:w-30 object-contain"
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-          <NavLink to="/events">Eventos</NavLink>
-          <NavLink to="/gallery">Galeria</NavLink>
-          <NavLink to="/about">Quem Somos</NavLink>
-          <NavLink to="/contact">Contato</NavLink>
+        <nav className="hidden lg:flex flex-1 items-center justify-start gap-7 xl:gap-10">
+          <NavLink to="/galeria">Galeria</NavLink>
+          <NavLink to="/casa">A casa</NavLink>
+          <NavLink to="/localizacao">Localização</NavLink>
+          <NavLink to="/contato">Contato</NavLink>
         </nav>
+      </div>
+
+      <div className="relative flex h-3" style={{ filter: "saturate(0.90)" }}>
+        <div className="flex-1 bg-[#7c5c38]" />
+        <div className="flex-1 bg-[#8a7b68]" />
+        <div className="flex-1 bg-[#b68c5e]" />
+        <div className="flex-1 bg-[#d1b47c]" />
+        <div className="flex-1 bg-[#d19d3a]" />
+        <div className="flex-1 bg-[#d06b33]" />
+        <div className="flex-1 bg-[#62634d]" />
+        <div className="flex-1 bg-[#b95f39]" />
+        <div className="flex-1 bg-[#4e7d5e]" />
       </div>
     </header>
   );
