@@ -8,59 +8,68 @@ function IntroHero({ onEnter }) {
 
   const handleEnter = () => {
     setIsLeaving(true);
-
-    setTimeout(() => {
-      onEnter();
-    }, 700);
+    setTimeout(() => onEnter(), 700);
   };
 
   const containerBase =
-    "fixed inset-0 w-full h-full z-[9999] transform transition-all duration-700 ease-out";
+    "fixed inset-0 w-full h-full z-[9999] overflow-hidden transform transition-all duration-700 ease-out";
 
   const containerState = isLeaving
     ? "opacity-0 -translate-y-10"
     : "opacity-100 translate-y-0";
 
   return (
-    <section className={`${containerBase} ${containerState}`}>
+    <section className={`${containerBase} ${containerState} font-raleway`}>
+      {/* ANIMAÇÃO DE ZOOM SUAVE */}
+      <style>{`
+        @keyframes zoomSlow {
+          from {
+            transform: scale(1);
+          }
+          to {
+            transform: scale(1.08);
+          }
+        }
+      `}</style>
+
+      {/* Fundo com aproximação */}
       <div className="absolute inset-0">
         <img
           src={casaImg}
           alt="Fachada do Manda Café"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_78%]"
+          style={{
+            animation: "zoomSlow 18s ease-in-out forwards",
+          }}
         />
-
-        {/* Overlay suave */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/25" />
       </div>
 
-      {/* Conteúdo central */}
+      {/* Conteúdo */}
       <div className="relative z-10 flex items-center justify-center h-full px-4">
-        <div className="max-w-3xl text-center text-white space-y-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif tracking-wide leading-tight">
-            BEM VINDO AO
+        <div className="translate-y-16 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl text-white leading-tight">
+            BEM-VINDO AO
             <br />
             MANDA CAFÉ
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Somos uma charmosa casa tombada, patrimônio arquitetônico e cultural
-            de São Paulo, e lar do nosso MANDAcaru, que cultiva suas raízes há
-            mais de 60 anos. Aqui, você encontra um espaço acolhedor para
-            almoçar com a família e os amigos, trazer o mozão, fazer suas festas
-            e brindar suas conquistas, com uma comida caseira, afetiva e
-            refinada. No Manda Café Bistrô, você Celebra Sonhos e Cria Memórias!
-          </p>
-
-          <p className="font-medium text-sm sm:text-base">
-            Visite nosso restaurante
-          </p>
-
           <button
             onClick={handleEnter}
-            className="mt-4 inline-flex items-center justify-center rounded-none bg-[#e4cf9b] px-8 py-3 text-sm sm:text-base font-medium text-black shadow-md hover:bg-[#d3bd87] transition"
+            className="
+              mt-8 inline-flex items-center justify-center
+              rounded-full
+              bg-[#e6d2a3]
+              px-10 py-3
+              text-sm sm:text-base
+              font-semibold
+              text-[#3a2a1a]
+              shadow-lg
+              hover:bg-[#d8c18e]
+              transition
+            "
           >
-            Venha conhecer!
+            ADENTRE!
           </button>
         </div>
       </div>
