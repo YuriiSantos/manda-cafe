@@ -22,7 +22,7 @@ function Home() {
             backgroundPosition: "center",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/5 to-[#fffcf8]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-[#fffcf8]" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full" />
         </div>

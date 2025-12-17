@@ -1,7 +1,7 @@
 // src/components/ui/IntroHero.jsx
 import React, { useState } from "react";
 
-const casaImg = "/manda-cafe/casa.jpg";
+const casaImg = "/manda-cafe/casa.png";
 
 function IntroHero({ onEnter }) {
   const [isLeaving, setIsLeaving] = useState(false);
@@ -23,21 +23,15 @@ function IntroHero({ onEnter }) {
 
   return (
     <section className={`${containerBase} ${containerState}`}>
-      {/* Imagem de fundo */}
       <div className="absolute inset-0">
         <img
           src={casaImg}
           alt="Fachada do Manda Café"
-          className="
-            w-full
-            h-full
-            object-cover
-            object-[50%_25%]
-          "
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
 
         {/* Overlay suave */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Conteúdo central */}
@@ -50,9 +44,12 @@ function IntroHero({ onEnter }) {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Experimente o melhor da gastronomia no Manda Café Restaurant, onde
-            sabores excepcionais, ambiente elegante e um serviço impecável se
-            unem para criar momentos inesquecíveis.
+            Somos uma charmosa casa tombada, patrimônio arquitetônico e cultural
+            de São Paulo, e lar do nosso MANDAcaru, que cultiva suas raízes há
+            mais de 60 anos. Aqui, você encontra um espaço acolhedor para
+            almoçar com a família e os amigos, trazer o mozão, fazer suas festas
+            e brindar suas conquistas, com uma comida caseira, afetiva e
+            refinada. No Manda Café Bistrô, você Celebra Sonhos e Cria Memórias!
           </p>
 
           <p className="font-medium text-sm sm:text-base">
