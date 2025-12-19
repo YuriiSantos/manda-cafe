@@ -1,7 +1,7 @@
 // Sidebar.jsx
 import { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { Link, useLocation } from "react-router-dom"; // ← AQUI
+import { Link, useLocation } from "react-router-dom";
 import {
   Home,
   ChefHat,
@@ -9,7 +9,6 @@ import {
   CalendarCheck,
   CalendarDays,
   Images,
-  MapPin,
   Users,
   Mail,
   X,
@@ -19,7 +18,7 @@ export default function Sidebar() {
   const [open, setOpen] = useState(false);
   const openMenu = useCallback(() => setOpen(true), []);
   const closeMenu = useCallback(() => setOpen(false), []);
-  const { pathname } = useLocation(); // para marcar ativo
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && closeMenu();
@@ -27,29 +26,41 @@ export default function Sidebar() {
     return () => document.removeEventListener("keydown", onKey);
   }, [closeMenu]);
 
-  // Item usando Link (respeita basename)
+  const is = (p) => pathname === p;
+
+  // Item seguindo o mesmo modelo do Header:
+  // - underline no hover (bg branco) e no ativo
+  // - texto sempre branco
   const Item = ({ to, icon: Icon, label, active, badge }) => (
     <Link
       to={to}
-      className={[
-        "flex items-center gap-3 rounded-xl px-4 py-3 font-medium tracking-wide transition-colors",
-        "text-white",
-        active ? "bg-white/25 border border-white/30" : "hover:bg-white/10",
-      ].join(" ")}
       onClick={closeMenu}
+      className={[
+        "group relative flex items-center gap-3 rounded-xl px-4 py-3",
+        "font-medium tracking-wide transition-all duration-300",
+        "text-white",
+        active ? "bg-white/20 border border-white/30" : "hover:bg-white/10",
+      ].join(" ")}
     >
       <Icon className="w-5 h-5 text-white" strokeWidth={1.7} />
-      <span className="flex-1 leading-tight">{label}</span>
+      <span className="flex-1 leading-tight whitespace-nowrap">{label}</span>
+
       {typeof badge === "number" && (
         <span className="ml-auto rounded-full text-xs px-2 py-0.5 bg-white/20 text-white">
           {badge}
         </span>
       )}
+
+      {/* underline (ativo e hover) */}
+      <span
+        className={[
+          "absolute left-4 right-4 -bottom-0.5 h-0.5 bg-white rounded-full",
+          "transition-opacity duration-300",
+          active ? "opacity-100" : "opacity-0 group-hover:opacity-100",
+        ].join(" ")}
+      />
     </Link>
   );
-
-  // mapeie para os paths que EXISTEM no App.jsx (inglês)
-  const is = (p) => pathname === p;
 
   const Drawer = (
     <>
@@ -61,6 +72,7 @@ export default function Sidebar() {
             : "opacity-0 pointer-events-none"
         }`}
       />
+
       <aside
         role="dialog"
         aria-modal="true"
@@ -76,7 +88,7 @@ export default function Sidebar() {
             </span>
             <button
               onClick={closeMenu}
-              className="rounded-md p-2 hover:bg-white/10"
+              className="rounded-md p-2 hover:bg-white/10 transition-colors"
               aria-label="Fechar menu"
               type="button"
             >
@@ -143,15 +155,16 @@ export default function Sidebar() {
     <>
       <button
         onClick={openMenu}
-        className="w-10 h-10 rounded-full flex items-center justify-center hover:shadow-lg hover:scale-105 transition-all duration-300 md:w-14 md:h-14 lg:w-16 lg:h-16"
+        className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center hover:shadow-lg hover:scale-105 transition-all duration-300"
         aria-label="Abrir menu"
         type="button"
       >
         <div className="flex flex-col gap-1">
-          <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
-          <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
-          <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
-          <span className="w-10 h-1 bg-white rounded-full md:w-6 lg:w-7"></span>
+          {/* barras consistentes em todos os breakpoints */}
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
         </div>
       </button>
 

@@ -8,6 +8,7 @@ export default function Header() {
 
   const NavLink = ({ to, children }) => {
     const isActive = pathname === to;
+
     return (
       <Link
         to={to}
@@ -17,12 +18,18 @@ export default function Header() {
           transition-all duration-300 relative
           whitespace-nowrap
           ${isActive ? "text-white" : "text-white/90 hover:text-white"}
+          group
         `}
       >
         {children}
-        {isActive && (
-          <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full" />
-        )}
+
+        <span
+          className={`
+            absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full
+            transition-opacity duration-300
+            ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}
+          `}
+        />
       </Link>
     );
   };
@@ -37,34 +44,21 @@ export default function Header() {
       }}
     >
       <div className="absolute inset-0 bg-black/2" />
-
-      <div className="relative mx-auto w-full max-w-screen-xl flex items-center">
+      <div className="relative mx-auto w-full max-w-screen-xl flex items-center px-3">
         <div className="lg:hidden">
           <Sidebar />
         </div>
 
         <nav className="hidden lg:flex flex-1 items-center justify-end gap-7 xl:gap-12 text-center">
           <NavLink to="/eventos">Eventos</NavLink>
-          <NavLink to="/encomendas">
-            <span className="leading-[1.05] inline-block">
-              Encomendas
-              <br />
-              Congelados
-            </span>
-          </NavLink>
-          <NavLink to="/bistro-cardapio">
-            <span className="leading-[1.05] inline-block">
-              Bistrô
-              <br />
-              Cardápio
-            </span>
-          </NavLink>
+          <NavLink to="/cardapio">Cardápio</NavLink>
+          <NavLink to="/congelados">Congelados</NavLink>
         </nav>
 
         <Link
           to="/"
           aria-label="Ir para a página inicial"
-          className="mx-auto px-3"
+          className="px-3 ml-auto lg:mx-auto lg:ml-0"
         >
           <img
             src={logoMandaCafe}
@@ -74,9 +68,8 @@ export default function Header() {
         </Link>
 
         <nav className="hidden lg:flex flex-1 items-center justify-start gap-7 xl:gap-10">
-          <NavLink to="/galeria">Galeria</NavLink>
           <NavLink to="/casa">A casa</NavLink>
-          <NavLink to="/localizacao">Localização</NavLink>
+          <NavLink to="/localizacao">Galeria</NavLink>
           <NavLink to="/contato">Contato</NavLink>
         </nav>
       </div>

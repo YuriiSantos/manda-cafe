@@ -27,7 +27,7 @@ function IntroHero({ onEnter }) {
             transform: scale(1);
           }
           to {
-            transform: scale(1.08);
+            transform: scale(1.09);
           }
         }
       `}</style>
