@@ -2,6 +2,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import WhatsAppFloat from "../ui/WhatsAppFloat";
 
 function Layout({ children }) {
   return (
@@ -13,6 +14,8 @@ function Layout({ children }) {
       </main>
 
       <Footer />
+
+      <WhatsAppFloat />
     </div>
   );
 }
