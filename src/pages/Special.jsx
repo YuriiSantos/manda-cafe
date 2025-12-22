@@ -1,11 +1,5 @@
 import { ArrowRight } from "lucide-react";
 
-import pena from "../assets/pena.png";
-import dog from "../assets/dog.png";
-
-import bolonhesa from "../assets/Bolonhesa.jpg";
-const casa = "/casa.png";
-import cacto from "../assets/cacto.png";
 import PhotoGalleryCard from "../components/PhotoGalleryCard";
 
 function Special() {

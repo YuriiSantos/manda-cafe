@@ -48,13 +48,11 @@ export default function Header() {
         <div className="lg:hidden">
           <Sidebar />
         </div>
-
         <nav className="hidden lg:flex flex-1 items-center justify-end gap-7 xl:gap-12 text-center">
-          <NavLink to="/eventos">Eventos</NavLink>
+          <NavLink to="/events">Eventos</NavLink>
           <NavLink to="/cardapio">Cardápio</NavLink>
           <NavLink to="/congelados">Congelados</NavLink>
         </nav>
-
         <Link
           to="/"
           aria-label="Ir para a página inicial"
@@ -66,7 +64,6 @@ export default function Header() {
             className="h-20 w-20 sm:h-24 sm:w-24 md:h-35 md:w-35 lg:h-30 lg:w-30 object-contain"
           />
         </Link>
-
         <nav className="hidden lg:flex flex-1 items-center justify-start gap-7 xl:gap-10">
           <NavLink to="/casa">A casa</NavLink>
           <NavLink to="/localizacao">Galeria</NavLink>

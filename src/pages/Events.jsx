@@ -1,170 +1,182 @@
-import {
-  Globe,
-  BarChart2,
-  Heart,
-  Video,
-  House,
-  FileText,
-  CalendarDays,
-} from "lucide-react";
-import { useMemo } from "react"; // opcional, só para deixar claro que images é estável
-import key from "../assets/key.png";
-import dog from "../assets/dog.png";
-import bolonhesa from "../assets/Bolonhesa.jpg";
-const casa = "/casa.png";
-import cacto from "../assets/cacto.png";
-import PhotoGalleryCard from "../components/PhotoGalleryCard";
+import casaevents from "../assets/casaevents.jpg";
 
-export default function Events() {
-  const items = [
-    { label: "SOCIAIS", Icon: Globe },
-    { label: "CORPORATIVOS", Icon: BarChart2 },
-    { label: "CASAMENTOS", Icon: Heart },
-    { label: "SET", Icon: Video },
-  ];
-
-  const images = useMemo(() => [bolonhesa, casa, cacto], []);
+function Events() {
+  const thumbs = [casaevents, casaevents, casaevents, casaevents, casaevents];
 
   return (
-    <div className="py-5 px-4">
-      {/* título */}
-      <div className="flex flex-col justify-center items-center max-w-4xl mx-auto text-center">
-        <h1 className="font-lobster text-6xl font-bold text-[#5a5a5a]">
-          Eventos
-        </h1>
-        <img src={key} alt="key" className="w-36 h-auto mt-2" />
-        <p className="text-xl text-[#9ea3a3] mt-2">
-          DE PORTAS ABERTAS PARA RECEBER VOCÊ E SEUS CONVIDADOS
-        </p>
-      </div>
+    <div className="w-full overflow-x-hidden">
+      {/* =========================
+          SEÇÃO ORIGINAL (mantida)
+         ========================= */}
+      <section
+        className="w-full min-h-screen flex items-center"
+        style={{ backgroundColor: "#fffcf8" }}
+      >
+        <div className="w-full px-6 md:px-16">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+            {/* LEFT CONTENT */}
+            <div>
+              <p className="text-sm tracking-[0.25em] text-[#b08b4a]">
+                EVENTOS
+              </p>
+              <div className="mt-3 h-[2px] w-12 bg-[#b08b4a]" />
 
-      {/* section (igual) */}
-      <section className="relative mt-10 w-screen left-[50%] right-[50%] -ml-[50vw] -mr-[50vw]">
-        <div className="absolute inset-0 top-1/2 -translate-y-1/2 h-20 bg-[#e4d6b8]" />
+              <h1 className="font-lobster mt-8 text-4xl font-light leading-tight text-[#b08b4a] md:text-5xl lg:text-6xl">
+                Que tal planejar juntos cada detalhe do seu evento?
+              </h1>
 
-        <div
-          className="relative mx-auto max-w-[750px] md:max-w-[800px] lg:max-w-[850px] 
-          grid grid-cols-2 sm:grid-cols-4 gap-x-2 md:gap-x-3 gap-y-4 justify-items-center"
-        >
-          {items.map(({ label, Icon }) => (
-            <button
-              key={label}
-              type="button"
-              className="w-30 h-30 rounded-2xl bg-[#b9a489] text-white shadow-md
-                         flex flex-col items-center justify-center gap-3
-                         transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl focus:outline-none"
-              aria-label={label}
-            >
-              <Icon className="w-14 h-14" />
-              <span className="text-sm font-semibold tracking-wide">
-                {label}
-              </span>
-            </button>
-          ))}
+              <p className="mt-6 text-base leading-relaxed text-neutral-700 md:text-lg">
+                <a
+                  href="#festas"
+                  className="font-bold underline underline-offset-4 hover:opacity-70"
+                >
+                  Manda Festas
+                </a>
+                {" • "}
+                <a
+                  href="#poucos"
+                  className="font-bold underline underline-offset-4 hover:opacity-70"
+                >
+                  Manda pra poucos
+                </a>
+                {" • "}
+                <a
+                  href="#filmar"
+                  className="font-bold underline underline-offset-4 hover:opacity-70"
+                >
+                  Manda Filmar
+                </a>
+              </p>
+
+              <a
+                href="#"
+                className="mt-10 inline-block text-sm text-[#b08b4a] hover:opacity-80"
+              >
+                veja mais
+              </a>
+            </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="flex justify-end">
+              <img
+                src={casaevents}
+                alt="Sala privativa"
+                className="h-[300px] w-full max-w-xl object-cover md:h-[380px] lg:h-[420px]"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ====== ÁREA PRINCIPAL ====== */}
-      <div className="mx-auto mt-15 md:max-w-[980px] md:grid md:grid-cols-[640px_260px] md:gap-8 md:justify-center md:items-start">
-        {/* CARD DE FOTOS + MODAL (agora componente separado) */}
-        <PhotoGalleryCard images={images} imgAlt="Galeria de eventos" />
+      {/* =========================
+          NOVA SEÇÃO (estilo da foto)
+          FUNDO #c8a35a + FONTES BRANCAS
+         ========================= */}
+      <section className="w-full bg-[#c8a35a] text-white">
+        <div className="mx-auto max-w-7xl px-6 md:px-16 py-14 md:py-20">
+          {/* topo: imagem grande + texto */}
+          <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-start">
+            {/* imagem grande à esquerda */}
+            <div className="overflow-hidden bg-white/10">
+              <img
+                src={casaevents}
+                alt="Eventos - imagem principal"
+                className="h-[520px] w-full object-cover md:h-[560px] lg:h-[600px]"
+              />
+            </div>
 
-        {/* SIDEBAR (igual) */}
-        <aside className="hidden md:flex flex-col items-stretch gap-3">
-          <button
-            type="button"
-            className="flex items-center justify-center gap-2 px-5 h-11 rounded-xl
-                     bg-[#E5D7BE] text-[#6d6d6d] font-semibold shadow-md hover:brightness-95 transition"
-          >
-            <House className="w-5 h-5 opacity-80" /> Plantas
-          </button>
-          <button
-            type="button"
-            className="flex items-center justify-center gap-2 px-5 h-11 rounded-xl
-                     bg-[#E5D7BE] text-[#6d6d6d] font-semibold shadow-md hover:brightness-95 transition"
-          >
-            <FileText className="w-5 h-5 opacity-80" /> PDF
-          </button>
-          <button
-            type="button"
-            className="flex items-center justify-center gap-2 px-5 h-11 rounded-xl
-                     bg-[#E5D7BE] text-[#6d6d6d] font-semibold shadow-md hover:brightness-95 transition"
-          >
-            <CalendarDays className="w-5 h-5 opacity-80" /> Agenda
-          </button>
+            {/* conteúdo à direita */}
+            <div className="pt-2 md:pt-6">
+              <h2 className="text-2xl font-medium text-white">Eventos</h2>
 
-          <div className="h-px bg-black/5 my-2" />
+              <p className="mt-5 text-sm leading-relaxed text-white/90">
+                O D.O.M. tem um espaço privativo para pequenos grupos no
+                Mezanino, andar superior do restaurante. Sejam eventos sociais
+                ou corporativos, no almoço ou jantar, dispomos de uma mesa
+                principal compartilhada que comporta até 14 lugares e a
+                possibilidade de montar uma segunda mesa lateral com até seis
+                pessoas – totalizando 20 lugares.
+                <br />
+                <br />É um espaço exclusivo e totalmente privativo que permite
+                cenografia discreta.
+              </p>
 
-          <button
-            type="button"
-            className="px-6 py-3 rounded-full bg-[#D8A73D] text-white font-semibold shadow-md hover:brightness-95 transition"
-          >
-            Reserve
-          </button>
+              <div className="mt-6 h-px w-14 bg-white/80" />
 
-          <div className="flex flex-col items-center gap-2 mt-2">
-            <img
-              src={dog}
-              alt="pet friendly"
-              className="w-32 h-auto object-contain"
-            />
-            <h2 className="font-raleway text-gray-600 text-xl">pet friendly</h2>
+              <div className="mt-8 grid gap-8 md:grid-cols-2">
+                <div>
+                  <p className="font-semibold text-white">
+                    Almoço (12h às 15h):
+                  </p>
+                  <p className="mt-1 text-sm text-white/90">
+                    Menu executivo ou Degustação
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold text-white">
+                    Jantar (19h às 23h):
+                  </p>
+                  <p className="mt-1 text-sm text-white/90">Menu Degustação</p>
+                </div>
+              </div>
+
+              <p className="mt-5 text-[11px] italic text-white/80">
+                (atendemos restrições e alergias alimentares, mas não preparamos
+                menus personalizados)
+              </p>
+
+              <a
+                href="#cardapio"
+                className="mt-6 inline-block text-sm text-white underline underline-offset-4 hover:opacity-90"
+              >
+                cardápio
+              </a>
+            </div>
           </div>
-        </aside>
-      </div>
 
-      {/* BOTÕES + RESERVE + PET (somente mobile/sm) */}
-      <div className="md:hidden">
-        <div className="flex justify-center m-5 gap-4 mt-4">
-          <button
-            type="button"
-            className="flex items-center gap-2 px-5 h-11 rounded-xl
-                   bg-[#E5D7BE] text-[#6d6d6d] font-semibold shadow-md
-                   hover:brightness-95 transition"
-          >
-            <House className="w-5 h-5 opacity-80" />
-            Plantas
-          </button>
-          <button
-            type="button"
-            className="flex items-center gap-2 px-5 h-11 rounded-xl
-                   bg-[#E5D7BE] text-[#6d6d6d] font-semibold shadow-md
-                   hover:brightness-95 transition"
-          >
-            <FileText className="w-5 h-5 opacity-80" />
-            PDF
-          </button>
-          <button
-            type="button"
-            className="flex items-center gap-2 px-5 h-11 rounded-xl
-                   bg-[#E5D7BE] text-[#6d6d6d] font-semibold shadow-md
-                   hover:brightness-95 transition"
-          >
-            <CalendarDays className="w-5 h-5 opacity-80" />
-            Agenda
-          </button>
-        </div>
+          {/* faixa de miniaturas */}
+          <div className="mt-12 border-t border-white/20 pt-6">
+            <div className="relative overflow-hidden">
+              {/* setas decorativas (sem slider real) */}
+              <button
+                type="button"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 hidden md:grid h-10 w-10 place-items-center rounded-full bg-white/20 text-white hover:bg-white/30"
+                aria-label="Anterior"
+              >
+                ‹
+              </button>
 
-        <div className="flex justify-center items-center max-w-5xl mx-auto mt-2 px-4">
-          <button
-            type="button"
-            className="px-8 py-3 rounded-full bg-[#D8A73D] text-white font-semibold
-                   shadow-md hover:brightness-95 transition"
-          >
-            Reserve
-          </button>
-          <div className="flex flex-col items-center gap-3">
-            <img
-              src={dog}
-              alt="pet friendly"
-              className="w-40 h-20 object-contain"
-            />
-            <h1 className="font-raleway text-gray-600 text-2xl">
-              pet friendly
-            </h1>
+              <div className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {thumbs.map((t, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className="shrink-0 overflow-hidden bg-white/10 outline-none hover:opacity-90"
+                    aria-label={`Thumb ${idx + 1}`}
+                  >
+                    <img
+                      src={t}
+                      alt={`Miniatura ${idx + 1}`}
+                      className="h-24 w-44 object-cover md:h-28 md:w-52"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 hidden md:grid h-10 w-10 place-items-center rounded-full bg-white/20 text-white hover:bg-white/30"
+                aria-label="Próximo"
+              >
+                ›
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
+
+export default Events;

@@ -28,9 +28,6 @@ export default function Sidebar() {
 
   const is = (p) => pathname === p;
 
-  // Item seguindo o mesmo modelo do Header:
-  // - underline no hover (bg branco) e no ativo
-  // - texto sempre branco
   const Item = ({ to, icon: Icon, label, active, badge }) => (
     <Link
       to={to}
@@ -51,7 +48,6 @@ export default function Sidebar() {
         </span>
       )}
 
-      {/* underline (ativo e hover) */}
       <span
         className={[
           "absolute left-4 right-4 -bottom-0.5 h-0.5 bg-white rounded-full",
