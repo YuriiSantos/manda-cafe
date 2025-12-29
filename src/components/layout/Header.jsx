@@ -66,7 +66,7 @@ export default function Header() {
         </Link>
         <nav className="hidden lg:flex flex-1 items-center justify-start gap-7 xl:gap-10">
           <NavLink to="/casa">A casa</NavLink>
-          <NavLink to="/localizacao">Galeria</NavLink>
+          <NavLink to="/gallery">Galeria</NavLink>
           <NavLink to="/contato">Contato</NavLink>
         </nav>
       </div>
