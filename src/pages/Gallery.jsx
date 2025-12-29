@@ -23,7 +23,7 @@ function Gallery() {
       url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200",
       alt: "Ambiente moderno do restaurante",
       category: "restaurant",
-      size: "large", // ocupa mais espaço
+      size: "large",
     },
     {
       id: 2,
@@ -125,29 +125,45 @@ function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="border-b border-gray-200 py-8 px-4">
+    <div className="min-h-screen bg-[#fffcf8]">
+      {/* HEADER */}
+      <div className="border-b border-black/10 py-10 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Restaurante</h1>
+          <p className="text-sm tracking-[0.25em] text-[#b08b4a]">GALERIA</p>
+          <div className="mt-3 h-[2px] w-12 bg-[#b08b4a]" />
 
-          {/* Categorias com scroll horizontal */}
-          <div className="relative">
-            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`px-6 py-2 rounded-full whitespace-nowrap transition-all ${
-                    activeCategory === category.id
-                      ? "bg-gray-900 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  {category.label}
-                </button>
-              ))}
-              <button className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 flex items-center">
+          <h1 className="font-lobster mt-8 text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-[#b08b4a]">
+            Manda Café
+          </h1>
+
+          {/* CATEGORIAS (chips estilo Events) */}
+          <div className="mt-10 relative">
+            <div className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {categories.map((category) => {
+                const active = activeCategory === category.id;
+
+                return (
+                  <button
+                    key={category.id}
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`px-5 py-2 rounded-full whitespace-nowrap text-sm font-semibold transition-all border
+                      ${
+                        active
+                          ? "bg-[#b08b4a] text-white border-[#b08b4a]"
+                          : "bg-transparent text-[#b08b4a] border-[#b08b4a]/40 hover:bg-[#b08b4a] hover:text-white"
+                      }`}
+                  >
+                    {category.label}
+                  </button>
+                );
+              })}
+
+              {/* botão “scroll” (opcional, mantém mas no estilo da marca) */}
+              <button
+                type="button"
+                className="px-4 py-2 rounded-full whitespace-nowrap text-sm font-semibold transition-all border border-[#b08b4a]/40 text-[#b08b4a] hover:bg-[#b08b4a] hover:text-white flex items-center"
+                aria-label="Mais categorias"
+              >
                 <ChevronRight size={20} />
               </button>
             </div>
@@ -155,8 +171,8 @@ function Gallery() {
         </div>
       </div>
 
-      {/* Galeria com Grid Assimétrico */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* GALERIA */}
+      <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[200px] gap-4">
           {filteredImages.map((image) => (
             <div
@@ -171,16 +187,18 @@ function Gallery() {
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
+
+              {/* overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-white font-medium text-sm">{image.alt}</p>
                 </div>
               </div>
 
-              {/* Ícone de expandir no canto */}
-              <div className="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* Ícone expandir */}
+              <div className="absolute top-4 right-4 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#fffcf8]/90">
                 <svg
-                  className="w-5 h-5 text-gray-900"
+                  className="w-5 h-5 text-[#b08b4a]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -198,15 +216,16 @@ function Gallery() {
         </div>
       </div>
 
-      {/* Modal de Visualização */}
+      {/* MODAL */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
           <button
-            className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors z-10"
+            className="absolute top-6 right-6 text-white hover:opacity-70 transition-opacity z-10"
             onClick={() => setSelectedImage(null)}
+            aria-label="Fechar"
           >
             <X size={32} strokeWidth={2} />
           </button>
@@ -218,11 +237,12 @@ function Gallery() {
               className="w-full max-h-[85vh] object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
+
             <div className="text-center mt-6">
               <p className="text-white text-xl font-medium">
                 {selectedImage.alt}
               </p>
-              <p className="text-gray-400 text-sm mt-2 uppercase tracking-wider">
+              <p className="text-white/70 text-sm mt-2 uppercase tracking-wider">
                 {categories.find((c) => c.id === selectedImage.category)?.label}
               </p>
             </div>

@@ -1,14 +1,20 @@
 // src/components/ui/IntroHero.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const casaImg = "/manda-cafe/casa.png";
 
 function IntroHero({ onEnter }) {
   const [isLeaving, setIsLeaving] = useState(false);
 
+  // ✅ jeito recomendado: aquece a imagem sem <link rel="preload">
+  useEffect(() => {
+    const img = new Image();
+    img.src = casaImg;
+  }, []);
+
   const handleEnter = () => {
     setIsLeaving(true);
-    setTimeout(() => onEnter(), 700);
+    setTimeout(() => onEnter?.(), 700);
   };
 
   const containerBase =
@@ -23,12 +29,8 @@ function IntroHero({ onEnter }) {
       {/* ANIMAÇÃO DE ZOOM SUAVE */}
       <style>{`
         @keyframes zoomSlow {
-          from {
-            transform: scale(1);
-          }
-          to {
-            transform: scale(1.09);
-          }
+          from { transform: scale(1); }
+          to   { transform: scale(1.09); }
         }
       `}</style>
 
@@ -38,9 +40,8 @@ function IntroHero({ onEnter }) {
           src={casaImg}
           alt="Fachada do Manda Café"
           className="absolute inset-0 w-full h-full object-cover object-[50%_78%]"
-          style={{
-            animation: "zoomSlow 18s ease-in-out forwards",
-          }}
+          style={{ animation: "zoomSlow 18s ease-in-out forwards" }}
+          draggable={false}
         />
         <div className="absolute inset-0 bg-black/25" />
       </div>
@@ -55,15 +56,14 @@ function IntroHero({ onEnter }) {
           </h1>
 
           <button
+            type="button"
             onClick={handleEnter}
             className="
               mt-8 inline-flex items-center justify-center
-              rounded-full
-              bg-[#e6d2a3]
+              rounded-full bg-[#e6d2a3]
               px-10 py-3
               text-sm sm:text-base
-              font-semibold
-              text-[#3a2a1a]
+              font-semibold text-[#3a2a1a]
               shadow-lg
               hover:bg-[#d8c18e]
               transition

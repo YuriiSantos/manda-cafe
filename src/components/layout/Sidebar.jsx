@@ -93,12 +93,12 @@ export default function Sidebar() {
           </div>
 
           <nav className="relative p-4 space-y-1">
-            <Item to="/" icon={Home} label="Home" active={is("/")} />
+            <Item to="/" icon={Home} label="Inicio" active={is("/")} />
             <Item
-              to="/bistro"
-              icon={ChefHat}
-              label="Bistrô"
-              active={is("/bistro")}
+              to="/events"
+              icon={CalendarDays}
+              label="Eventos"
+              active={is("/events")}
             />
             <Item
               to="/cardapio"
@@ -107,20 +107,8 @@ export default function Sidebar() {
               active={is("/cardapio")}
             />
             <Item
-              to="/special"
-              icon={CalendarCheck}
-              label="Ocasiões especiais"
-              active={is("/special")}
-            />
-            <Item
-              to="/events"
-              icon={CalendarDays}
-              label="Eventos"
-              active={is("/events")}
-            />
-            <Item
               to="/gallery"
-              icon={Images}
+              icon={ChefHat}
               label="Galeria"
               active={is("/gallery")}
             />
@@ -130,10 +118,10 @@ export default function Sidebar() {
 
           <nav className="relative px-4 pb-4 space-y-1">
             <Item
-              to="/about"
-              icon={Users}
-              label="Quem somos"
-              active={is("/about")}
+              to="/house"
+              icon={CalendarCheck}
+              label="A casa"
+              active={is("/house")}
             />
             <Item
               to="/contact"

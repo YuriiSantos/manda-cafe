@@ -51,7 +51,7 @@ export default function Header() {
         <nav className="hidden lg:flex flex-1 items-center justify-end gap-7 xl:gap-12 text-center">
           <NavLink to="/events">Eventos</NavLink>
           <NavLink to="/cardapio">Cardápio</NavLink>
-          <NavLink to="/congelados">Congelados</NavLink>
+          <NavLink to="/frozen">Congelados</NavLink>
         </nav>
         <Link
           to="/"
@@ -65,9 +65,9 @@ export default function Header() {
           />
         </Link>
         <nav className="hidden lg:flex flex-1 items-center justify-start gap-7 xl:gap-10">
-          <NavLink to="/casa">A casa</NavLink>
+          <NavLink to="/house">A casa</NavLink>
           <NavLink to="/gallery">Galeria</NavLink>
-          <NavLink to="/contato">Contato</NavLink>
+          <NavLink to="/contact">Contato</NavLink>
         </nav>
       </div>
 
