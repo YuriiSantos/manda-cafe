@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
-/**
- * Carrossel com lightbox (modal) embutido.
- *
- * Props:
- * - images: string[] (obrigatória)
- * - cardHeight: number (altura do card no layout; padrão 460)
- * - className: string (classes extras para o wrapper externo)
- */
 export default function GalleryLightbox({
   images = [],
   cardHeight = 460,

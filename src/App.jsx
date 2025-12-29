@@ -5,7 +5,6 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import Bistro from "./pages/Bistro";
 import Menu from "./pages/Menu";
-import Special from "./pages/Special";
 import Events from "./pages/Events";
 import Cardapio from "./pages/Cardapio";
 import Orders from "./pages/Orders";
@@ -29,7 +28,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/bistro" element={<Bistro />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/special" element={<Special />} />
           <Route path="/events" element={<Events />} />
           <Route path="/cardapio" element={<Cardapio />} />
           <Route path="/orders" element={<Orders />} />
