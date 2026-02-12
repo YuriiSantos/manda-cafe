@@ -148,13 +148,63 @@ function Frozen() {
               </p>
 
               <div className="mt-8 border border-black/10 bg-white/40 p-6">
-                <ul className="space-y-3 text-sm md:text-base text-neutral-700 list-disc list-inside">
-                  <li>Massas e molhos prontos para finalizar</li>
-                  <li>Sopas e caldos (porções individuais ou família)</li>
-                  <li>Pratos principais (assados, gratinados, etc.)</li>
-                  <li>Acompanhamentos (arroz, legumes, purês)</li>
-                  <li>Sobremesas do Manda (quando disponível)</li>
-                </ul>
+                {/* Dia a dia */}
+                <div>
+                  <p className="text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
+                    DIA A DIA
+                  </p>
+
+                  <ul className="mt-3 space-y-3 text-sm md:text-base text-neutral-700 list-disc list-inside">
+                    <li>Banoffe R$32</li>
+                    <li>Torta de Limão R$24</li>
+                    <li>Torta de Maracujá R$26</li>
+                  </ul>
+                </div>
+
+                {/* divisor */}
+                <div className="mt-6 h-px w-full bg-black/10" />
+
+                {/* Encomendas */}
+                <div className="mt-6">
+                  <p className="text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
+                    ENCOMENDAS
+                  </p>
+
+                  <ul className="mt-3 space-y-3 text-sm md:text-base text-neutral-700 list-disc list-inside">
+                    <li>
+                      <span className="font-medium text-neutral-900">
+                        Banoffe Média
+                      </span>{" "}
+                      <span className="text-neutral-700">
+                        (≈2,0 kg • serve 15–20 pessoas)
+                      </span>{" "}
+                      —{" "}
+                      <span className="font-medium text-neutral-900">
+                        R$190
+                      </span>
+                    </li>
+
+                    <li>
+                      <span className="font-medium text-neutral-900">
+                        Banoffe Grande
+                      </span>{" "}
+                      <span className="text-neutral-700">
+                        (≈3,0 kg • serve 25–30 pessoas)
+                      </span>{" "}
+                      —{" "}
+                      <span className="font-medium text-neutral-900">
+                        R$280
+                      </span>
+                    </li>
+                  </ul>
+
+                  <p className="mt-4 text-xs md:text-sm text-neutral-600">
+                    <span className="font-semibold text-neutral-900">
+                      Obs.:
+                    </span>{" "}
+                    pesos e rendimento são aproximados e podem variar levemente.
+                  </p>
+                </div>
 
                 <div className="mt-6 h-px w-14 bg-[#b08b4a]/60" />
 
@@ -165,7 +215,6 @@ function Frozen() {
               </div>
             </div>
 
-            {/* imagem */}
             <div className="flex justify-end">
               <div className="w-full max-w-2xl overflow-hidden bg-black/5">
                 <img
@@ -179,9 +228,6 @@ function Frozen() {
         </div>
       </section>
 
-      {/* =========================
-          CTA FINAL (layout diferente: faixa)
-         ========================= */}
       <section className="w-full" style={{ backgroundColor: "#fffcf8" }}>
         <div className="mx-auto max-w-7xl px-6 md:px-16 pb-16 md:pb-24">
           <div className="h-px w-full bg-[#b08b4a]/25 mb-10" />

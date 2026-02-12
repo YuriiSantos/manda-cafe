@@ -31,6 +31,28 @@ function Contact() {
 
               <div className="mt-10 space-y-4 text-neutral-700">
                 <p className="text-sm md:text-base">
+                  <span className="block text-neutral-900">Instagram</span>
+                  <a
+                    href="https://www.instagram.com/mandacafe_/"
+                    className="font-semibold underline underline-offset-4 hover:opacity-80"
+                    style={{ color: "#b08b4a" }}
+                  >
+                    @mandacafe
+                  </a>
+                </p>
+                <p className="text-sm md:text-base">
+                  <span className="block text-neutral-900">WhatsApp</span>
+                  <a
+                    href="https://wa.me/5511988765337"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold underline underline-offset-4 hover:opacity-80"
+                    style={{ color: "#b08b4a" }}
+                  >
+                    +55 11 988765337
+                  </a>
+                </p>
+                <p className="text-sm md:text-base">
                   <span className="block text-neutral-900">E-mail</span>
                   <a
                     href="mailto:mandacafe@gmail.com"
@@ -38,19 +60,6 @@ function Contact() {
                     style={{ color: "#b08b4a" }}
                   >
                     mandacafe@gmail.com
-                  </a>
-                </p>
-
-                <p className="text-sm md:text-base">
-                  <span className="block text-neutral-900">WhatsApp</span>
-                  <a
-                    href="https://wa.me/999999999999"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-semibold underline underline-offset-4 hover:opacity-80"
-                    style={{ color: "#b08b4a" }}
-                  >
-                    +55 11 999999999999
                   </a>
                 </p>
 
@@ -69,7 +78,7 @@ function Contact() {
                 </a>
 
                 <a
-                  href="https://wa.me/999999999999"
+                  href="https://wa.me/5511988765337"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center rounded-full bg-[#b08b4a] px-5 py-2 text-sm font-semibold text-white transition hover:opacity-90"

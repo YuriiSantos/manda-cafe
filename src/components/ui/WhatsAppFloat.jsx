@@ -3,7 +3,7 @@ import React from "react";
 import whatsappImg from "../../assets/whatsapp.png"; // ajuste o caminho/nome
 
 export default function WhatsAppFloat() {
-  const phone = "5511999999999"; // DDI+DDD+NUMERO
+  const phone = "5511988765337";
   const text = encodeURIComponent("Olá! Vim pelo site do Manda Café");
   const href = `https://wa.me/${phone}?text=${text}`;
 
