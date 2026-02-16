@@ -169,16 +169,13 @@ function Events() {
               <div className="mt-8">
                 <ul className="space-y-2 text-md text-white/90 list-disc list-inside">
                   <li>Espaço exclusivo</li>
-                  <li>
-                    Área aberta (Quintal) e fechada (Salão lateral e salas
-                    internas)
-                  </li>
+                  <li>Área aberta e fechada</li>
                   <li>Excelente localização</li>
                   <li>Ambiente acolhedor e agradável</li>
                   <li>Serviço de buffet</li>
-                  <li>Bar (Cartela de drinks)</li>
-                  <li>Equipamento de som profissional (Voz e violão)</li>
-                  <li>Espaço adaptável (Comporta até 80 pessoas)</li>
+                  <li>Bar </li>
+                  <li>Equipamento de som profissional para voz e violão</li>
+                  <li>Espaço adaptável para até 80 pessoas</li>
                 </ul>
               </div>
             </div>
@@ -205,16 +202,21 @@ function Events() {
       >
         <div className="relative mx-auto max-w-7xl px-6 md:px-16 py-8 md:py-10">
           <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-center min-h-[420px]">
-            <div className="overflow-hidden bg-white/10">
-              <video
-                className="h-[520px] w-full object-cover md:h-[560px] lg:h-[600px]"
-                src={video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-              />
+            {/* ✅ VIDEO em formato Instagram 9x16 */}
+            <div className="flex justify-center">
+              <div className="w-full max-w-[320px] md:max-w-[360px] lg:max-w-[400px] overflow-hidden rounded-2xl bg-white/10 ring-1 ring-black/10">
+                <div className="aspect-[9/16] w-full">
+                  <video
+                    className="h-full w-full object-cover"
+                    src={video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="pt-2 md:pt-6">
@@ -233,9 +235,13 @@ function Events() {
                 ?
                 <br />
                 <br />
-                Nossa casa é perfeita para confraternizações diversas como:
-                festas de fim de ano, aniversários, eventos culturais, entre
-                outros.
+                Nossa casa é o cenário perfeito para receber de{" "}
+                <span className="font-semibold text-neutral-700">
+                  30 a 80 convidados{" "}
+                </span>
+                em confraternizações diversas, como: aniversários, noivados,
+                bodas, mini-wedding, encontros corporativos, festas de fim de
+                ano e outros.
                 <br />
                 <br />
                 Queremos que você celebre seus sonhos, reunindo pessoas
@@ -255,12 +261,12 @@ function Events() {
               <div
                 ref={thumbsRef}
                 className="
-                  flex items-stretch gap-2.5
-                  overflow-x-auto scroll-smooth
-                  snap-x snap-mandatory
-                  py-2
-                  [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-                "
+            flex items-stretch gap-2.5
+            overflow-x-auto scroll-smooth
+            snap-x snap-mandatory
+            py-2
+            [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+          "
               >
                 {thumbs.map((src, idx) => (
                   <button
@@ -270,17 +276,17 @@ function Events() {
                     onClick={() => openLightbox(idx)}
                     aria-label={`Abrir imagem ${idx + 1}`}
                     className="
-                      snap-start shrink-0
-                      w-[145px] md:w-[165px] lg:w-[185px]
-                      overflow-hidden rounded-2xl
-                      bg-white
-                      ring-1 ring-black/10
-                      shadow-[0_10px_22px_rgba(0,0,0,0.08)]
-                      relative
-                      hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]
-                      transition
-                      focus:outline-none focus:ring-2 focus:ring-[#b08b4a]/40
-                    "
+                snap-start shrink-0
+                w-[145px] md:w-[165px] lg:w-[185px]
+                overflow-hidden rounded-2xl
+                bg-white
+                ring-1 ring-black/10
+                shadow-[0_10px_22px_rgba(0,0,0,0.08)]
+                relative
+                hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]
+                transition
+                focus:outline-none focus:ring-2 focus:ring-[#b08b4a]/40
+              "
                   >
                     <div className="aspect-[3/4] w-full relative">
                       <img
@@ -309,14 +315,14 @@ function Events() {
                 onClick={() => scrollThumbs("prev")}
                 aria-label="Anterior"
                 className="
-                  absolute left-2 top-1/2 -translate-y-1/2 z-10
-                  h-10 w-10 rounded-full
-                  bg-white/90 backdrop-blur
-                  ring-1 ring-black/10
-                  shadow-lg
-                  flex items-center justify-center
-                  hover:bg-white transition
-                "
+            absolute left-2 top-1/2 -translate-y-1/2 z-10
+            h-10 w-10 rounded-full
+            bg-white/90 backdrop-blur
+            ring-1 ring-black/10
+            shadow-lg
+            flex items-center justify-center
+            hover:bg-white transition
+          "
               >
                 <svg
                   aria-hidden="true"
@@ -337,14 +343,14 @@ function Events() {
                 onClick={() => scrollThumbs("next")}
                 aria-label="Próximo"
                 className="
-                  absolute right-2 top-1/2 -translate-y-1/2 z-10
-                  h-10 w-10 rounded-full
-                  bg-white/90 backdrop-blur
-                  ring-1 ring-black/10
-                  shadow-lg
-                  flex items-center justify-center
-                  hover:bg-white transition
-                "
+            absolute right-2 top-1/2 -translate-y-1/2 z-10
+            h-10 w-10 rounded-full
+            bg-white/90 backdrop-blur
+            ring-1 ring-black/10
+            shadow-lg
+            flex items-center justify-center
+            hover:bg-white transition
+          "
               >
                 <svg
                   aria-hidden="true"
@@ -384,14 +390,14 @@ function Events() {
                     onClick={closeLightbox}
                     aria-label="Fechar"
                     className="
-                      absolute -top-3 -right-3 md:top-2 md:right-2 z-20
-                      h-10 w-10 rounded-full
-                      bg-white/10 hover:bg-white/15
-                      ring-1 ring-white/15
-                      backdrop-blur
-                      flex items-center justify-center
-                      transition
-                    "
+                absolute -top-3 -right-3 md:top-2 md:right-2 z-20
+                h-10 w-10 rounded-full
+                bg-white/10 hover:bg-white/15
+                ring-1 ring-white/15
+                backdrop-blur
+                flex items-center justify-center
+                transition
+              "
                   >
                     <svg
                       aria-hidden="true"
@@ -414,14 +420,14 @@ function Events() {
                     onClick={prevImg}
                     aria-label="Imagem anterior"
                     className="
-                      absolute left-2 top-1/2 -translate-y-1/2 z-20
-                      h-11 w-11 rounded-full
-                      bg-white/10 hover:bg-white/15
-                      ring-1 ring-white/15
-                      backdrop-blur
-                      flex items-center justify-center
-                      transition
-                    "
+                absolute left-2 top-1/2 -translate-y-1/2 z-20
+                h-11 w-11 rounded-full
+                bg-white/10 hover:bg-white/15
+                ring-1 ring-white/15
+                backdrop-blur
+                flex items-center justify-center
+                transition
+              "
                   >
                     <svg
                       aria-hidden="true"
@@ -442,14 +448,14 @@ function Events() {
                     onClick={nextImg}
                     aria-label="Próxima imagem"
                     className="
-                      absolute right-2 top-1/2 -translate-y-1/2 z-20
-                      h-11 w-11 rounded-full
-                      bg-white/10 hover:bg-white/15
-                      ring-1 ring-white/15
-                      backdrop-blur
-                      flex items-center justify-center
-                      transition
-                    "
+                absolute right-2 top-1/2 -translate-y-1/2 z-20
+                h-11 w-11 rounded-full
+                bg-white/10 hover:bg-white/15
+                ring-1 ring-white/15
+                backdrop-blur
+                flex items-center justify-center
+                transition
+              "
                   >
                     <svg
                       aria-hidden="true"
