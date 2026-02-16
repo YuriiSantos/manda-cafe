@@ -147,7 +147,7 @@ function Events() {
       </section>
 
       <section
-        id="festas"
+        id="festass"
         className="w-full text-white relative"
         style={{
           backgroundImage: `url(${headerBg})`,
