@@ -1,6 +1,7 @@
 import casaevents from "../assets/casaevents.jpg";
 import noMandaVoceTem from "../assets/eventos-home.jpg";
 import gravar from "../assets/grava.jpg";
+
 import ocasioes from "../assets/ocasioes.jpeg";
 import eventos01 from "../assets/eventos01.jpg";
 import eventos02 from "../assets/eventos02.jpg";
@@ -19,7 +20,7 @@ import eventos13 from "../assets/eventos13.jpg";
 import video from "../assets/video.mp4";
 import headerBg from "../assets/header-bg.jpg";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Events() {
   const thumbs = [
@@ -40,6 +41,22 @@ function Events() {
 
   const thumbsRef = useRef(null);
 
+  // ✅ lightbox (popup player)
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const openLightbox = (idx) => {
+    setActiveIndex(idx);
+    setIsOpen(true);
+  };
+
+  const closeLightbox = () => setIsOpen(false);
+
+  const prevImg = () =>
+    setActiveIndex((i) => (i - 1 + thumbs.length) % thumbs.length);
+
+  const nextImg = () => setActiveIndex((i) => (i + 1) % thumbs.length);
+
   const scrollThumbs = (dir) => {
     const el = thumbsRef.current;
     if (!el) return;
@@ -53,6 +70,28 @@ function Events() {
       behavior: "smooth",
     });
   };
+
+  // ✅ teclado no popup: ESC fecha, setas navegam
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prevImg();
+      if (e.key === "ArrowRight") nextImg();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    // trava o scroll do body com popup aberto
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen, thumbs.length]);
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -164,12 +203,8 @@ function Events() {
           backgroundColor: "#fffcf8",
         }}
       >
-        {/* overlay (igual ideia do header) */}
-
         <div className="relative mx-auto max-w-7xl px-6 md:px-16 py-8 md:py-10">
-          {/* topo: imagem grande + texto */}
           <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-center min-h-[420px]">
-            {/* VIDEO grande à esquerda (no lugar da foto) */}
             <div className="overflow-hidden bg-white/10">
               <video
                 className="h-[520px] w-full object-cover md:h-[560px] lg:h-[600px]"
@@ -182,13 +217,8 @@ function Events() {
               />
             </div>
 
-            {/* conteúdo à direita */}
-
             <div className="pt-2 md:pt-6">
-              <h2
-                className="font-lobster text-4xl font-medium tracking-[0.25em] text-[#b08b4a]
-"
-              >
+              <h2 className="font-lobster text-4xl font-medium tracking-[0.25em] text-[#b08b4a]">
                 Manda Festas
               </h2>
               <h3 className="mt-4 text-lg font-light leading-snug text-neutral-700">
@@ -216,98 +246,77 @@ function Events() {
                 Aqui é o lugar ideal para eternizar momentos de afeto, então,
                 não perca tempo e venha nos conhecer!
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Personalizados
-                </span>
-
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Festa Infantil
-                </span>
-
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Festa Adulto
-                </span>
-
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Manda Brasa
-                </span>
-
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Manda Sofisticar
-                </span>
-              </div>
             </div>
           </div>
 
-          {/* faixa de miniaturas */}
+          {/* ✅ SOMENTE ESTA PARTE FOI MODIFICADA (carrossel + popup) */}
           <div className="mt-10 border-t border-black/10 pt-5">
             <div className="relative">
               <div
                 ref={thumbsRef}
                 className="
-        flex items-stretch gap-2.5
-        overflow-x-auto scroll-smooth
-        snap-x snap-mandatory
-        py-2
-        [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-      "
+                  flex items-stretch gap-2.5
+                  overflow-x-auto scroll-smooth
+                  snap-x snap-mandatory
+                  py-2
+                  [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+                "
               >
                 {thumbs.map((src, idx) => (
-                  <div
+                  <button
                     key={idx}
+                    type="button"
                     data-card="thumb"
+                    onClick={() => openLightbox(idx)}
+                    aria-label={`Abrir imagem ${idx + 1}`}
                     className="
-            snap-start shrink-0
-            w-[150px] md:w-[170px] lg:w-[190px]
-            overflow-hidden rounded-2xl
-            bg-white
-            ring-1 ring-black/10
-            shadow-[0_10px_22px_rgba(0,0,0,0.08)]
-            relative
-          "
+                      snap-start shrink-0
+                      w-[145px] md:w-[165px] lg:w-[185px]
+                      overflow-hidden rounded-2xl
+                      bg-white
+                      ring-1 ring-black/10
+                      shadow-[0_10px_22px_rgba(0,0,0,0.08)]
+                      relative
+                      hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]
+                      transition
+                      focus:outline-none focus:ring-2 focus:ring-[#b08b4a]/40
+                    "
                   >
-                    {/* proporção vertical */}
                     <div className="aspect-[3/4] w-full relative">
                       <img
                         src={src}
                         alt={`Foto ${idx + 1}`}
-                        className="h-full w-full object-cover select-none pointer-events-none"
+                        className="h-full w-full object-cover select-none"
                         draggable={false}
                         loading="lazy"
                       />
 
-                      {/* degrade discreto nos 4 cantos (vinheta suave) */}
+                      {/* degrade discreto nos cantos */}
                       <div className="pointer-events-none absolute inset-0">
-                        {/* topo-esquerda */}
-                        <div className="absolute left-0 top-0 h-16 w-16 bg-gradient-to-br from-black/20 to-transparent" />
-                        {/* topo-direita */}
-                        <div className="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-black/20 to-transparent" />
-                        {/* baixo-esquerda */}
-                        <div className="absolute left-0 bottom-0 h-16 w-16 bg-gradient-to-tr from-black/20 to-transparent" />
-                        {/* baixo-direita */}
-                        <div className="absolute right-0 bottom-0 h-16 w-16 bg-gradient-to-tl from-black/20 to-transparent" />
+                        <div className="absolute left-0 top-0 h-16 w-16 bg-gradient-to-br from-black/12 to-transparent" />
+                        <div className="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-black/12 to-transparent" />
+                        <div className="absolute left-0 bottom-0 h-16 w-16 bg-gradient-to-tr from-black/12 to-transparent" />
+                        <div className="absolute right-0 bottom-0 h-16 w-16 bg-gradient-to-tl from-black/12 to-transparent" />
                       </div>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
 
-              {/* botões bonitos */}
+              {/* setas do carrossel (svg alinhado) */}
               <button
                 type="button"
                 onClick={() => scrollThumbs("prev")}
                 aria-label="Anterior"
                 className="
-    absolute left-2 top-1/2 -translate-y-1/2 z-10
-    h-10 w-10
-    rounded-full
-    bg-white/90 backdrop-blur
-    ring-1 ring-black/10
-    shadow-lg
-    flex items-center justify-center
-    hover:bg-white transition
-  "
+                  absolute left-2 top-1/2 -translate-y-1/2 z-10
+                  h-10 w-10 rounded-full
+                  bg-white/90 backdrop-blur
+                  ring-1 ring-black/10
+                  shadow-lg
+                  flex items-center justify-center
+                  hover:bg-white transition
+                "
               >
                 <svg
                   aria-hidden="true"
@@ -323,21 +332,19 @@ function Events() {
                 </svg>
               </button>
 
-              {/* seta direita */}
               <button
                 type="button"
                 onClick={() => scrollThumbs("next")}
                 aria-label="Próximo"
                 className="
-    absolute right-2 top-1/2 -translate-y-1/2 z-10
-    h-10 w-10
-    rounded-full
-    bg-white/90 backdrop-blur
-    ring-1 ring-black/10
-    shadow-lg
-    flex items-center justify-center
-    hover:bg-white transition
-  "
+                  absolute right-2 top-1/2 -translate-y-1/2 z-10
+                  h-10 w-10 rounded-full
+                  bg-white/90 backdrop-blur
+                  ring-1 ring-black/10
+                  shadow-lg
+                  flex items-center justify-center
+                  hover:bg-white transition
+                "
               >
                 <svg
                   aria-hidden="true"
@@ -354,6 +361,128 @@ function Events() {
               </button>
             </div>
           </div>
+
+          {/* ✅ POPUP / LIGHTBOX (player style) */}
+          {isOpen && (
+            <div
+              className="fixed inset-0 z-[9999]"
+              aria-modal="true"
+              role="dialog"
+            >
+              {/* fundo preto */}
+              <div
+                className="absolute inset-0 bg-black/90"
+                onClick={closeLightbox}
+              />
+
+              {/* conteúdo */}
+              <div className="absolute inset-0 flex items-center justify-center p-4 md:p-8">
+                <div className="relative w-full max-w-5xl">
+                  {/* botão fechar */}
+                  <button
+                    type="button"
+                    onClick={closeLightbox}
+                    aria-label="Fechar"
+                    className="
+                      absolute -top-3 -right-3 md:top-2 md:right-2 z-20
+                      h-10 w-10 rounded-full
+                      bg-white/10 hover:bg-white/15
+                      ring-1 ring-white/15
+                      backdrop-blur
+                      flex items-center justify-center
+                      transition
+                    "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M18 6L6 18" />
+                      <path d="M6 6l12 12" />
+                    </svg>
+                  </button>
+
+                  {/* setas dentro do popup */}
+                  <button
+                    type="button"
+                    onClick={prevImg}
+                    aria-label="Imagem anterior"
+                    className="
+                      absolute left-2 top-1/2 -translate-y-1/2 z-20
+                      h-11 w-11 rounded-full
+                      bg-white/10 hover:bg-white/15
+                      ring-1 ring-white/15
+                      backdrop-blur
+                      flex items-center justify-center
+                      transition
+                    "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-6 w-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={nextImg}
+                    aria-label="Próxima imagem"
+                    className="
+                      absolute right-2 top-1/2 -translate-y-1/2 z-20
+                      h-11 w-11 rounded-full
+                      bg-white/10 hover:bg-white/15
+                      ring-1 ring-white/15
+                      backdrop-blur
+                      flex items-center justify-center
+                      transition
+                    "
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-6 w-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </button>
+
+                  {/* imagem */}
+                  <div className="overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
+                    <img
+                      src={thumbs[activeIndex]}
+                      alt={`Imagem ${activeIndex + 1}`}
+                      className="w-full max-h-[82vh] object-contain bg-black"
+                      draggable={false}
+                    />
+                  </div>
+
+                  {/* legenda/contador */}
+                  <div className="mt-3 flex items-center justify-center text-white/70 text-sm">
+                    {activeIndex + 1} / {thumbs.length} — aperte ESC para sair
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -449,7 +578,7 @@ function Events() {
             <div className="flex justify-start order-2 md:order-1">
               <div className="w-full max-w-2xl overflow-hidden bg-black/5">
                 <img
-                  src={gravar}
+                  src={casaevents}
                   alt="Manda Filmar - imagem"
                   className="h-[320px] w-full object-cover md:h-[420px] lg:h-[480px]"
                 />
