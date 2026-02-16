@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Frozen from "./pages/Frozen";
 
 import IntroHero from "./components/ui/IntroHero";
+import ScrollToTop from "./components/ui/ScrollToTop";
 
 function App() {
   const [showIntro, setShowIntro] = useState(false);
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <Router basename="/manda-cafe">
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

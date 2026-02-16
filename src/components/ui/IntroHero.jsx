@@ -1,4 +1,3 @@
-// src/components/ui/IntroHero.jsx
 import React, { useEffect, useState } from "react";
 
 const casaImg = "/manda-cafe/casa.png";
@@ -6,7 +5,6 @@ const casaImg = "/manda-cafe/casa.png";
 function IntroHero({ onEnter }) {
   const [isLeaving, setIsLeaving] = useState(false);
 
-  // ✅ jeito recomendado: aquece a imagem sem <link rel="preload">
   useEffect(() => {
     const img = new Image();
     img.src = casaImg;

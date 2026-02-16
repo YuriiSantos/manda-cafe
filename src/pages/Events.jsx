@@ -1,22 +1,41 @@
 import casaevents from "../assets/casaevents.jpg";
-import headerBg from "../assets/header-bg.jpg"; //
+import noMandaVoceTem from "../assets/eventos-home.jpg";
+import gravar from "../assets/grava.jpg";
+import ocasioes from "../assets/ocasioes.jpeg";
+import eventos01 from "../assets/eventos01.jpg";
+import eventos02 from "../assets/eventos02.jpg";
+import eventos03 from "../assets/eventos03.jpg";
+import eventos04 from "../assets/eventos04.jpg";
+import eventos05 from "../assets/eventos05.jpg";
+import eventos06 from "../assets/eventos06.jpg";
+import eventos07 from "../assets/eventos07.jpg";
+import eventos08 from "../assets/eventos08.jpg";
+import eventos09 from "../assets/eventos09.jpg";
+import eventos10 from "../assets/eventos10.jpg";
+import eventos11 from "../assets/eventos11.jpg";
+import eventos12 from "../assets/eventos12.png";
+import eventos13 from "../assets/eventos13.jpg";
+
+import video from "../assets/video.mp4";
+import headerBg from "../assets/header-bg.jpg";
 
 import { useRef } from "react";
 
 function Events() {
   const thumbs = [
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
-    casaevents,
+    eventos01,
+    eventos02,
+    eventos03,
+    eventos04,
+    eventos05,
+    eventos06,
+    eventos07,
+    eventos08,
+    eventos09,
+    eventos10,
+    eventos11,
+    eventos12,
+    eventos13,
   ];
 
   const thumbsRef = useRef(null);
@@ -25,11 +44,12 @@ function Events() {
     const el = thumbsRef.current;
     if (!el) return;
 
-    // rola aproximadamente 2 thumbs por clique (ajuste se quiser)
-    const amount = el.clientWidth * 0.6;
+    const card = el.querySelector("[data-card='thumb']");
+    const gap = 10; // combina com gap-2.5
+    const step = card ? card.clientWidth + gap : 190;
 
     el.scrollBy({
-      left: dir === "next" ? amount : -amount,
+      left: dir === "next" ? step * 2 : -step * 2,
       behavior: "smooth",
     });
   };
@@ -74,16 +94,6 @@ function Events() {
                   Manda Filmar
                 </a>
               </div>
-
-              <a
-                href="#festas"
-                className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-[#b08b4a] underline underline-offset-4 transition hover:opacity-80"
-              >
-                ver detalhes
-                <span aria-hidden="true" className="text-base">
-                  ↓
-                </span>
-              </a>
             </div>
 
             <div className="flex justify-end">
@@ -113,27 +123,81 @@ function Events() {
           {/* topo: imagem grande + texto */}
           <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-center min-h-[420px]">
             {/* imagem grande à esquerda */}
+            <div className="pt-2 md:pt-6">
+              <h2 className="font-lobster text-5xl font-medium text-white">
+                No Manda você tem:
+              </h2>
+              <div className="mt-8">
+                <ul className="space-y-2 text-md text-white/90 list-disc list-inside">
+                  <li>Espaço exclusivo</li>
+                  <li>
+                    Área aberta (Quintal) e fechada (Salão lateral e salas
+                    internas)
+                  </li>
+                  <li>Excelente localização</li>
+                  <li>Ambiente acolhedor e agradável</li>
+                  <li>Serviço de buffet</li>
+                  <li>Bar (Cartela de drinks)</li>
+                  <li>Equipamento de som profissional (Voz e violão)</li>
+                  <li>Espaço adaptável (Comporta até 80 pessoas)</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* conteúdo à direita */}
             <div className="overflow-hidden bg-white/10">
               <img
-                src={casaevents}
+                src={noMandaVoceTem}
                 alt="Eventos - imagem principal"
                 className="h-[520px] w-full object-cover md:h-[560px] lg:h-[600px]"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MANDA FESTAS SECTION*/}
+      <section
+        id="festas"
+        className="w-full text-white relative"
+        style={{
+          backgroundColor: "#fffcf8",
+        }}
+      >
+        {/* overlay (igual ideia do header) */}
+
+        <div className="relative mx-auto max-w-7xl px-6 md:px-16 py-8 md:py-10">
+          {/* topo: imagem grande + texto */}
+          <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-center min-h-[420px]">
+            {/* VIDEO grande à esquerda (no lugar da foto) */}
+            <div className="overflow-hidden bg-white/10">
+              <video
+                className="h-[520px] w-full object-cover md:h-[560px] lg:h-[600px]"
+                src={video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+              />
+            </div>
 
             {/* conteúdo à direita */}
+
             <div className="pt-2 md:pt-6">
-              <h2 className="font-lobster text-4xl font-medium text-white">
+              <h2
+                className="font-lobster text-4xl font-medium tracking-[0.25em] text-[#b08b4a]
+"
+              >
                 Manda Festas
               </h2>
-
-              <h3 className="mt-4 text-lg font-light leading-snug text-white">
+              <h3 className="mt-4 text-lg font-light leading-snug text-neutral-700">
                 Celebre sonhos <br />e crie memórias
               </h3>
 
-              <p className="mt-6 text-sm leading-relaxed text-white/90">
+              <p className="mt-6 text-sm leading-relaxed text-neutral-700">
                 Já pensou em celebrar momentos importantes em uma casa que é{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-neutral-700">
                   PATRIMÔNIO da cidade de São Paulo
                 </span>
                 ?
@@ -152,73 +216,141 @@ function Events() {
                 Aqui é o lugar ideal para eternizar momentos de afeto, então,
                 não perca tempo e venha nos conhecer!
               </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Personalizados
+                </span>
 
-              <div className="mt-6 h-px w-14 bg-white/80" />
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Festa Infantil
+                </span>
 
-              <div className="mt-8">
-                <p className="mb-3 font-semibold text-white">
-                  No Manda você tem:
-                </p>
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Festa Adulto
+                </span>
 
-                <ul className="space-y-2 text-sm text-white/90 list-disc list-inside">
-                  <li>Espaço exclusivo</li>
-                  <li>
-                    Área aberta (Quintal) e fechada (Salão lateral e salas
-                    internas)
-                  </li>
-                  <li>Excelente localização</li>
-                  <li>Ambiente acolhedor e agradável</li>
-                  <li>Serviço de buffet</li>
-                  <li>Bar (Cartela de drinks)</li>
-                  <li>Equipamento de som profissional (Voz e violão)</li>
-                  <li>Espaço adaptável (Comporta até 80 pessoas)</li>
-                </ul>
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Manda Brasa
+                </span>
+
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Manda Sofisticar
+                </span>
               </div>
             </div>
           </div>
 
           {/* faixa de miniaturas */}
-          <div className="mt-12 border-t border-white/20 pt-6">
+          <div className="mt-10 border-t border-black/10 pt-5">
             <div className="relative">
-              {/* trilho */}
               <div
                 ref={thumbsRef}
-                className="flex gap-6 overflow-x-auto scroll-smooth py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                className="
+        flex items-stretch gap-2.5
+        overflow-x-auto scroll-smooth
+        snap-x snap-mandatory
+        py-2
+        [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+      "
               >
-                {thumbs.map((t, idx) => (
-                  <button
+                {thumbs.map((src, idx) => (
+                  <div
                     key={idx}
-                    type="button"
-                    className="shrink-0 overflow-hidden outline-none hover:opacity-95 transition-opacity duration-200"
-                    aria-label={`Thumb ${idx + 1}`}
+                    data-card="thumb"
+                    className="
+            snap-start shrink-0
+            w-[150px] md:w-[170px] lg:w-[190px]
+            overflow-hidden rounded-2xl
+            bg-white
+            ring-1 ring-black/10
+            shadow-[0_10px_22px_rgba(0,0,0,0.08)]
+            relative
+          "
                   >
-                    <img
-                      src={t}
-                      alt={`Miniatura ${idx + 1}`}
-                      className="h-[120px] w-[260px] object-cover md:h-[140px] md:w-[320px]"
-                    />
-                  </button>
+                    {/* proporção vertical */}
+                    <div className="aspect-[3/4] w-full relative">
+                      <img
+                        src={src}
+                        alt={`Foto ${idx + 1}`}
+                        className="h-full w-full object-cover select-none pointer-events-none"
+                        draggable={false}
+                        loading="lazy"
+                      />
+
+                      {/* degrade discreto nos 4 cantos (vinheta suave) */}
+                      <div className="pointer-events-none absolute inset-0">
+                        {/* topo-esquerda */}
+                        <div className="absolute left-0 top-0 h-16 w-16 bg-gradient-to-br from-black/20 to-transparent" />
+                        {/* topo-direita */}
+                        <div className="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-black/20 to-transparent" />
+                        {/* baixo-esquerda */}
+                        <div className="absolute left-0 bottom-0 h-16 w-16 bg-gradient-to-tr from-black/20 to-transparent" />
+                        {/* baixo-direita */}
+                        <div className="absolute right-0 bottom-0 h-16 w-16 bg-gradient-to-tl from-black/20 to-transparent" />
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
 
-              {/* seta esquerda (por cima da 1ª thumb) */}
+              {/* botões bonitos */}
               <button
                 type="button"
                 onClick={() => scrollThumbs("prev")}
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 place-items-center text-white text-5xl leading-none hover:opacity-80 transition-opacity"
                 aria-label="Anterior"
+                className="
+    absolute left-2 top-1/2 -translate-y-1/2 z-10
+    h-10 w-10
+    rounded-full
+    bg-white/90 backdrop-blur
+    ring-1 ring-black/10
+    shadow-lg
+    flex items-center justify-center
+    hover:bg-white transition
+  "
               >
-                ‹
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 text-neutral-800"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
               </button>
 
-              {/* seta direita (por cima da última thumb) */}
+              {/* seta direita */}
               <button
                 type="button"
                 onClick={() => scrollThumbs("next")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 place-items-center text-white text-5xl leading-none hover:opacity-80 transition-opacity"
                 aria-label="Próximo"
+                className="
+    absolute right-2 top-1/2 -translate-y-1/2 z-10
+    h-10 w-10
+    rounded-full
+    bg-white/90 backdrop-blur
+    ring-1 ring-black/10
+    shadow-lg
+    flex items-center justify-center
+    hover:bg-white transition
+  "
               >
-                ›
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5 text-neutral-800"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
               </button>
             </div>
           </div>
@@ -230,6 +362,9 @@ function Events() {
         className="w-full"
         style={{ backgroundColor: "#fffcf8" }}
       >
+        <div className="mx-auto max-w-7xl px-6 pt-5 md:px-16">
+          <div className="h-px w-full bg-[#b08b4a]/30" />
+        </div>
         <div className="mx-auto max-w-7xl px-6 md:px-16 py-14 md:py-20">
           <div className="grid items-center gap-12 md:grid-cols-2">
             <div>
@@ -259,42 +394,29 @@ function Events() {
                   encontros leves, cheios de afeto, boas risadas e aquele tempo
                   de qualidade que fica na memória.
                 </p>
-              </div>
-
-              <div className="mt-8 h-px w-14 bg-[#b08b4a]/60" />
-
-              <div className="mt-8">
-                <p className="mb-3 font-semibold text-neutral-900">
-                  No Manda você tem:
+                <p className="text-sm md:text-base leading-relaxed">
+                  Manda pra Poucos este convite especial !
                 </p>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Personalizados
+                  </span>
 
-                <ul className="space-y-2 text-sm md:text-base text-neutral-700 list-disc list-inside">
-                  <li>Espaço exclusivo</li>
-                  <li>
-                    Área aberta (quintal) e fechada (salão lateral e salas
-                    internas)
-                  </li>
-                  <li>Excelente localização</li>
-                  <li>Ambiente acolhedor e agradável</li>
-                  <li>
-                    Menu completo com entrada, prato principal e sobremesa
-                  </li>
-                </ul>
-              </div>
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Festa Infantil
+                  </span>
 
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <div>
-                  <p className="font-semibold text-neutral-900">Almoços</p>
-                  <p className="mt-1 text-sm md:text-base text-neutral-700">
-                    aos domingos
-                  </p>
-                </div>
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Festa Adulto
+                  </span>
 
-                <div>
-                  <p className="font-semibold text-neutral-900">Jantares</p>
-                  <p className="mt-1 text-sm md:text-base text-neutral-700">
-                    todos os dias da semana
-                  </p>
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Manda Brasa
+                  </span>
+
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Manda Sofisticar
+                  </span>
                 </div>
               </div>
             </div>
@@ -303,7 +425,7 @@ function Events() {
             <div className="flex justify-end">
               <div className="w-full max-w-2xl overflow-hidden bg-black/5">
                 <img
-                  src={casaevents}
+                  src={ocasioes}
                   alt="Eventos - imagem"
                   className="h-[320px] w-full object-cover md:h-[420px] lg:h-[480px]"
                 />
@@ -327,7 +449,7 @@ function Events() {
             <div className="flex justify-start order-2 md:order-1">
               <div className="w-full max-w-2xl overflow-hidden bg-black/5">
                 <img
-                  src={casaevents}
+                  src={gravar}
                   alt="Manda Filmar - imagem"
                   className="h-[320px] w-full object-cover md:h-[420px] lg:h-[480px]"
                 />
@@ -368,22 +490,27 @@ function Events() {
                   Aqui, cada canto carrega história, afeto e estética — o
                   cenário perfeito para transformar ideias em imagem.
                 </p>
-              </div>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Personalizados
+                  </span>
 
-              <div className="mt-8 h-px w-14 bg-[#b08b4a]/60" />
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Festa Infantil
+                  </span>
 
-              <div className="mt-8">
-                <p className="mb-3 font-semibold text-neutral-900">
-                  No Manda você tem:
-                </p>
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Festa Adulto
+                  </span>
 
-                <ul className="space-y-2 text-sm md:text-base text-neutral-700 list-disc list-inside">
-                  <li>Casa tombada e cheia de personalidade</li>
-                  <li>Ambientes internos e externos</li>
-                  <li>Excelente localização</li>
-                  <li>Espaço versátil para diferentes produções</li>
-                  <li>Apoio e flexibilidade durante as gravações</li>
-                </ul>
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Manda Brasa
+                  </span>
+
+                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                    Manda Sofisticar
+                  </span>
+                </div>
               </div>
             </div>
           </div>

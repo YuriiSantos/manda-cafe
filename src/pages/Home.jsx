@@ -2,7 +2,9 @@ import React from "react";
 import bolonhesa from "../assets/Bolonhesa.jpg";
 import casa from "../assets/casa.jpg";
 import bistro from "../assets/bistro.jpg";
-import evento1 from "../assets/evento1.jpg";
+import evento1 from "../assets/eventos-home.jpg";
+
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -29,7 +31,7 @@ function Home() {
       </section>
 
       <section className="bg-[#fffcf8] text-[#3c3021]">
-        <div className="max-w-5xl mx-auto space-y-0 pb-24">
+        <div className="max-w-5xl mx-auto space-y-0 pb-10">
           {/* BLOCO 1 */}
           <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
             {/* centraliza o CONTEÚDO dentro do bloco */}
@@ -60,9 +62,12 @@ function Home() {
                 </p>
               </div>
 
-              <button className="mt-10 text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition underline underline-offset-8">
+              <Link
+                to="/house"
+                className="mt-10 inline-block text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition underline underline-offset-8"
+              >
                 Saiba mais
-              </button>
+              </Link>
             </div>
 
             <div className="overflow-hidden h-full">
@@ -102,9 +107,12 @@ function Home() {
                 </p>
               </div>
 
-              <button className="mt-10 text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition underline underline-offset-8">
+              <Link
+                to="/Cardapio"
+                className="mt-10 inline-block text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition underline underline-offset-8"
+              >
                 Ver cardápio
-              </button>
+              </Link>
             </div>
 
             <div className="overflow-hidden order-2 md:order-1 h-full">
@@ -143,10 +151,12 @@ function Home() {
                   filmagens de conteúdo e outros.
                 </p>
               </div>
-              <a href=""></a>
-              <button className="mt-10 text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition underline underline-offset-8">
+              <Link
+                to="/events"
+                className="mt-10 inline-block text-[11px] uppercase tracking-[0.2em] text-[#b08b4a] hover:text-[#3c3021] transition underline underline-offset-8"
+              >
                 Ver opções
-              </button>
+              </Link>
             </div>
 
             <div className="overflow-hidden h-full">
