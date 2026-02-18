@@ -2,14 +2,43 @@
 import { useMemo, useState, useRef, useEffect } from "react";
 import { MENU_ITEMS } from "../datas/menuItems";
 
+// ✅ Troque pelos seus links reais:
+const CARDAPIO_OFICIAL_URL = "https://www.canva.com/pt_br/";
+const IFOOD_URL = "https://www.ifood.com.br/";
+
 export default function Cardapio() {
   const [category, setCategory] = useState("Tudo");
-  const [completeMode, setCompleteMode] = useState(true); // “Completo”
 
-  // opções do select
+  // ----- Dropdown custom (visual profissional) -----
+  const [open, setOpen] = useState(false);
+  const btnRef = useRef(null);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const onDocMouseDown = (e) => {
+      const btn = btnRef.current;
+      const menu = menuRef.current;
+      if (!btn || !menu) return;
+      if (btn.contains(e.target) || menu.contains(e.target)) return;
+      setOpen(false);
+    };
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("mousedown", onDocMouseDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onDocMouseDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
+  // opções do filtro
   const categories = useMemo(
     () => ["Tudo", ...Array.from(new Set(MENU_ITEMS.map((i) => i.category)))],
-    []
+    [],
   );
 
   // Filtra e agrupa por seção
@@ -18,172 +47,228 @@ export default function Cardapio() {
       category === "Tudo"
         ? MENU_ITEMS
         : MENU_ITEMS.filter((i) => i.category === category);
+
     return filtered.reduce((acc, item) => {
       (acc[item.category] ||= []).push(item);
       return acc;
     }, {});
   }, [category]);
 
-  // ---- Barra de rolagem (trilho + marcador) ----
-  const scrollRef = useRef(null);
-  const trackRef = useRef(null);
-  const [y, setY] = useState(0); // posição do marcador (px)
-  const [trackH, setTrackH] = useState(0); // altura do trilho
-
-  const onScroll = () => {
-    const el = scrollRef.current;
-    const track = trackRef.current;
-    if (!el || !track) return;
-
-    const progress =
-      el.scrollHeight === el.clientHeight
-        ? 0
-        : el.scrollTop / (el.scrollHeight - el.clientHeight);
-
-    const knobH = 16; // altura do quadradinho
-    const usable = track.clientHeight - knobH;
-    setY(usable * progress);
+  const selectCategory = (c) => {
+    setCategory(c);
+    setOpen(false);
+    requestAnimationFrame(() => btnRef.current?.focus());
   };
 
-  useEffect(() => {
-    const sync = () => {
-      if (!scrollRef.current || !trackRef.current) return;
-      setTrackH(scrollRef.current.clientHeight);
-      onScroll();
-    };
-    sync();
-    window.addEventListener("resize", sync);
-    return () => window.removeEventListener("resize", sync);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // ------------------------------------------------
-
   return (
-    <section className="py-10 px-4">
-      <div className="max-w-3xl mx-auto">
+    <section className="bg-[#faf8f4] px-4 py-16 min-h-[100vh]">
+      <div className="max-w-4xl mx-auto">
         {/* Título */}
-        <h1 className="font-lobster text-5xl md:text-6xl text-center text-[#e4d7b9] mb-6">
+        <h1 className="font-lobster text-5xl md:text-6xl text-center text-[#b08b4a]">
           Cardápio
         </h1>
 
-        {/* Filtros */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="relative">
-            <select
-              aria-label="Filtrar categoria"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="appearance-none pr-10 pl-4 py-2 rounded-full border border-[#c7b08f] focus:outline-none focus:ring-2 focus:ring-[#a08866]"
-            >
-              {categories.map((c) => (
-                <option key={c}>{c}</option>
-              ))}
-            </select>
-            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
-              ▾
+        {/* ✅ Botões do topo (menores, sem borda pesada, iFood com toque vermelho) */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
+          <a
+            href={CARDAPIO_OFICIAL_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="
+              inline-flex items-center gap-2
+              rounded-full
+              bg-white/40
+              backdrop-blur
+              px-3.5 py-1.5
+              text-[11px] tracking-[0.22em] uppercase
+              text-[#7a5d2b]
+              shadow-sm
+              transition
+              hover:bg-white/60
+              hover:shadow
+              focus:outline-none
+              focus:ring-4 focus:ring-[#b08b4a]/15
+            "
+            title="Abrir cardápio atualizado"
+          >
+            <span aria-hidden className="text-[12px] leading-none">
+              ⤓
             </span>
-          </div>
+            Cardápio atualizado
+          </a>
 
-          <button
-            type="button"
-            onClick={() => setCompleteMode((v) => !v)}
-            className="px-4 py-2 rounded-full bg-[#b9a489] text-white hover:brightness-105 transition"
-            aria-pressed={completeMode}
-            title="Alternar modo de exibição"
+          <a
+            href={IFOOD_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="
+              inline-flex items-center gap-2
+              rounded-full
+              bg-[#ea1d2c]/30
+              px-3.5 py-1.5
+              text-[11px] tracking-[0.22em] uppercase
+              text-black
+              shadow-sm
+              transition
+              hover:bg-[#ea1d2c]/15
+              hover:shadow
+              focus:outline-none
+              focus:ring-4 focus:ring-[#ea1d2c]/20
+            "
+            title="Abrir loja no iFood"
           >
-            {completeMode ? "Completo →" : "Compacto"}
-          </button>
-
-          <button
-            type="button"
-            className="p-2 rounded-full border border-[#c7b08f] hover:bg-[#f6efe2]"
-            title="Baixar PDF"
-          >
-            ⤓
-          </button>
+            <span aria-hidden className="text-[12px] leading-none">
+              ↗
+            </span>
+            Loja no iFood
+          </a>
         </div>
 
-        {/* Lista + trilho lateral */}
-        <div className="grid grid-cols-[1fr_auto] gap-6">
-          {/* LISTA com rolagem própria */}
-          <div
-            ref={scrollRef}
-            onScroll={onScroll}
-            className="overflow-y-auto pr-6 max-h-[70vh] scroll-smooth no-scrollbar-local "
-          >
-            <div className="space-y-10">
-              {Object.entries(grouped).map(([section, items]) => (
-                <section key={section}>
-                  <h2 className="text-[#b9a489] tracking-widest font-semibold mb-3">
-                    {section.toUpperCase()}
-                  </h2>
+        {/* Texto institucional */}
+        <p className="mt-8 max-w-2xl mx-auto text-sm leading-relaxed text-neutral-700 text-justify hyphens-auto">
+          O cardápio do Manda foi criado para acolher e surpreender, com muita
+          brasilidade e toques contemporâneos. Para dar vida a uma cozinha
+          simples e refinada, os caderninhos de receitas das matriarcas da
+          família são consultados a todo momento, nos presenteando, com
+          generosidade, pequenos segredos da nossa culinária.
+          <br />
+          <br />
+          Ao visitar o Bistrô, você será surpreendido por nosso combo, um pratos
+          rotativo e sazonal, pensados para renovar a experiência a cada visita.
+        </p>
 
-                  <ul className="divide-y divide-neutral-200">
-                    {items.map((item) => (
-                      <li key={item.id} className="py-4">
-                        <div className="flex items-start gap-3">
-                          {/* bolinha/ícone */}
-                          <span className="mt-1 inline-block w-5 h-5 rounded-full border border-neutral-300" />
-                          <div className="flex-1">
-                            <div className="flex items-baseline justify-between gap-4">
-                              <h3 className="font-semibold">{item.name}</h3>
-                              <span className="tabular-nums font-semibold">
-                                {Number(item.price).toFixed(0)}.
-                              </span>
-                            </div>
+        <p className="mt-6 text-center italic text-neutral-600">
+          Qual será o seu prato favorito?
+        </p>
 
-                            {/* Descrição some no modo compacto */}
-                            {completeMode && (
-                              <p className="text-sm text-neutral-600 mt-1">
-                                {item.desc}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                  {/* Forçar a saida do scrollbar da div */}
-                  <style>{`.no-scrollbar-local {-ms-overflow-style: none;    /* IE/Edge antigo */ scrollbar-width: none;       /* Firefox */} .no-scrollbar-local::-webkit-scrollbar {width: 0 !important;         /* Chrome/Safari/Opera */ height: 0 !important; background: transparent;}`}</style>
-                </section>
-              ))}
-            </div>
-          </div>
-
-          {/* TRILHO da rolagem */}
-          <div className="relative">
-            <div
-              ref={trackRef}
-              style={{ height: trackH ? `${trackH}px` : undefined }}
-              className="sticky top-24 w-2 flex justify-center"
+        {/* ✅ Filtro menor + texto centralizado */}
+        <div className="mt-10 flex justify-center">
+          <div className="relative w-[240px]">
+            <button
+              ref={btnRef}
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-haspopup="listbox"
+              aria-expanded={open}
+              className="
+                w-full
+                rounded-full
+                border border-[#c7b08f]
+                bg-[#faf8f4]
+                px-4 py-2
+                text-sm text-neutral-800
+                shadow-sm
+                transition
+                hover:border-[#b08b4a]
+                hover:shadow
+                focus:outline-none
+                focus:ring-4 focus:ring-[#b08b4a]/15
+                focus:border-[#b08b4a]
+                relative
+              "
             >
-              {/* linha */}
-              <div className="w-[3px] h-full bg-[#e4d7b9] rounded" />
-              {/* marcador */}
-              <div
-                style={{ transform: `translateY(${Math.max(0, y)}px)` }}
-                className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#b9a489] rounded-[4px] shadow-md"
+              {/* texto centralizado de verdade */}
+              <span className="block text-center w-full truncate pr-6">
+                {category}
+              </span>
+
+              {/* setinha à direita sem deslocar o texto */}
+              <span
+                className={`absolute right-4 top-1/2 -translate-y-1/2 text-[#b08b4a] transition-transform ${
+                  open ? "rotate-180" : ""
+                }`}
                 aria-hidden
-              />
-            </div>
+              >
+                ▾
+              </span>
+            </button>
+
+            {open && (
+              <div
+                ref={menuRef}
+                role="listbox"
+                aria-label="Categorias do cardápio"
+                className="
+                  absolute z-50 mt-3 w-full
+                  rounded-2xl
+                  border border-[#e6d8bf]
+                  bg-white/90
+                  backdrop-blur-md
+                  shadow-xl
+                  overflow-hidden
+                "
+              >
+                <ul className="py-2">
+                  {categories.map((c) => {
+                    const active = c === category;
+                    return (
+                      <li key={c}>
+                        <button
+                          type="button"
+                          role="option"
+                          aria-selected={active}
+                          onClick={() => selectCategory(c)}
+                          className={`
+                            w-full text-left px-4 py-2.5 text-sm
+                            transition
+                            flex items-center justify-between
+                            ${
+                              active
+                                ? "bg-[#b08b4a]/10 text-[#7a5d2b] font-medium"
+                                : "text-neutral-800 hover:bg-[#b08b4a]/8"
+                            }
+                          `}
+                        >
+                          <span className="truncate">{c}</span>
+                          {active && (
+                            <span className="text-[#b08b4a]" aria-hidden>
+                              ✓
+                            </span>
+                          )}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* CTAs */}
-        <div className="mt-8 flex justify-evenly">
-          <a
-            href="#"
-            className="px-6 py-3 rounded-2xl bg-[#22775d] text-white hover:brightness-110"
-          >
-            Retire na loja
-          </a>
-          <a
-            href="#"
-            className="px-6 py-3 rounded-2xl bg-[#ee4c58] text-white hover:brightness-110"
-          >
-            Peça no iFood
-          </a>
+        {/* Lista */}
+        <div className="mt-14">
+          <div className="space-y-14">
+            {Object.entries(grouped).map(([section, items]) => (
+              <section key={section}>
+                <h2 className="mb-6 text-xs tracking-[0.35em] text-[#b08b4a]">
+                  {section.toUpperCase()}
+                </h2>
+
+                <ul className="space-y-6">
+                  {items.map((item) => (
+                    <li key={item.id} className="group">
+                      <div className="flex justify-between items-start gap-6">
+                        <div>
+                          <h3 className="font-medium text-neutral-800">
+                            {item.name}
+                          </h3>
+                          <p className="mt-1 text-sm text-neutral-600">
+                            {item.desc}
+                          </p>
+                        </div>
+
+                        <span className="font-medium tabular-nums text-neutral-800">
+                          {Number(item.price).toFixed(0)}
+                        </span>
+                      </div>
+
+                      <div className="mt-5 h-px bg-neutral-200/70" />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
         </div>
       </div>
     </section>

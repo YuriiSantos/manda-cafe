@@ -1,5 +1,5 @@
 import React from "react";
-import bolonhesa from "../assets/Bolonhesa.jpg";
+import prato from "../assets/prato-principal.jpg";
 import casa from "../assets/casa.jpg";
 import bistro from "../assets/bistro.jpg";
 import evento1 from "../assets/eventos-home.jpg";
@@ -22,16 +22,16 @@ function Home() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${bolonhesa})`,
+            backgroundImage: `url(${prato})`,
             backgroundSize: "cover",
-            backgroundPosition: "center 90%",
+            backgroundPosition: "center 70%",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/5 to-[#fffcf8]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/3 to-[#fffcf8]" />
       </section>
 
       <section className="bg-[#fffcf8] text-[#3c3021]">
-        <div className="max-w-5xl mx-auto space-y-0 pb-10">
+        <div className="max-w-5xl mx-auto space-y-0 pb-0">
           {/* BLOCO 1 */}
           <div className="grid md:grid-cols-2 items-stretch md:min-h-[380px]">
             {/* centraliza o CONTEÚDO dentro do bloco */}

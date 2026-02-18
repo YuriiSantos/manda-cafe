@@ -1,21 +1,40 @@
+// src/pages/Events.jsx (ou onde estiver seu componente)
 import casaevents from "../assets/casaevents.jpg";
 import noMandaVoceTem from "../assets/eventos-home.jpg";
 import gravar from "../assets/grava.jpg";
 
 import ocasioes from "../assets/ocasioes.jpeg";
-import eventos01 from "../assets/eventos01.jpg";
-import eventos02 from "../assets/eventos02.jpg";
-import eventos03 from "../assets/eventos03.jpg";
-import eventos04 from "../assets/eventos04.jpg";
-import eventos05 from "../assets/eventos05.jpg";
-import eventos06 from "../assets/eventos06.jpg";
-import eventos07 from "../assets/eventos07.jpg";
-import eventos08 from "../assets/eventos08.jpg";
-import eventos09 from "../assets/eventos09.jpg";
-import eventos10 from "../assets/eventos10.jpg";
-import eventos11 from "../assets/eventos11.jpg";
-import eventos12 from "../assets/eventos12.png";
-import eventos13 from "../assets/eventos13.jpg";
+
+import eventos1 from "../assets/eventos/eventos1.jpg";
+import eventos5_2 from "../assets/eventos/eventos5.2.jpg";
+import eventos5 from "../assets/eventos/eventos5.jpg";
+import eventos9 from "../assets/eventos/eventos9.jpg";
+import eventos11 from "../assets/eventos/eventos11.JPG";
+import eventos12 from "../assets/eventos/eventos12.jpg";
+import eventos13 from "../assets/eventos/eventos13.jpg";
+import eventos14 from "../assets/eventos/eventos14.jpg";
+import eventos15 from "../assets/eventos/eventos15.jpg";
+import eventos16 from "../assets/eventos/eventos16.jpg";
+import eventos17 from "../assets/eventos/eventos17.jpg";
+import eventos17_1 from "../assets/eventos/eventos17-1.jpg";
+import eventos18 from "../assets/eventos/eventos18.jpg";
+import eventos19 from "../assets/eventos/eventos19.jpg";
+import eventos20 from "../assets/eventos/eventos20.jpg";
+import eventos21 from "../assets/eventos/eventos21.jpg";
+import eventos22 from "../assets/eventos/eventos22.jpg";
+import eventos23 from "../assets/eventos/eventos23.jpg";
+import eventos24 from "../assets/eventos/gravacao.jpg";
+
+import video1 from "../assets/eventos/video1.mp4";
+import video2 from "../assets/eventos/video2.mp4";
+import video3 from "../assets/eventos/video3.mp4";
+import video3_1 from "../assets/eventos/video3-1.mp4";
+import video3_2 from "../assets/eventos/video3-2.mp4";
+import video4 from "../assets/eventos/video4.mp4";
+import video4_1 from "../assets/eventos/video4-1.mp4";
+import video5_1 from "../assets/eventos/video5-1.mp4";
+import video6_1 from "../assets/eventos/video6-1.mp4";
+import video9_1 from "../assets/eventos/video9-1.mp4";
 
 import video from "../assets/video.mp4";
 import headerBg from "../assets/header-bg.jpg";
@@ -23,25 +42,32 @@ import headerBg from "../assets/header-bg.jpg";
 import { useEffect, useRef, useState } from "react";
 
 function Events() {
-  const thumbs = [
-    eventos01,
-    eventos02,
-    eventos03,
-    eventos04,
-    eventos05,
-    eventos06,
-    eventos07,
-    eventos08,
-    eventos09,
-    eventos10,
-    eventos11,
-    eventos12,
-    eventos13,
+  const MEDIA = [
+    { type: "video", src: video1 },
+    { type: "video", src: video2 },
+    { type: "video", src: video3 },
+    { type: "video", src: video3_1 },
+    { type: "video", src: video3_2 },
+    { type: "image", src: eventos1 },
+    { type: "video", src: video4 },
+    { type: "video", src: video4_1 },
+    { type: "image", src: eventos5_2 },
+    { type: "image", src: eventos5 },
+    { type: "video", src: video5_1 },
+    { type: "video", src: video6_1 },
+    { type: "image", src: eventos9 },
+    { type: "video", src: video9_1 },
+    { type: "image", src: eventos11 },
   ];
 
   const thumbsRef = useRef(null);
 
-  // ✅ lightbox (popup player)
+  // ✅ ADICIONADO (somente para o carrossel): estados profissionais das setas + índice visível
+  const [thumbIndex, setThumbIndex] = useState(0);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(false);
+
+  // ✅ lightbox (original)
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -53,25 +79,92 @@ function Events() {
   const closeLightbox = () => setIsOpen(false);
 
   const prevImg = () =>
-    setActiveIndex((i) => (i - 1 + thumbs.length) % thumbs.length);
+    setActiveIndex((i) => (i - 1 + MEDIA.length) % MEDIA.length);
 
-  const nextImg = () => setActiveIndex((i) => (i + 1) % thumbs.length);
+  const nextImg = () => setActiveIndex((i) => (i + 1) % MEDIA.length);
 
-  const scrollThumbs = (dir) => {
+  // ✅ NOVO: scroll sempre alinhado (sem chute de gap/tamanho)
+  const scrollToThumb = (idx) => {
     const el = thumbsRef.current;
     if (!el) return;
 
-    const card = el.querySelector("[data-card='thumb']");
-    const gap = 10; // combina com gap-2.5
-    const step = card ? card.clientWidth + gap : 190;
+    const items = el.querySelectorAll("[data-thumb]");
+    const target = items[idx];
+    if (!target) return;
 
-    el.scrollBy({
-      left: dir === "next" ? step * 2 : -step * 2,
+    target.scrollIntoView({
       behavior: "smooth",
+      inline: "start",
+      block: "nearest",
     });
   };
 
-  // ✅ teclado no popup: ESC fecha, setas navegam
+  // ✅ NOVO: setas navegam por 1 item e ficam sempre alinhadas ao snap
+  const scrollThumbs = (dir) => {
+    const next =
+      dir === "next"
+        ? Math.min(thumbIndex + 1, MEDIA.length - 1)
+        : Math.max(thumbIndex - 1, 0);
+
+    setThumbIndex(next);
+    scrollToThumb(next);
+  };
+
+  // ✅ NOVO: habilita/desabilita setas com base no scroll REAL
+  useEffect(() => {
+    const el = thumbsRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      const left = el.scrollLeft;
+
+      const EPS = 8;
+
+      setCanPrev(left > EPS);
+      setCanNext(left < max - EPS);
+    };
+
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+
+    return () => {
+      el.removeEventListener("scroll", update);
+      ro.disconnect();
+    };
+  }, []);
+
+  // ✅ NOVO: mantém thumbIndex correto mesmo quando usuário arrasta com touch/trackpad
+  useEffect(() => {
+    const el = thumbsRef.current;
+    if (!el) return;
+
+    const items = [...el.querySelectorAll("[data-thumb]")];
+    if (!items.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .map((e) => ({
+            idx: Number(e.target.getAttribute("data-thumb")),
+            left: e.boundingClientRect.left,
+          }))
+          .sort((a, b) => a.left - b.left);
+
+        if (visible[0]) setThumbIndex(visible[0].idx);
+      },
+      { root: el, threshold: 0.6 },
+    );
+
+    items.forEach((node) => io.observe(node));
+    return () => io.disconnect();
+  }, [MEDIA.length]);
+
+  // ✅ teclado no popup: ESC fecha, setas navegam (original)
   useEffect(() => {
     if (!isOpen) return;
 
@@ -91,7 +184,9 @@ function Events() {
       window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = prevOverflow;
     };
-  }, [isOpen, thumbs.length]);
+  }, [isOpen]);
+
+  const active = MEDIA[activeIndex];
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -155,13 +250,10 @@ function Events() {
           backgroundPosition: "center",
         }}
       >
-        {/* overlay (igual ideia do header) */}
         <div className="absolute inset-0 bg-black/15" />
 
         <div className="relative mx-auto max-w-7xl px-6 md:px-16 py-8 md:py-10">
-          {/* topo: imagem grande + texto */}
           <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-center min-h-[420px]">
-            {/* imagem grande à esquerda */}
             <div className="pt-2 md:pt-6">
               <h2 className="font-lobster text-5xl font-medium text-white">
                 No Manda você tem:
@@ -180,7 +272,6 @@ function Events() {
               </div>
             </div>
 
-            {/* conteúdo à direita */}
             <div className="overflow-hidden bg-white/10">
               <img
                 src={noMandaVoceTem}
@@ -192,28 +283,25 @@ function Events() {
         </div>
       </section>
 
-      {/* MANDA FESTAS SECTION*/}
+      {/* MANDA FESTAS SECTION */}
       <section
         id="festas"
         className="w-full text-white relative"
-        style={{
-          backgroundColor: "#fffcf8",
-        }}
+        style={{ backgroundColor: "#fffcf8" }}
       >
         <div className="relative mx-auto max-w-7xl px-6 md:px-16 py-8 md:py-10">
-          <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] items-center min-h-[420px]">
-            {/* ✅ VIDEO em formato Instagram 9x16 */}
+          <div className="grid gap-5 items-center min-h-[420px] md:grid-cols-[0.85fr_1.15fr]">
             <div className="flex justify-center">
-              <div className="w-full max-w-[320px] md:max-w-[360px] lg:max-w-[400px] overflow-hidden rounded-2xl bg-white/10 ring-1 ring-black/10">
-                <div className="aspect-[9/16] w-full">
+              <div className="w-full max-w-[320px] md:max-w-[360px] lg:max-w-[300px] overflow-hidden rounded-2xl bg-white/10 ring-1 ring-black/10">
+                <div className="aspect-[9/16] w-full bg-black">
                   <video
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                     src={video}
-                    autoPlay
                     muted
                     loop
                     playsInline
                     controls
+                    preload="metadata"
                   />
                 </div>
               </div>
@@ -223,11 +311,12 @@ function Events() {
               <h2 className="font-lobster text-4xl font-medium tracking-[0.25em] text-[#b08b4a]">
                 Manda Festas
               </h2>
-              <h3 className="mt-4 text-lg font-light leading-snug text-neutral-700">
-                Celebre sonhos <br />e crie memórias
+
+              <h3 className="mt-8 text-lg tracking-[0.25em] text-[#b08b4a]">
+                Celebre sonhos e crie memórias
               </h3>
 
-              <p className="mt-6 text-sm leading-relaxed text-neutral-700">
+              <p className="mt-6 text-sm leading-relaxed text-neutral-700 text-justify">
                 Já pensou em celebrar momentos importantes em uma casa que é{" "}
                 <span className="font-semibold text-neutral-700">
                   PATRIMÔNIO da cidade de São Paulo
@@ -252,52 +341,118 @@ function Events() {
                 Aqui é o lugar ideal para eternizar momentos de afeto, então,
                 não perca tempo e venha nos conhecer!
               </p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Personalizados
+                </span>
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Festa Infantil
+                </span>
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Festa Adulto
+                </span>
+                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
+                  Manda Brasa
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* ✅ SOMENTE ESTA PARTE FOI MODIFICADA (carrossel + popup) */}
+          {/* ✅ CARROSSEL (agora foto + vídeo) */}
           <div className="mt-10 border-t border-black/10 pt-5">
             <div className="relative">
+              {/* ✅ NOVO: fades laterais (só visual, não mexe no layout) */}
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#fffcf8] to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#fffcf8] to-transparent z-10" />
+
               <div
                 ref={thumbsRef}
                 className="
-            flex items-stretch gap-2.5
-            overflow-x-auto scroll-smooth
-            snap-x snap-mandatory
-            py-2
-            [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-          "
+                  flex items-stretch gap-2.5
+                  overflow-x-auto scroll-smooth
+                  snap-x snap-mandatory
+                  py-2
+                  [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+                  overscroll-x-contain
+                  px-1
+                "
               >
-                {thumbs.map((src, idx) => (
+                {MEDIA.map((item, idx) => (
                   <button
                     key={idx}
                     type="button"
-                    data-card="thumb"
+                    data-thumb={idx}
                     onClick={() => openLightbox(idx)}
-                    aria-label={`Abrir imagem ${idx + 1}`}
+                    aria-label={
+                      item.type === "video"
+                        ? `Abrir vídeo ${idx + 1}`
+                        : `Abrir imagem ${idx + 1}`
+                    }
                     className="
-                snap-start shrink-0
-                w-[145px] md:w-[165px] lg:w-[185px]
-                overflow-hidden rounded-2xl
-                bg-white
-                ring-1 ring-black/10
-                shadow-[0_10px_22px_rgba(0,0,0,0.08)]
-                relative
-                hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]
-                transition
-                focus:outline-none focus:ring-2 focus:ring-[#b08b4a]/40
-              "
+                      snap-start shrink-0
+                      w-[145px] md:w-[165px] lg:w-[185px]
+                      overflow-hidden rounded-2xl
+                      bg-white
+                      ring-1 ring-black/10
+                      shadow-[0_10px_22px_rgba(0,0,0,0.08)]
+                      relative
+                      transition
+                      hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.14)]
+                      active:translate-y-0 active:scale-[0.99]
+                      focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b08b4a]/50
+                    "
                   >
                     <div className="aspect-[3/4] w-full relative">
-                      <img
-                        src={src}
-                        alt={`Foto ${idx + 1}`}
-                        className="h-full w-full object-cover select-none"
-                        draggable={false}
-                        loading="lazy"
-                      />
+                      {item.type === "image" ? (
+                        <img
+                          src={item.src}
+                          alt={`Foto ${idx + 1}`}
+                          className="h-full w-full object-cover select-none"
+                          draggable={false}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <>
+                          {/* Thumb do vídeo: usa poster se tiver, senão mostra o próprio vídeo pausado */}
+                          {item.poster ? (
+                            <img
+                              src={item.poster}
+                              alt={`Vídeo ${idx + 1}`}
+                              className="h-full w-full object-cover select-none"
+                              draggable={false}
+                              loading="lazy"
+                            />
+                          ) : (
+                            <video
+                              className="h-full w-full object-cover"
+                              src={item.src}
+                              muted
+                              playsInline
+                              preload="metadata"
+                            />
+                          )}
 
-                      {/* degrade discreto nos cantos */}
+                          {/* ícone play */}
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="h-12 w-12 rounded-full bg-black/45 backdrop-blur ring-1 ring-white/20 flex items-center justify-center transition group-hover:scale-105">
+                              <svg
+                                viewBox="0 0 24 24"
+                                className="h-6 w-6 text-white translate-x-[1px]"
+                                fill="currentColor"
+                                aria-hidden="true"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </>
+                      )}
+
+                      {/* ✅ NOVO: overlay de hover pra dar feedback de clique */}
+                      <div className="pointer-events-none absolute inset-0 opacity-0 hover:opacity-100 transition bg-black/10" />
+
+                      {/* degrade discreto (original) */}
                       <div className="pointer-events-none absolute inset-0">
                         <div className="absolute left-0 top-0 h-16 w-16 bg-gradient-to-br from-black/12 to-transparent" />
                         <div className="absolute right-0 top-0 h-16 w-16 bg-gradient-to-bl from-black/12 to-transparent" />
@@ -309,20 +464,24 @@ function Events() {
                 ))}
               </div>
 
-              {/* setas do carrossel (svg alinhado) */}
+              {/* setas (✅ agora com hover/active/disabled profissional) */}
               <button
                 type="button"
                 onClick={() => scrollThumbs("prev")}
                 aria-label="Anterior"
+                disabled={!canPrev}
                 className="
-            absolute left-2 top-1/2 -translate-y-1/2 z-10
-            h-10 w-10 rounded-full
-            bg-white/90 backdrop-blur
-            ring-1 ring-black/10
-            shadow-lg
-            flex items-center justify-center
-            hover:bg-white transition
-          "
+                  absolute left-2 top-1/2 -translate-y-1/2 z-20
+                  h-11 w-11 rounded-full
+                  bg-white/90 backdrop-blur
+                  ring-1 ring-black/10
+                  shadow-lg
+                  flex items-center justify-center
+                  transition
+                  hover:bg-white hover:shadow-xl hover:scale-[1.03]
+                  active:scale-[0.98]
+                  disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100
+                "
               >
                 <svg
                   aria-hidden="true"
@@ -342,15 +501,19 @@ function Events() {
                 type="button"
                 onClick={() => scrollThumbs("next")}
                 aria-label="Próximo"
+                disabled={!canNext}
                 className="
-            absolute right-2 top-1/2 -translate-y-1/2 z-10
-            h-10 w-10 rounded-full
-            bg-white/90 backdrop-blur
-            ring-1 ring-black/10
-            shadow-lg
-            flex items-center justify-center
-            hover:bg-white transition
-          "
+                  absolute right-2 top-1/2 -translate-y-1/2 z-20
+                  h-11 w-11 rounded-full
+                  bg-white/90 backdrop-blur
+                  ring-1 ring-black/10
+                  shadow-lg
+                  flex items-center justify-center
+                  transition
+                  hover:bg-white hover:shadow-xl hover:scale-[1.03]
+                  active:scale-[0.98]
+                  disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100
+                "
               >
                 <svg
                   aria-hidden="true"
@@ -368,36 +531,34 @@ function Events() {
             </div>
           </div>
 
-          {/* ✅ POPUP / LIGHTBOX (player style) */}
+          {/* ✅ POPUP / LIGHTBOX (foto OU vídeo) */}
           {isOpen && (
             <div
               className="fixed inset-0 z-[9999]"
               aria-modal="true"
               role="dialog"
             >
-              {/* fundo preto */}
               <div
                 className="absolute inset-0 bg-black/90"
                 onClick={closeLightbox}
               />
 
-              {/* conteúdo */}
               <div className="absolute inset-0 flex items-center justify-center p-4 md:p-8">
                 <div className="relative w-full max-w-5xl">
-                  {/* botão fechar */}
+                  {/* fechar */}
                   <button
                     type="button"
                     onClick={closeLightbox}
                     aria-label="Fechar"
                     className="
-                absolute -top-3 -right-3 md:top-2 md:right-2 z-20
-                h-10 w-10 rounded-full
-                bg-white/10 hover:bg-white/15
-                ring-1 ring-white/15
-                backdrop-blur
-                flex items-center justify-center
-                transition
-              "
+                      absolute -top-3 -right-3 md:top-2 md:right-2 z-20
+                      h-10 w-10 rounded-full
+                      bg-white/10 hover:bg-white/15
+                      ring-1 ring-white/15
+                      backdrop-blur
+                      flex items-center justify-center
+                      transition
+                    "
                   >
                     <svg
                       aria-hidden="true"
@@ -414,20 +575,20 @@ function Events() {
                     </svg>
                   </button>
 
-                  {/* setas dentro do popup */}
+                  {/* setas */}
                   <button
                     type="button"
                     onClick={prevImg}
-                    aria-label="Imagem anterior"
+                    aria-label="Anterior"
                     className="
-                absolute left-2 top-1/2 -translate-y-1/2 z-20
-                h-11 w-11 rounded-full
-                bg-white/10 hover:bg-white/15
-                ring-1 ring-white/15
-                backdrop-blur
-                flex items-center justify-center
-                transition
-              "
+                      absolute left-2 top-1/2 -translate-y-1/2 z-20
+                      h-11 w-11 rounded-full
+                      bg-white/10 hover:bg-white/15
+                      ring-1 ring-white/15
+                      backdrop-blur
+                      flex items-center justify-center
+                      transition
+                    "
                   >
                     <svg
                       aria-hidden="true"
@@ -446,16 +607,16 @@ function Events() {
                   <button
                     type="button"
                     onClick={nextImg}
-                    aria-label="Próxima imagem"
+                    aria-label="Próximo"
                     className="
-                absolute right-2 top-1/2 -translate-y-1/2 z-20
-                h-11 w-11 rounded-full
-                bg-white/10 hover:bg-white/15
-                ring-1 ring-white/15
-                backdrop-blur
-                flex items-center justify-center
-                transition
-              "
+                      absolute right-2 top-1/2 -translate-y-1/2 z-20
+                      h-11 w-11 rounded-full
+                      bg-white/10 hover:bg-white/15
+                      ring-1 ring-white/15
+                      backdrop-blur
+                      flex items-center justify-center
+                      transition
+                    "
                   >
                     <svg
                       aria-hidden="true"
@@ -471,19 +632,29 @@ function Events() {
                     </svg>
                   </button>
 
-                  {/* imagem */}
-                  <div className="overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
-                    <img
-                      src={thumbs[activeIndex]}
-                      alt={`Imagem ${activeIndex + 1}`}
-                      className="w-full max-h-[82vh] object-contain bg-black"
-                      draggable={false}
-                    />
+                  {/* conteúdo */}
+                  <div className="overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.6)] bg-black/70">
+                    {active.type === "image" ? (
+                      <img
+                        src={active.src}
+                        alt={`Imagem ${activeIndex + 1}`}
+                        className="w-full max-h-[82vh] object-contain"
+                        draggable={false}
+                      />
+                    ) : (
+                      <video
+                        className="w-full max-h-[82vh] object-contain"
+                        src={active.src}
+                        poster={active.poster}
+                        controls
+                        autoPlay
+                        playsInline
+                      />
+                    )}
                   </div>
 
-                  {/* legenda/contador */}
                   <div className="mt-3 flex items-center justify-center text-white/70 text-sm">
-                    {activeIndex + 1} / {thumbs.length} — aperte ESC para sair
+                    {activeIndex + 1} / {MEDIA.length} — aperte ESC para sair
                   </div>
                 </div>
               </div>
@@ -512,8 +683,8 @@ function Events() {
                 Manda pra Poucos
               </h2>
 
-              <div className="mt-8 space-y-6 text-neutral-700">
-                <p className="text-sm md:text-base leading-relaxed">
+              <div className="mt-8 space-y-6 text-neutral-700 text-justify">
+                <p className="text-sm leading-relaxed">
                   O Manda pra Poucos é a escolha ideal para jantares ou almoços
                   intimistas, pensados para receber de{" "}
                   <strong>15 a 25 pessoas</strong>. Perfeito para aniversários,
@@ -522,14 +693,14 @@ function Events() {
                   o cuidado e as conexões verdadeiras.
                 </p>
 
-                <p className="text-sm md:text-base leading-relaxed">
+                <p className="text-sm leading-relaxed">
                   Criamos um <strong>cardápio personalizado</strong>, com a sua
                   cara e seus desejos — uma comida refinada que acolhe e abraça
                   cada convidado, porque comer bem é ser feliz. O resultado são
                   encontros leves, cheios de afeto, boas risadas e aquele tempo
                   de qualidade que fica na memória.
                 </p>
-                <p className="text-sm md:text-base leading-relaxed">
+                <p className="text-sm leading-relaxed">
                   Manda pra Poucos este convite especial !
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -548,15 +719,10 @@ function Events() {
                   <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
                     Manda Brasa
                   </span>
-
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Manda Sofisticar
-                  </span>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT IMAGE */}
             <div className="flex justify-end">
               <div className="w-full max-w-2xl overflow-hidden bg-black/5">
                 <img
@@ -580,72 +746,54 @@ function Events() {
         </div>
         <div className="mx-auto max-w-7xl px-6 md:px-16 py-14 md:py-20">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            {/* LEFT IMAGE (invertido) */}
             <div className="flex justify-start order-2 md:order-1">
               <div className="w-full max-w-2xl overflow-hidden bg-black/5">
                 <img
-                  src={casaevents}
+                  src={gravar}
                   alt="Manda Filmar - imagem"
                   className="h-[320px] w-full object-cover md:h-[420px] lg:h-[480px]"
                 />
               </div>
             </div>
 
-            {/* RIGHT CONTENT (invertido) */}
             <div className="order-1 md:order-2">
-              <p className="text-sm tracking-[0.25em] text-[#b08b4a]">
-                MANDA FILMAR
-              </p>
-              <div className="mt-3 h-[2px] w-12 bg-[#b08b4a]" />
-
               <h2 className="font-lobster mt-8 text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-[#b08b4a]">
-                Histórias ganham vida aqui
+                Manda Filmar
               </h2>
+              <h3 className="mt-4 text-lg tracking-[0.25em] text-[#b08b4a]">
+                Histórias ganham vida aqui
+              </h3>
 
-              <div className="mt-8 space-y-6 text-neutral-700">
-                <p className="text-sm md:text-base leading-relaxed">
+              <div className="mt-8 space-y-6 text-neutral-700 text-justify">
+                <p className="text-sm leading-relaxed">
                   Nossa casa tombada, patrimônio arquitetônico e cultural de São
                   Paulo, é cenário para contar histórias, criar imagens e dar
                   vida a projetos.
                 </p>
 
-                <p className="text-sm md:text-base leading-relaxed">
-                  O Manda Filmar é a locação do espaço para filmagens, ensaios
-                  fotográficos, produções audiovisuais, campanhas, entrevistas e
-                  gravações.
+                <p className="text-sm leading-relaxed">
+                  O{" "}
+                  <span className="font-semibold text-neutral-700">
+                    Manda Filmar{" "}
+                  </span>
+                  tem como objetivo receber pequenas e médias equipes do
+                  audiovisual, com o intuito de realizarem{" "}
+                  <span className="font-semibold text-neutral-700">
+                    filmagens, ensaios fotográficos, campanhas, entrevistas,
+                    documentários e produções de conteúdo.
+                  </span>
                 </p>
 
-                <p className="text-sm md:text-base leading-relaxed">
+                <p className="text-sm leading-relaxed">
                   Com ambientes versáteis, cheios de identidade, luz natural e
                   um clima acolhedor, o Manda Café Bistrô se adapta a diferentes
                   formatos e necessidades de produção.
                 </p>
 
-                <p className="text-sm md:text-base leading-relaxed">
+                <p className="text-sm leading-relaxed">
                   Aqui, cada canto carrega história, afeto e estética — o
                   cenário perfeito para transformar ideias em imagem.
                 </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Personalizados
-                  </span>
-
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Festa Infantil
-                  </span>
-
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Festa Adulto
-                  </span>
-
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Manda Brasa
-                  </span>
-
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Manda Sofisticar
-                  </span>
-                </div>
               </div>
             </div>
           </div>
