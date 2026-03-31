@@ -37,7 +37,7 @@ function Contact() {
                     className="font-semibold underline underline-offset-4 hover:opacity-80"
                     style={{ color: "#b08b4a" }}
                   >
-                    @mandacafe
+                    @mandacafe_
                   </a>
                 </p>
                 <p className="text-sm md:text-base">

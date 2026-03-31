@@ -1,15 +1,12 @@
-// src/components/Cardapio.jsx
 import { useMemo, useState, useRef, useEffect } from "react";
 import { MENU_ITEMS } from "../datas/menuItems";
 
-// ✅ Troque pelos seus links reais:
 const CARDAPIO_OFICIAL_URL = "https://www.canva.com/pt_br/";
 const IFOOD_URL = "https://www.ifood.com.br/";
 
 export default function Cardapio() {
   const [category, setCategory] = useState("Tudo");
 
-  // ----- Dropdown custom (visual profissional) -----
   const [open, setOpen] = useState(false);
   const btnRef = useRef(null);
   const menuRef = useRef(null);
@@ -68,7 +65,6 @@ export default function Cardapio() {
           Cardápio
         </h1>
 
-        {/* ✅ Botões do topo (menores, sem borda pesada, iFood com toque vermelho) */}
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
           <a
             href={CARDAPIO_OFICIAL_URL}
@@ -141,7 +137,6 @@ export default function Cardapio() {
           Qual será o seu prato favorito?
         </p>
 
-        {/* ✅ Filtro menor + texto centralizado */}
         <div className="mt-10 flex justify-center">
           <div className="relative w-[240px]">
             <button
@@ -167,12 +162,10 @@ export default function Cardapio() {
                 relative
               "
             >
-              {/* texto centralizado de verdade */}
               <span className="block text-center w-full truncate pr-6">
                 {category}
               </span>
 
-              {/* setinha à direita sem deslocar o texto */}
               <span
                 className={`absolute right-4 top-1/2 -translate-y-1/2 text-[#b08b4a] transition-transform ${
                   open ? "rotate-180" : ""
@@ -261,7 +254,6 @@ export default function Cardapio() {
                           {Number(item.price).toFixed(0)}
                         </span>
                       </div>
-
                       <div className="mt-5 h-px bg-neutral-200/70" />
                     </li>
                   ))}

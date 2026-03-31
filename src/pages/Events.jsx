@@ -183,7 +183,6 @@ function Events() {
             </div>
           </div>
 
-          {/* ✅ substitui o bloco gigante do carrossel por isso */}
           <MediaCarousel media={MEDIA_FESTAS} />
         </div>
       </section>
@@ -259,7 +258,6 @@ function Events() {
             </div>
           </div>
 
-          {/* ✅ carrossel Poucos (vai aparecer quando tiver mídia no arquivo data) */}
           <MediaCarousel media={MEDIA_POUCOS} />
         </div>
       </section>
