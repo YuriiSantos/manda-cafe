@@ -1,4 +1,6 @@
 import casaevents from "../assets/casaevents.jpg";
+import pdfCasa from "../assets/pdfs/manda-cafe-a-casa.pdf";
+import pdfHistoria from "../assets/pdfs/manda-cafe-historia-completa.pdf";
 
 function House() {
   return (
@@ -39,6 +41,21 @@ function House() {
                   className="inline-flex items-center rounded-full bg-[#b08b4a] px-5 py-2 text-sm font-semibold text-white transition hover:opacity-90"
                 >
                   nossos valores
+                </a>
+              </div>
+
+              {/* 🔥 PDF DISFARÇADO */}
+              <div className="mt-6">
+                <a
+                  href={pdfCasa}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-3 group"
+                >
+                  <span className="h-px w-10 bg-[#b08b4a] transition-all duration-300 group-hover:w-14" />
+                  <span className="text-sm text-[#b08b4a] opacity-80 group-hover:opacity-100 transition">
+                    ver a história completa
+                  </span>
                 </a>
               </div>
             </div>
@@ -98,6 +115,21 @@ function House() {
                   risadas, aniversários, pequenas comemorações e histórias que
                   viram lembrança boa.
                 </p>
+              </div>
+
+              {/* 🔥 PDF HISTÓRIA DISFARÇADO */}
+              <div className="mt-6">
+                <a
+                  href={pdfHistoria}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-3 group"
+                >
+                  <span className="h-px w-10 bg-[#b08b4a] transition-all duration-300 group-hover:w-14" />
+                  <span className="text-sm text-[#b08b4a] opacity-80 group-hover:opacity-100 transition">
+                    ler a narrativa completa
+                  </span>
+                </a>
               </div>
             </div>
 
@@ -166,15 +198,12 @@ function House() {
         </div>
       </section>
 
-      {/* =========================
-          EXPERIÊNCIA (layout invertido)
-         ========================= */}
+      {/* ========================= EXPERIÊNCIA ========================= */}
       <section className="w-full" style={{ backgroundColor: "#fffcf8" }}>
         <div className="mx-auto max-w-7xl px-6 md:px-16 pb-14 md:pb-20">
           <div className="h-px w-full bg-[#b08b4a]/25 mb-10" />
 
           <div className="grid items-center gap-12 md:grid-cols-2">
-            {/* LEFT IMAGE */}
             <div className="flex justify-start order-2 md:order-1">
               <div className="w-full max-w-2xl overflow-hidden bg-black/5">
                 <img
@@ -185,7 +214,6 @@ function House() {
               </div>
             </div>
 
-            {/* RIGHT TEXT */}
             <div className="order-1 md:order-2">
               <p className="text-sm tracking-[0.25em] text-[#b08b4a]">
                 A EXPERIÊNCIA
@@ -197,28 +225,22 @@ function House() {
               </h2>
 
               <div className="mt-8 space-y-6 text-neutral-700">
-                <p className="text-sm md:text-base leading-relaxed">
+                <p>
                   Aqui, você encontra um ambiente acolhedor, uma equipe atenta e
                   uma cozinha que mistura carinho e cuidado em cada prato.
-                </p>
-
-                <p className="text-sm md:text-base leading-relaxed">
-                  É o lugar perfeito para um café sem pressa, um almoço
-                  especial, um jantar intimista ou um encontro com gente que
-                  você gosta.
                 </p>
               </div>
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <a
                   href="/events"
-                  className="inline-flex items-center rounded-full bg-[#b08b4a] px-5 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+                  className="inline-flex items-center rounded-full bg-[#b08b4a] px-5 py-2 text-sm font-semibold text-white"
                 >
                   ver eventos
                 </a>
                 <a
                   href="/cardapio"
-                  className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-5 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white"
+                  className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-5 py-2 text-sm font-semibold text-[#b08b4a]"
                 >
                   ver cardápio
                 </a>
@@ -228,39 +250,26 @@ function House() {
         </div>
       </section>
 
-      {/* =========================
-          CTA FINAL
-         ========================= */}
+      {/* CTA FINAL */}
       <section className="w-full" style={{ backgroundColor: "#fffcf8" }}>
-        <div className="mx-auto max-w-7xl px-6 md:px-16 pb-16 md:pb-24">
-          <div className="h-px w-full bg-[#b08b4a]/25 mb-10" />
+        <div className="mx-auto max-w-7xl px-6 md:px-16 pb-16 md:pb-24 text-center">
+          <h2 className="font-lobster text-3xl md:text-4xl text-[#b08b4a]">
+            Vem viver o Manda
+          </h2>
 
-          <div className="border border-black/10 bg-white/40 p-8 md:p-10 text-center">
-            <h2 className="font-lobster text-3xl md:text-4xl font-light text-[#b08b4a]">
-              Vem viver o Manda
-            </h2>
-
-            <p className="mt-4 text-neutral-700 text-sm md:text-base leading-relaxed">
-              Se quiser reservar, tirar dúvidas ou planejar um momento especial,
-              chama a gente.
-            </p>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href="/manda-cafe/contact"
-                className="inline-flex items-center rounded-full bg-[#b08b4a] px-6 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
-              >
-                contato
-              </a>
-              <a
-                href="https://wa.me/551198877842"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-6 py-2.5 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white"
-              >
-                WhatsApp
-              </a>
-            </div>
+          <div className="mt-8 flex justify-center gap-3">
+            <a
+              href="/manda-cafe/contact"
+              className="inline-flex items-center rounded-full bg-[#b08b4a] px-6 py-2.5 text-sm font-semibold text-white"
+            >
+              contato
+            </a>
+            <a
+              href="https://wa.me/551198877842"
+              className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-6 py-2.5 text-sm font-semibold text-[#b08b4a]"
+            >
+              WhatsApp
+            </a>
           </div>
         </div>
       </section>
