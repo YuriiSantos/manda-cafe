@@ -323,8 +323,6 @@ function Events() {
               </div>
             </div>
           </div>
-
-          {/* ✅ carrossel Filmar (vai aparecer quando tiver mídia no arquivo data) */}
           <MediaCarousel media={MEDIA_FILMAR} />
         </div>
       </section>
