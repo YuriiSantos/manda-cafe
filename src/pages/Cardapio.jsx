@@ -20,7 +20,7 @@ import pratoc19 from "../assets/cardapio/pratoc19.jpeg";
 import pratoc20 from "../assets/cardapio/pratoc20.jpeg";
 import pratoc21 from "../assets/cardapio/pratoc21.jpeg";
 
-const CARDAPIO_OFICIAL_URL = "https://canva.link/f8q0shgkhy9f7hi";
+const CARDAPIO_OFICIAL_URL = "https://canva.link/8edyk48fpgysb98";
 const delivery = "https://linktr.ee/abednego.rodrigues1";
 
 const carouselImages = [

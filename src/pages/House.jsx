@@ -12,6 +12,38 @@ import adelia from "../assets/house/adelia.png";
 import ap from "../assets/house/ap.png";
 import nelson from "../assets/house/nelson.png";
 import casa1 from "../assets/house/casa1.png";
+import vo from "../assets/house/vo_fabio.png";
+import festa from "../assets/house/festa.png";
+
+import marilda from "../assets/house/marilda.png";
+import izelte from "../assets/house/izelte.png";
+import marildaM from "../assets/house/marilda_marinheiros.png";
+
+import casamento1 from "../assets/house/casamento1.png";
+import casamento2 from "../assets/house/casamento2.png";
+import casamento3 from "../assets/house/casamento3.png";
+import casamento4 from "../assets/house/casamento4.png";
+
+import cristina from "../assets/house/cristina.png";
+
+import marilda_cris from "../assets/house/marilda_cristina.png";
+import adelia_cris from "../assets/house/adelia_cristina.png";
+import josefina_cris from "../assets/house/josefina_cristina.png";
+
+import filhos1 from "../assets/house/filhos1.png";
+import filhos2 from "../assets/house/filhos2.png";
+
+import marilda_representante from "../assets/house/marilda_representante.png";
+import marilda_gerente from "../assets/house/marilda_gerente.png";
+import marilda_monte from "../assets/house/marilda_monte.png";
+
+import raphael from "../assets/house/raphael.png";
+import raphael_oito from "../assets/house/raphael_oito.png";
+
+import cacto from "../assets/house/cacto.png";
+
+import decora1 from "../assets/house/decora1.png";
+import logo from "../assets/house/logo.png";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
@@ -794,8 +826,15 @@ function House() {
                   janeiro de 1930; vice-presidente de 11 de janeiro de 1931 a 12
                   de fevereiro de 1932; e membro do Conselho Administrativo de
                   10 de janeiro de 1926 a 8 de janeiro de 1928 e de 12 de
-                  fevereiro de 1931 a 12 de fevereiro de 1933.” FONTE. Antonio
-                  Maria Duque – RM Rio Preto
+                  fevereiro de 1931 a 12 de fevereiro de 1933.” FONTE.{" "}
+                  <a
+                    href="https://rmriopreto.com.br/antonio-maria-duque/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Antonio Maria Duque – RM Rio Preto
+                  </a>
                 </p>
               </div>
             </div>
@@ -828,14 +867,6 @@ function House() {
 
                 <p className="mt-6 text-base md:text-lg leading-8 text-justify">
                   Foto: Adélia , Mercedes, Josefina e Antônio Maria Em 1936/1937
-                </p>
-
-                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
-                  Adélia se casa com Mario Abrigato em Rio Preto e tem dois
-                  filhos: Marinaldo Abrigato (1938) e Marilda Abrigato nascida
-                  em 29/03/1940, atual dona da casa tombada, lar do Manda Café
-                  Bistrô. Coincidências da vida, Marilda nasceu no mesmo ano que
-                  é construída a casa que décadas depois se tornaria o Manda.
                 </p>
               </div>
             </div>
@@ -920,8 +951,15 @@ function House() {
                   resultado o vice-campeonato paulista de 1986, ocasião em que a
                   equipe perdeu a final para a Inter de Limeira. Durante sua
                   gestão foi construído o Ginásio Adalberto Mendes e iniciadas
-                  as obras da Academia de Futebol”. Fonte: Nelson Duque - Que
-                  fim levou? - Terceiro Tempo
+                  as obras da Academia de Futebol”. Fonte:{" "}
+                  <a
+                    href="https://terceirotempo.uol.com.br/que-fim-levou/nelson-duque"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Nelson Duque - Que fim levou? - Terceiro Tempo
+                  </a>
                 </p>
               </div>
             </div>
@@ -964,6 +1002,591 @@ function House() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="mx-auto mt-20 max-w-6xl">
+            <div className="mb-10 text-center">
+              <p className="text-sm tracking-[0.28em] uppercase text-[#b08b4a]">
+                MEMÓRIAS DA CASA
+              </p>
+              <div className="mx-auto mt-4 h-[2px] w-14 bg-[#b08b4a]" />
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <figure className="group overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={casa1}
+                    alt="Frente da Casa 1956"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="border-t border-[#b08b4a]/20 px-5 py-4">
+                  <p className="text-sm uppercase tracking-[0.18em] text-[#b08b4a]">
+                    Frente da Casa
+                  </p>
+                  <p className="mt-1 text-sm text-neutral-600">1956</p>
+                </figcaption>
+              </figure>
+
+              <figure className="group overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={vo}
+                    alt="Vô Fábio com 4 anos de idade"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="border-t border-[#b08b4a]/20 px-5 py-4">
+                  <p className="text-sm uppercase tracking-[0.18em] text-[#b08b4a]">
+                    Vô Fábio
+                  </p>
+                  <p className="mt-1 text-sm text-neutral-600">
+                    Com 4 anos de idade
+                  </p>
+                </figcaption>
+              </figure>
+
+              <figure className="group overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={festa}
+                    alt="Festa de 60 Anos Antônio Maria Duque"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="border-t border-[#b08b4a]/20 px-5 py-4">
+                  <p className="text-sm uppercase tracking-[0.18em] text-[#b08b4a]">
+                    Festa de 60 Anos
+                  </p>
+                  <p className="mt-1 text-sm text-neutral-600">
+                    Antônio Maria Duque
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          {/* BLOCO 11 */}
+          <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="w-full order-2 md:order-1">
+              <div className="mx-auto max-w-2xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  Marilda morou com o avô por muitos anos e desenvolveu uma
+                  relação próxima, mas em 1958 ganha uma viagem de Duque, mas em
+                  troca ela não se casaria com o sujeito amado da casa da
+                  frente. Marildinha não pensou duas vezes e foi conhecer a
+                  Europa e ver um pouco do mundo… (mal sabia ela que seria a
+                  primeira e última viagem dela para o continente europeu, eu
+                  considero moça a frente do seu tempo.)
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  Conversando com ela, este rapaz foi o grande amor de sua vida,
+                  mas compreende que foi um amor jovem, mas ela não se arrepende
+                  de sua escolha.
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  No navio foram batizadas ao passar pela linha do Equador e na
+                  segunda foto ela sentou ao lado dos pescadores, e conta que
+                  todos riam.
+                </p>
+              </div>
+            </div>
+
+            <div className="order-1 md:order-2">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <img
+                      src={marilda}
+                      alt="Vó Marilda"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="px-4 py-3 text-sm text-neutral-600">
+                    Vó Marilda
+                  </figcaption>
+                </figure>
+
+                <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <img
+                      src={izelte}
+                      alt="Vó Izelte"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="px-4 py-3 text-sm text-neutral-600">
+                    Vó Izelte
+                  </figcaption>
+                </figure>
+
+                <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)] sm:col-span-2">
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img
+                      src={marildaM}
+                      alt="Marilda com Marinheiros"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="px-4 py-3 text-sm text-neutral-600">
+                    Marilda com Marinheiros
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          {/* BLOCO 12 */}
+          <div className="mx-auto mt-20">
+            <div className="mb-10 text-center">
+              <div className="mx-auto mt-4 h-[2px] w-14 bg-[#b08b4a]" />
+            </div>
+
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div className="mx-auto max-w-2xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  Em 1965 Marilda se casa com Amaury Fagundes Carvalho, (e
+                  adivinhem onde ela se casa? Aqui… a casa é toda decorada e
+                  recebe sua festa de casamento)
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <img
+                  src={casamento1}
+                  alt="Foto do casamento"
+                  className="h-72 w-full rounded-sm object-cover shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+                <img
+                  src={casamento2}
+                  alt="Foto do casamento"
+                  className="h-72 w-full rounded-sm object-cover shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+                <img
+                  src={casamento3}
+                  alt="Foto do casamento"
+                  className="h-72 w-full rounded-sm object-cover shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+                <img
+                  src={casamento4}
+                  alt="Foto do casamento"
+                  className="h-72 w-full rounded-sm object-cover shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* BLOCO 13 */}
+          <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-xl">
+                <img
+                  src={cristina}
+                  alt="Cristina"
+                  className="h-auto w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+                <div className="absolute -bottom-5 left-5 right-5 bg-[#fffcf8]/95 px-5 py-4 shadow-[0_12px_36px_rgba(0,0,0,0.12)]">
+                  <p className="text-sm tracking-[0.18em] uppercase text-[#b08b4a]">
+                    Cristina
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full">
+              <div className="mx-auto max-w-2xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  No mesmo ano o casal retorna para a cidade natal de ambos, Rio
+                  Preto. O motivo era o trabalho de Amaury, vendedor de óleo de
+                  carro e viajante. Marilda engravida em 1967 e retorna para a
+                  casa de sua avó, assim Josefina e sua mãe lhe deram suporte
+                  durante toda a maternidade, sua primeira gravides foi de risco
+                  e passou meses de repouso, no entanto o parto é um sucesso e
+                  sua primeira filha nasce, Cristina.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* BLOCO 14 */}
+          <div className="mx-auto mt-20 max-w-6xl">
+            <div className="grid gap-6 md:grid-cols-3">
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={marilda_cris}
+                    alt="Marilda e Cristina"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Marilda e Cristina
+                </figcaption>
+              </figure>
+
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={adelia_cris}
+                    alt="Adélia e Cristina"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Adélia e Cristina
+                </figcaption>
+              </figure>
+
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={josefina_cris}
+                    alt="Josefina e Cristina"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Josefina e Cristina
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          {/* BLOCO 15 */}
+          <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="w-full order-2 md:order-1">
+              <div className="mx-auto max-w-2xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  Ainda em 1967 Marilda se muda para o bairro Moema, pois o
+                  marido Amaury abre um posto de gasolina na Rua Canários no
+                  bairro, atividade que passa a ser o sustento da família.
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  Em 1967 morre nosso tataravô, Antônio Maria Duque, por motivo
+                  de infarto, e em 1970 morre nosso bisavô, Mário Abrigato por
+                  acidente de trânsito.
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  Neste cenário, as matriarcas Josefina e Adélia se tornam
+                  viúvas, e Marilda retorna em 1971 para a Germaine com seu
+                  marido e três filhos, seu objetivo maior era cuidar e dar
+                  suporte emocional para a mãe e avó.
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  Após a morte de Mário, Adélia entra em depressão profunda e
+                  sofre um infarto em 1974.
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  O posto de gasolina gerido por Amauri, quebra, e ele passa a
+                  trabalhar para o tio de Marilda, Nelson, na joalheria Duque.
+                </p>
+              </div>
+            </div>
+
+            <div className="order-1 md:order-2 flex justify-center">
+              <img
+                src={nelson}
+                alt="Família no Parque da Água Branca"
+                className="h-auto w-full max-w-xl rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+              />
+            </div>
+          </div>
+
+          {/* BLOCO 16 */}
+          <div className="mx-auto mt-20 grid max-w-6xl items-start gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="w-full">
+              <div className="mx-auto max-w-xl">
+                <img
+                  src={filhos1}
+                  alt="Filhos no Parque da Água Branca"
+                  className="h-auto w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+
+                <div className="mt-10 text-neutral-700">
+                  <p className="text-base md:text-lg leading-8 text-justify">
+                    Marilda vivia um momento extremamente delicado: criava três
+                    filhos — Maria Cristina (1967), Marcelo (1968) e Daniela
+                    (1970) — contando com o apoio da avó, ao mesmo tempo em que
+                    também era seu amparo emocional, enquanto o marido se
+                    reinseriu no trabalho. Diante da necessidade de contribuir
+                    financeiramente, deu início à sua trajetória profissional
+                    fora de casa como sacoleira de joias na Joias Duque. Mais
+                    tarde, assumiu a gerência de uma loja de sapatos, onde
+                    permaneceu por seis anos. Em seguida, retornou à Joias Duque
+                    — então com a fábrica já instalada em Manaus —, passando a
+                    atuar como representante comercial em São Paulo, função que
+                    desempenhou por uma década.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex w-full justify-center">
+              <img
+                src={filhos2}
+                alt="Filhos no Parque da Água Branca"
+                className="h-auto max-h-[760px] w-auto max-w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+              />
+            </div>
+          </div>
+
+          {/* BLOCO 17 */}
+          <div className="mx-auto mt-20 max-w-6xl">
+            <div className="grid gap-6 md:grid-cols-3">
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                  <img
+                    src={marilda_representante}
+                    alt="Marilda representante das Joias Duque"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Marilda representante das Joias Duque
+                </figcaption>
+              </figure>
+
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                  <img
+                    src={marilda_gerente}
+                    alt="Marilda gerente da loja de sapatos e bolsas"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Marilda gerente da loja de sapatos e bolsas
+                </figcaption>
+              </figure>
+
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                  <img
+                    src={marilda_monte}
+                    alt="Marilda na Monte Cristo"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Marilda na Monte Cristo
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          {/* BLOCO 18 */}
+          <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="w-full order-2 md:order-1">
+              <div className="mx-auto max-w-2xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  Em 1987 Daniela, filha caçula de Marilda engravida e em 1988
+                  nasce Raphael, o único neto de Marilda e criador do Manda Café
+                  Bistrô.
+                </p>
+              </div>
+            </div>
+
+            <div className="order-1 md:order-2">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                  <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                    <img
+                      src={raphael}
+                      alt="Aniversário de 1 anos do Raphael"
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                    Aniversário de 1 anos do Raphael
+                  </figcaption>
+                </figure>
+
+                <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                  <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                    <img
+                      src={raphael_oito}
+                      alt="Festa de Natal aos 8 anos de Raphael"
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                    Festa de Natal aos 8 anos de Raphael
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          {/* BLOCO 19 */}
+          <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="flex justify-center">
+              <img
+                src={cacto}
+                alt="Cacto"
+                className="h-auto w-full max-w-xl rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+              />
+            </div>
+
+            <div className="w-full">
+              <div className="mx-auto max-w-2xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  Em 2000, Marilda iniciou seus trabalhos para a MONTE CRISTO
+                  JOALHEIROS e foi dispensada em 2018, após 18 anos de trabalho
+                  a loja fechou e seu desligamento foi inevitável aos 78 anos.
+                  Raphael aos 22 anos inicia um processo de burnout e volta a
+                  morar na casa em que nasceu. Descobre respiro na arte para se
+                  expressar e passou a pintar quadros e plantar mudas no cacto,
+                  se encontrando com sua espiritualidade e essência.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* BLOCO 20 */}
+          <div className="mx-auto mt-20 max-w-6xl">
+            <div className="grid items-start gap-10 md:grid-cols-2 lg:gap-16">
+              <div className="w-full">
+                <div className="mx-auto max-w-2xl text-neutral-700">
+                  <p className="text-base md:text-lg leading-8 text-justify">
+                    Durante três anos, sua amiga Fernanda Motta morou na edícula
+                    da casa,FOTO FERNANDA + SITE uma artista extremamente
+                    sensível e criativa, ela seria uma grande inspiração para as
+                    pinturas que Raphael faria… e futuramente se tornaria a
+                    designer gráfica do Manda Café Bistrô. (Te amamos Fê!).
+                  </p>
+
+                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                    Mas em 2018 tudo muda, quando em uma conversa com a vó
+                    Marilda, ela desabafa, se abrindo e sendo clara, “estou mal
+                    meu neto”. Depois de anos trabalhando e em movimento até
+                    seus 78 anos, era natural que a mudança repentina lhe
+                    deixasse baqueada. Raphael como uma fênix, sai da sua bat
+                    garagem, ao retornar para casa de sua avó, ele adaptou a
+                    garagem.. rsrsrs.. esta que se tornaria o garaloft.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid gap-6">
+                <img
+                  src={decora1}
+                  alt="Decora GNT"
+                  className="h-auto w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+
+                <div className="border-l-2 border-[#b08b4a]/40 pl-5">
+                  <p className="text-sm md:text-base text-neutral-700">
+                    Assista o episódio DECORA - GNT
+                  </p>
+                  <a
+                    href="http://bit.ly/3Qlkfv5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-block text-sm md:text-base text-blue-600 underline underline-offset-4 hover:text-blue-800"
+                  >
+                    DECORA - GNT | Vídeos e Filmes no Vimeo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-20 grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+              <div className="flex justify-center">
+                <div className="w-full max-w-md">
+                  <img
+                    src={logo}
+                    alt="Logo Manda Café"
+                    className="h-auto w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                  />
+
+                  <p className="mt-4 text-center text-xs uppercase tracking-[0.24em] text-[#b08b4a]">
+                    LOGO MANDA CAFÉ
+                  </p>
+                </div>
+              </div>
+
+              <div className="w-full">
+                <div className="mx-auto max-w-2xl text-neutral-700">
+                  <p className="text-base md:text-lg leading-8 text-justify">
+                    E assim desenvolve todo o plano para criar o Manda Café e
+                    trazer vida e brilho nos olhos, para sua vó e pra si mesmo.
+                  </p>
+
+                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                    Em 2019 inicia as obras na casa para a criação do Manda
+                    Café, tudo pronto para abrir as portas, com sete
+                    funcionários treinados, seria sim o novo grande
+                    empreendimento da família.
+                  </p>
+
+                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                    Abriram a casa e o espaço sempre elogiado, vó Marilda e
+                    Raphael revitalizam e o sorriso no rosto ganha espaço! E a
+                    turbulência da pandemia aparece atormentando uma nação
+                    inteira. ( É… a vida é mesmo um jogo desafiador!)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-20 grid items-start gap-10 md:grid-cols-2 lg:gap-16">
+              <div className="w-full order-2 md:order-1">
+                <div className="mx-auto max-w-2xl text-neutral-700">
+                  <p className="text-base md:text-lg leading-8 text-justify">
+                    Neste mesmo ano o Manda não consegue manter sua equipe
+                    inicial, e reduz drasticamente para apenas os integrantes da
+                    família. Raphael na administração e como garçom, Daniela
+                    assumindo a cozinha, Vó Marilda nos detalhes de reposição e
+                    arrumação do espaço e Tia Cristina na decoração, se tornando
+                    um lugar que sobreviveu através da persistência.
+                  </p>
+
+                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                    Em 2023 surge a parceria entre Raphael e Mayara Dornas, e
+                    inauguram o Manda Bar, com o sonho de fazer desse espaço uma
+                    casa que movimente a energia da alegria, do amor, da
+                    transformação, da arte e do teatro. Dornas é atriz e com o
+                    desejo do encontro é que o espaço passa a ganhar formato de
+                    “eventos particulares” e “ocasiões especiais”, oferecendo ao
+                    público um espaço exclusivo e um menu personalizado.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-20 max-w-5xl border-t border-[#b08b4a]/20 pt-12">
+              <div className="mx-auto max-w-3xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  Atualmente seguimos com mais parceiros na equipe do Manda, no
+                  entanto, ainda somos uma estrutura pequena e gerida pela
+                  família, e é neste momento que o Bistrô entra em cena e
+                  passamos a ser nominados como MANDA CAFÉ BISTRÔ.
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  Criamos este site como um registro histórico da família e como
+                  agradecimento aos nossos ancestrais que se foram e aos
+                  familiares que ainda estão conosco. Valorizar histórias é
+                  fundamental para entendermos de onde viemos e para onde
+                  queremos caminhar.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* FECHAMENTO VISUAL */}
+          <div className="mx-auto mt-24 max-w-5xl border-y border-[#b08b4a]/20 py-12 text-center">
+            <p className="font-lobster text-3xl md:text-4xl text-[#b08b4a]">
+              Muito obrigada à você que chegou até aqui!!! Esperamos te conhecer
+              em breve, para que possamos trocar e contar histórias.
+            </p>
           </div>
         </div>
       </section>
