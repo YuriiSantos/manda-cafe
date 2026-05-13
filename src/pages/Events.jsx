@@ -166,19 +166,28 @@ function Events() {
                 não perca tempo e venha nos conhecer!
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Personalizados
-                </span>
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Festa Infantil
-                </span>
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Festa Adulto
-                </span>
-                <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                  Manda Brasa
-                </span>
+              <div className="mt-8 border-l-2 border-[#b95f39] pl-5">
+                <p className="font-lobster text-2xl md:text-3xl font-medium text-[#b95f39]">
+                  O que o Manda manda bem?
+                </p>
+
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                  <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                    Personalizados
+                  </p>
+
+                  <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                    Festa Infantil
+                  </p>
+
+                  <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                    Festa Adulto
+                  </p>
+
+                  <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                    Manda Brasa
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -227,22 +236,28 @@ function Events() {
                 <p className="text-sm leading-relaxed">
                   Manda pra Poucos este convite especial !
                 </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Personalizados
-                  </span>
+                <div className="mt-8 border-l-2 border-[#b95f39] pl-5">
+                  <p className="font-lobster text-2xl md:text-3xl font-medium text-[#b95f39]">
+                    O que o Manda manda bem?
+                  </p>
 
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Festa Infantil
-                  </span>
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                      Personalizados
+                    </p>
 
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Festa Adulto
-                  </span>
+                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                      Festa Infantil
+                    </p>
 
-                  <span className="inline-flex items-center rounded-full border border-[#b08b4a]/40 px-4 py-2 text-sm font-semibold text-[#b08b4a] transition hover:bg-[#b08b4a] hover:text-white">
-                    Manda Brasa
-                  </span>
+                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                      Festa Adulto
+                    </p>
+
+                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                      Manda Brasa
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

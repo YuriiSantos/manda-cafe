@@ -1,52 +1,57 @@
-// Sidebar.jsx
 import { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
+
+import SidebarBg from "../../assets/header-bg.jpg";
+import FotoCasaManda from "../../assets/fotocasamandaart.png";
+import LogoManda from "../../assets/logo.png";
+
 import {
   Home,
   ChefHat,
   NotebookText,
   CalendarCheck,
   CalendarDays,
-  Images,
-  Users,
   Mail,
   X,
+  Snowflake,
 } from "lucide-react";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
+
   const openMenu = useCallback(() => setOpen(true), []);
   const closeMenu = useCallback(() => setOpen(false), []);
+
   const { pathname } = useLocation();
 
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && closeMenu();
+
     document.addEventListener("keydown", onKey);
+
     return () => document.removeEventListener("keydown", onKey);
   }, [closeMenu]);
 
   const is = (p) => pathname === p;
 
-  const Item = ({ to, icon: Icon, label, active, badge }) => (
+  const Item = ({ to, icon: Icon, label, active }) => (
     <Link
       to={to}
       onClick={closeMenu}
       className={[
-        "group relative flex items-center gap-3 rounded-xl px-4 py-3",
-        "font-medium tracking-wide transition-all duration-300",
+        "group relative flex items-center gap-3 rounded-2xl px-4 py-3",
+        "font-raleway text-[15px] font-semibold tracking-wide",
+        "transition-all duration-300",
         "text-white",
-        active ? "bg-white/20 border border-white/30" : "hover:bg-white/10",
+        active
+          ? "bg-white/20 border border-white/45 shadow-sm"
+          : "hover:bg-white/10",
       ].join(" ")}
     >
-      <Icon className="w-5 h-5 text-white" strokeWidth={1.7} />
-      <span className="flex-1 leading-tight whitespace-nowrap">{label}</span>
+      <Icon className="w-5 h-5 text-white shrink-0" strokeWidth={1.8} />
 
-      {typeof badge === "number" && (
-        <span className="ml-auto rounded-full text-xs px-2 py-0.5 bg-white/20 text-white">
-          {badge}
-        </span>
-      )}
+      <span className="flex-1 leading-tight whitespace-nowrap">{label}</span>
 
       <span
         className={[
@@ -62,7 +67,7 @@ export default function Sidebar() {
     <>
       <div
         onClick={closeMenu}
-        className={`fixed inset-0 z-[9998] bg-black/40 transition-opacity ${
+        className={`fixed inset-0 z-[9998] bg-black/40 transition-opacity duration-300 ${
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -73,18 +78,55 @@ export default function Sidebar() {
         role="dialog"
         aria-modal="true"
         aria-label="Menu lateral"
-        className={`fixed inset-y-0 left-0 z-[10000] w-80 max-w-[85vw] bg-[#a59679] shadow-xl transition-transform duration-300 ease-out ${
+        className={`fixed inset-y-0 left-0 z-[10000] w-[300px] max-w-[84vw] shadow-2xl overflow-hidden transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
+        style={{
+          backgroundImage: `url(${SidebarBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
-        <div className="relative h-full flex flex-col text-white">
-          <div className="flex items-center justify-between px-5 py-4">
-            <span className="text-[25px] font-semibold tracking-wide">
-              Menu
-            </span>
+        <div className="absolute inset-0 z-[1] bg-[#8f7b5f]/10" />
+
+        <img
+          src={FotoCasaManda}
+          alt=""
+          aria-hidden="true"
+          className="
+            pointer-events-none absolute z-[2]
+            left-1/2 bottom-0
+            w-[145%] max-w-none
+            -translate-x-1/2
+            opacity-75
+          "
+        />
+
+        <div className="absolute inset-0 z-[3] bg-gradient-to-b from-black/5 via-transparent to-black/10" />
+
+        <div className="relative z-[10] h-full flex flex-col text-white">
+          <div className="flex items-center justify-between px-5 pt-5 pb-6">
+            <Link
+              to="/"
+              onClick={closeMenu}
+              aria-label="Ir para a página inicial"
+              className="flex items-center gap-4"
+            >
+              <img
+                src={LogoManda}
+                alt="Manda Café"
+                className="h-[100px] w-[80px] object-contain drop-shadow-lg"
+              />
+
+              <span className="font-raleway text-[24px] font-semibold tracking-wide drop-shadow-sm">
+                Menu
+              </span>
+            </Link>
+
             <button
               onClick={closeMenu}
-              className="rounded-md p-2 hover:bg-white/10 transition-colors"
+              className="rounded-full p-2 hover:bg-white/15 transition-colors"
               aria-label="Fechar menu"
               type="button"
             >
@@ -92,43 +134,58 @@ export default function Sidebar() {
             </button>
           </div>
 
-          <nav className="relative p-4 space-y-1">
-            <Item to="/" icon={Home} label="Inicio" active={is("/")} />
+          <nav className="relative z-[20] px-4 space-y-2">
+            <Item to="/" icon={Home} label="Início" active={is("/")} />
+
             <Item
               to="/events"
               icon={CalendarDays}
               label="Eventos"
               active={is("/events")}
             />
+
             <Item
               to="/cardapio"
               icon={NotebookText}
               label="Cardápio"
               active={is("/cardapio")}
             />
+
+            <Item
+              to="/frozen"
+              icon={Snowflake}
+              label="Congelados"
+              active={is("/frozen")}
+            />
+
             <Item
               to="/gallery"
               icon={ChefHat}
               label="Galeria"
               active={is("/gallery")}
             />
-          </nav>
 
-          <div className="mx-4 my-2 h-px bg-white/30" />
+            <div className="my-5 h-px bg-white/30" />
 
-          <nav className="relative px-4 pb-4 space-y-1">
             <Item
               to="/house"
               icon={CalendarCheck}
               label="A casa"
               active={is("/house")}
             />
+
             <Item
               to="/contact"
               icon={Mail}
               label="Contato"
               active={is("/contact")}
             />
+
+            <div className="pt-14">
+              <p className="font-raleway text-[11px] tracking-[0.18em] text-white/90 uppercase text-center drop-shadow-sm">
+                Manda Café
+              </p>
+            </div>
           </nav>
         </div>
       </aside>
@@ -144,11 +201,10 @@ export default function Sidebar() {
         type="button"
       >
         <div className="flex flex-col gap-1">
-          {/* barras consistentes em todos os breakpoints */}
-          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
-          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
-          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
-          <span className="w-7 md:w-8 h-1 bg-white rounded-full"></span>
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full" />
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full" />
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full" />
+          <span className="w-7 md:w-8 h-1 bg-white rounded-full" />
         </div>
       </button>
 

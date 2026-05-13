@@ -14,6 +14,7 @@ import nelson from "../assets/house/nelson.png";
 import casa1 from "../assets/house/casa1.png";
 import vo from "../assets/house/vo_fabio.png";
 import festa from "../assets/house/festa.png";
+import revista from "../assets/house/revista.png";
 
 import marilda from "../assets/house/marilda.png";
 import izelte from "../assets/house/izelte.png";
@@ -538,7 +539,7 @@ function House() {
           </div>
 
           {/* BLOCO 1 */}
-          <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.08fr_0.92fr] lg:gap-16">
             <div className="w-full">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
@@ -553,7 +554,7 @@ function House() {
                   a longevidade que o Manda preserva com tanto carinho.
                 </p>
 
-                <div className="mt-8 border-l-2 border-[#b08b4a]/40 pl-5">
+                <div className="mt-8 mb-4 border-l-2 border-[#b08b4a]/40 pl-5">
                   <p className="text-sm md:text-base text-neutral-700">
                     História:{" "}
                     <a
@@ -565,12 +566,21 @@ function House() {
                       Revista Acrópole
                     </a>
                   </p>
+
                   <p className="mt-2 text-sm text-neutral-500">Página 295</p>
+                </div>
+
+                <div className="mt-5">
+                  <img
+                    src={revista}
+                    alt="Manda Café"
+                    className="h-auto w-full max-w-md rounded-sm object-contain"
+                  />
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center md:justify-end md:pt-8">
               <div className="w-full max-w-md">
                 <VideoThumb
                   onClick={() => setOpenVideo(true)}
@@ -735,7 +745,7 @@ function House() {
               <img
                 src={antonio}
                 alt="Retrato de Antônio Maria Duque e Josefina"
-                className="h-auto w-full max-w-xl rounded-sm object-contain"
+                className="h-auto w-full max-w-md rounded-sm object-contain"
               />
             </div>
 
@@ -778,7 +788,7 @@ function House() {
               <img
                 src={josefina}
                 alt="Família em São Paulo e contexto da Joalheria Duque"
-                className="h-auto w-full max-w-xl rounded-sm object-contain"
+                className="h-auto w-full max-w-md rounded-sm object-contain"
               />
             </div>
           </div>
@@ -789,7 +799,7 @@ function House() {
               <img
                 src={tataravo}
                 alt="Fachada histórica da casa"
-                className="h-auto w-full max-w-xl rounded-sm object-contain"
+                className="h-auto w-full max-w-sm rounded-sm object-contain"
               />
             </div>
 
@@ -1300,14 +1310,20 @@ function House() {
           </div>
 
           {/* BLOCO 16 */}
-          <div className="mx-auto mt-20 grid max-w-6xl items-start gap-10 md:grid-cols-2 lg:gap-16">
+          <div className="mx-auto mt-20 mb-30 grid max-w-6xl items-start gap-10 md:grid-cols-2 lg:gap-16">
             <div className="w-full">
               <div className="mx-auto max-w-xl">
-                <img
-                  src={filhos1}
-                  alt="Filhos no Parque da Água Branca"
-                  className="h-auto w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
-                />
+                <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                  <img
+                    src={filhos1}
+                    alt="Filhos no Parque da Água Branca"
+                    className="h-auto w-full object-contain"
+                  />
+
+                  <figcaption className="px-5 py-4 text-sm md:text-base text-neutral-700">
+                    Filhos no Parque da Água Branca
+                  </figcaption>
+                </figure>
 
                 <div className="mt-10 text-neutral-700">
                   <p className="text-base md:text-lg leading-8 text-justify">
@@ -1324,16 +1340,33 @@ function House() {
                     atuar como representante comercial em São Paulo, função que
                     desempenhou por uma década.
                   </p>
+
+                  <div className="mt-6 border-l-2 border-[#b08b4a]/40 pl-5">
+                    <a
+                      href="https://www.parqueaguabranca.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm md:text-base text-[#8f6d34] underline underline-offset-4 transition hover:text-[#b08b4a]"
+                    >
+                      Conheça o Parque da Água Branca atualmente
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="flex w-full justify-center">
-              <img
-                src={filhos2}
-                alt="Filhos no Parque da Água Branca"
-                className="h-auto max-h-[760px] w-auto max-w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
-              />
+              <figure className="inline-block overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <img
+                  src={filhos2}
+                  alt="Filhos no Parque da Água Branca"
+                  className="h-auto max-h-[760px] w-auto max-w-full object-contain"
+                />
+
+                <figcaption className="px-5 py-4 text-sm md:text-base text-neutral-700">
+                  Parque da Água Branca
+                </figcaption>
+              </figure>
             </div>
           </div>
 
@@ -1341,40 +1374,43 @@ function House() {
           <div className="mx-auto mt-20 max-w-6xl">
             <div className="grid gap-6 md:grid-cols-3">
               <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-                <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                <div className="h-[320px] overflow-hidden rounded-sm bg-[#fffcf8]">
                   <img
                     src={marilda_representante}
                     alt="Marilda representante das Joias Duque"
-                    className="max-h-full max-w-full object-contain"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+
+                <figcaption className="px-5 pt-3 pb-4 text-sm text-neutral-600">
                   Marilda representante das Joias Duque
                 </figcaption>
               </figure>
 
               <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-                <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                <div className="h-[320px] overflow-hidden rounded-sm bg-[#fffcf8]">
                   <img
                     src={marilda_gerente}
                     alt="Marilda gerente da loja de sapatos e bolsas"
-                    className="max-h-full max-w-full object-contain"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+
+                <figcaption className="px-5 pt-3 pb-4 text-sm text-neutral-600">
                   Marilda gerente da loja de sapatos e bolsas
                 </figcaption>
               </figure>
 
               <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-                <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                <div className="h-[320px] overflow-hidden rounded-sm bg-[#fffcf8]">
                   <img
                     src={marilda_monte}
                     alt="Marilda na Monte Cristo"
-                    className="max-h-full max-w-full object-contain"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+
+                <figcaption className="px-5 pt-3 pb-4 text-sm text-neutral-600">
                   Marilda na Monte Cristo
                 </figcaption>
               </figure>
@@ -1396,7 +1432,7 @@ function House() {
             <div className="order-1 md:order-2">
               <div className="grid gap-5 sm:grid-cols-2">
                 <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-                  <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                  <div className="flex h-[250px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
                     <img
                       src={raphael}
                       alt="Aniversário de 1 anos do Raphael"
@@ -1409,7 +1445,7 @@ function House() {
                 </figure>
 
                 <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-                  <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
+                  <div className="flex h-[250px] items-center justify-center overflow-hidden rounded-sm bg-[#fffcf8]">
                     <img
                       src={raphael_oito}
                       alt="Festa de Natal aos 8 anos de Raphael"
@@ -1430,7 +1466,7 @@ function House() {
               <img
                 src={cacto}
                 alt="Cacto"
-                className="h-auto w-full max-w-xl rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                className="flex h-[700px] max-w-xl rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
               />
             </div>
 
@@ -1503,7 +1539,7 @@ function House() {
                   <img
                     src={logo}
                     alt="Logo Manda Café"
-                    className="h-auto w-full rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                    className="h-auto w-full max-w-sm rounded-sm object-contain"
                   />
 
                   <p className="mt-4 text-center text-xs uppercase tracking-[0.24em] text-[#b08b4a]">

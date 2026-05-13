@@ -1,48 +1,44 @@
 import { useState, useRef, useEffect } from "react";
 
-import pratoc1 from "../assets/cardapio/pratoc1.jpeg";
-import pratoc2 from "../assets/cardapio/pratoc2.jpeg";
-import pratoc4 from "../assets/cardapio/pratoc4.jpeg";
-import pratoc5 from "../assets/cardapio/pratoc5.jpeg";
-import pratoc6 from "../assets/cardapio/pratoc6.jpeg";
-import pratoc7 from "../assets/cardapio/pratoc7.jpeg";
-import pratoc8 from "../assets/cardapio/pratoc8.jpeg";
-import pratoc9 from "../assets/cardapio/pratoc9.jpeg";
-import pratoc10 from "../assets/cardapio/pratoc10.jpeg";
-import pratoc11 from "../assets/cardapio/pratoc11.jpeg";
-import pratoc12 from "../assets/cardapio/pratoc12.jpeg";
-import pratoc13 from "../assets/cardapio/pratoc13.jpeg";
-import pratoc15 from "../assets/cardapio/pratoc15.jpeg";
-import pratoc16 from "../assets/cardapio/pratoc16.jpeg";
-import pratoc17 from "../assets/cardapio/pratoc17.jpeg";
-import pratoc18 from "../assets/cardapio/pratoc18.jpeg";
-import pratoc19 from "../assets/cardapio/pratoc19.jpeg";
-import pratoc20 from "../assets/cardapio/pratoc20.jpeg";
-import pratoc21 from "../assets/cardapio/pratoc21.jpeg";
+import pratoc1 from "../assets/cardapio/pratoc1.jpg";
+import pratoc2 from "../assets/cardapio/pratoc2.jpg";
+import pratoc3 from "../assets/cardapio/pratoc3.jpg";
+import pratoc4 from "../assets/cardapio/pratoc4.jpg";
+import pratoc5 from "../assets/cardapio/pratoc5.jpg";
+import pratoc6 from "../assets/cardapio/pratoc6.jpg";
+import pratoc7 from "../assets/cardapio/pratoc7.jpg";
+import pratoc8 from "../assets/cardapio/pratoc8.jpg";
+import pratoc9 from "../assets/cardapio/pratoc9.jpg";
+import pratoc10 from "../assets/cardapio/pratoc10.jpg";
+import pratoc11 from "../assets/cardapio/pratoc11.jpg";
+import pratoc12 from "../assets/cardapio/pratoc12.jpg";
+import pratoc13 from "../assets/cardapio/pratoc13.jpg";
+import pratoc14 from "../assets/cardapio/pratoc14.jpg";
+import pratoc15 from "../assets/cardapio/pratoc15.jpg";
+import pratoc16 from "../assets/cardapio/pratoc16.jpg";
+import pratoc17 from "../assets/cardapio/pratoc17.jpg";
 
-const CARDAPIO_OFICIAL_URL = "https://canva.link/8edyk48fpgysb98";
+const CARDAPIO_OFICIAL_URL = "https://bit.ly/4fedwNB";
 const delivery = "https://linktr.ee/abednego.rodrigues1";
 
 const carouselImages = [
-  { src: pratoc1, title: "Pasta" },
-  { src: pratoc2, title: "Stroganoff" },
-  { src: pratoc4, title: "Bife" },
-  { src: pratoc5, title: "File de frango" },
-  { src: pratoc6, title: "Especial" },
-  { src: pratoc7, title: "Omelete" },
-  { src: pratoc8, title: "Frango" },
-  { src: pratoc9, title: "Kibe" },
-  { src: pratoc10, title: "Kibe" },
-  { src: pratoc11, title: "Kibe" },
-  { src: pratoc12, title: "Kibe" },
-  { src: pratoc13, title: "Kibe" },
-  { src: pratoc15, title: "Stroganoff" },
-  { src: pratoc16, title: "Macarrão" },
-  { src: pratoc17, title: "Macarrão com bife" },
-  { src: pratoc18, title: "Macarrão" },
-  { src: pratoc19, title: "Torrada" },
-  { src: pratoc20, title: "Pão com ovo" },
-  { src: pratoc21, title: "Sanduiche" },
+  { src: pratoc1, title: "Linguine à Bolonhesa" },
+  { src: pratoc2, title: "Linguine 3 Queijos com Filé Mignon" },
+  { src: pratoc3, title: "Linguine ao Sugo com Filé Mingnon" },
+  { src: pratoc4, title: "Raviolloni" },
+  { src: pratoc5, title: "Salada de Grãos" },
+  { src: pratoc6, title: "Salada Manda" },
+  { src: pratoc7, title: "Filé de Frango Grelhado" },
+  { src: pratoc8, title: "Saint Peter Empanado" },
+  { src: pratoc9, title: "Kibe de Carne" },
+  { src: pratoc10, title: "Kibe de Abóbora" },
+  { src: pratoc11, title: "Omelete com Salada" },
+  { src: pratoc12, title: "Strogonoff de Mignon" },
+  { src: pratoc13, title: "Strogonoff de Frango" },
+  { src: pratoc14, title: "Strogonoff de Cogumelos" },
+  { src: pratoc15, title: "Americano" },
+  { src: pratoc16, title: "Ciabata Caprese" },
+  { src: pratoc17, title: "Brigadeiro" },
 ];
 
 export default function Cardapio() {
