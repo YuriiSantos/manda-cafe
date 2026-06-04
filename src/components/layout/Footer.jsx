@@ -81,9 +81,9 @@ function Footer() {
 
                   <a
                     className="hover:underline break-all"
-                    href="mailto:mandacafe@gmail.com"
+                    href="mailto:mandacafe.foradacasinha@gmail.com"
                   >
-                    mandacafe@gmail.com
+                    mandacafe.foradacasinha@gmail.com
                   </a>
                 </li>
 
@@ -133,7 +133,7 @@ function Footer() {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="https://www.instagram.com/mandacafe"
+                    href="https://www.instagram.com/mandacafe_"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 hover:underline"

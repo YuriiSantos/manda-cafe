@@ -17,13 +17,17 @@ import pratoc14 from "../assets/cardapio/pratoc14.jpg";
 import pratoc15 from "../assets/cardapio/pratoc15.jpg";
 import pratoc16 from "../assets/cardapio/pratoc16.jpg";
 import pratoc17 from "../assets/cardapio/pratoc17.jpg";
+import pratoc18 from "../assets/cardapio/pratoc18.jpg";
+import pratoc19 from "../assets/cardapio/pratoc19.jpg";
+import pratoc20 from "../assets/cardapio/pratoc20.jpg";
 
-const CARDAPIO_OFICIAL_URL = "https://bit.ly/4fedwNB";
-const delivery = "https://linktr.ee/abednego.rodrigues1";
+const CARDAPIO_OFICIAL_URL =
+  "https://drive.google.com/drive/u/0/folders/1rDie7Qz6-Cl34sLO0ReUTStuOnR6a_Db";
+const delivery = "https://linktr.ee/mandacafe.foradacasinha";
 
 const carouselImages = [
   { src: pratoc1, title: "Linguine à Bolonhesa" },
-  { src: pratoc2, title: "Linguine 3 Queijos com Filé Mignon" },
+  { src: pratoc2, title: "Linguine Três Queijos com Filé Mignon" },
   { src: pratoc3, title: "Linguine ao Sugo com Filé Mingnon" },
   { src: pratoc4, title: "Raviolloni" },
   { src: pratoc5, title: "Salada de Grãos" },
@@ -39,6 +43,9 @@ const carouselImages = [
   { src: pratoc15, title: "Americano" },
   { src: pratoc16, title: "Ciabata Caprese" },
   { src: pratoc17, title: "Brigadeiro" },
+  { src: pratoc18, title: "Torta de Maracujá" },
+  { src: pratoc19, title: "Torta de Limão" },
+  { src: pratoc20, title: "Banoffee" },
 ];
 
 export default function Cardapio() {
@@ -160,13 +167,14 @@ export default function Cardapio() {
         <p className="mt-8 max-w-2xl mx-auto text-sm leading-relaxed text-neutral-700 text-justify hyphens-auto">
           O cardápio do Manda foi criado para acolher e surpreender, com muita
           brasilidade e toques contemporâneos. Para dar vida a uma cozinha
-          simples e refinada, os caderninhos de receitas das matriarcas da
-          família são consultados a todo momento, nos presenteando, com
-          generosidade, pequenos segredos da nossa culinária.
+          simples e refinada, recorremos aos caderninhos de receitas das
+          matriarcas da família, que nos presenteiam, com generosidade, com
+          pequenos segredos da nossa culinária.
           <br />
           <br />
-          Ao visitar o Bistrô, você será surpreendido por nosso combo, um pratos
-          rotativo e sazonal, pensados para renovar a experiência a cada visita.
+          Venha conhecer nosso menu à la carte, com pratos individuais que
+          agradam diferentes paladares, incluindo deliciosas opções vegetarianas
+          e veganas.
         </p>
 
         <p className="mt-6 text-center italic text-neutral-600">

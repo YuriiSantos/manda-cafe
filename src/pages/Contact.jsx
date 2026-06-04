@@ -55,11 +55,11 @@ function Contact() {
                 <p className="text-sm md:text-base">
                   <span className="block text-neutral-900">E-mail</span>
                   <a
-                    href="mailto:mandacafe@gmail.com"
+                    href="mailto:mandacafe.foradacasinha@gmail.com"
                     className="font-semibold underline underline-offset-4 hover:opacity-80"
                     style={{ color: "#b08b4a" }}
                   >
-                    mandacafe@gmail.com
+                    mandacafe.foradacasinha@gmail.com
                   </a>
                 </p>
 

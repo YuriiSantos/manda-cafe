@@ -12,7 +12,7 @@ function Frozen() {
           CONGELADOS
          ========================= */}
       <section className="w-full" style={{ backgroundColor: "#fffcf8" }}>
-        <div className="mx-auto max-w-7xl px-6 md:px-16 pt-14 md:pt-20 pb-14 md:pb-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-16 pt-14 md:pt-20 pb-14 md:pb-03">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
             <div>
               <p className="text-sm tracking-[0.25em] text-[#b08b4a]">
@@ -22,20 +22,18 @@ function Frozen() {
               <div className="mt-3 h-[2px] w-12 bg-[#b08b4a]" />
 
               <h1 className="font-lobster mt-8 text-4xl md:text-5xl lg:text-6xl font-light leading-tight text-[#b08b4a]">
-                MANDA PRA CASA
+                Manda Pra Casa
               </h1>
 
-              <p className="mt-6 text-base leading-relaxed text-neutral-700 md:text-lg text-justify">
+              <p className="mt-8 max-w-2xl mx-auto text-sm leading-relaxed text-neutral-700 text-justify hyphens-auto">
                 O Manda Café apelidou carinhosamente seus congelados de "Manda
                 pra Casa". Um cardápio de congelados deliciosos, com aquele
                 capricho que você já conhece, perfeito para o dia a dia ou
                 ocasiões especiais. Escolha seus favoritos, encomende e leve o
-                Manda pra casa! Peça o cardápio.
+                Manda pra casa!
               </p>
-
-              <p className="mt-8 text-[12px] text-neutral-500">
-                *Consulte disponibilidade e prazos. Atendemos restrições e
-                alergias sempre que possível.
+              <p className="mt-1 max-w-2xl mx-auto text-sm leading-relaxed text-neutral-700 text-justify hyphens-auto">
+                Peça o cardápio.
               </p>
             </div>
 
@@ -43,7 +41,7 @@ function Frozen() {
               <img
                 src={logo}
                 alt="Logo"
-                className="h-auto w-32 md:w-40 object-contain"
+                className="h-80 w-80  object-contain"
               />
             </div>
           </div>
@@ -61,22 +59,17 @@ function Frozen() {
 
           <div className="mt-3 h-[2px] w-12 bg-[#b08b4a]" />
 
-          <p className="mt-8 text-[12px] text-neutral-500">
-            *Consulte disponibilidade e prazos. Atendemos restrições e alergias
-            sempre que possível.
-          </p>
-
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             <div className="border border-black/10 bg-white/40 p-6">
               <p className="text-sm tracking-[0.22em] text-[#b08b4a]">01</p>
 
               <h3 className="font-lobster mt-3 text-2xl font-light text-[#b08b4a]">
-                Chame no Zap ou por telefone
+                Chame no Zap
               </h3>
 
               <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
-                Vamos te atender e apresentar o cardápio disponível e os valores
-                e iniciar a produção do seu pedido.
+                Vamos te atender, apresentar o cardápio disponível e os valores,
+                ao seu sinal iniciamos a produção do pedido desejado.
               </p>
             </div>
 
@@ -88,8 +81,8 @@ function Frozen() {
               </h3>
 
               <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
-                Vamos marcar o dia e horário para você retirar. Na retirada
-                vamos te contar o passo a passo de como servir em casa.
+                Vamos marcar o dia e horário para você retirar seu pedido. Na
+                retirada te contamos o passo a passo de como servir em casa.
               </p>
             </div>
 
@@ -176,11 +169,6 @@ function Frozen() {
                     Doces Individuais
                   </p>
 
-                  <p className="mt-3 text-sm md:text-base leading-relaxed text-neutral-700">
-                    Opções práticas para finalizar a refeição com aquele doce
-                    especial.
-                  </p>
-
                   <ul className="mt-4 space-y-3 text-sm md:text-base text-neutral-700 list-disc pl-5">
                     <li>Banoffee</li>
                     <li>Torta de Limão</li>
@@ -191,10 +179,6 @@ function Frozen() {
             </div>
 
             <div className="flex flex-col lg:pt-[96px]">
-              <p className="mb-3 text-xs md:text-sm text-neutral-500">
-                Foto congelados Receita Manda
-              </p>
-
               <div className="flex-1 overflow-hidden bg-black/5">
                 <img
                   src={congeladosReceitaManda}
@@ -216,9 +200,7 @@ function Frozen() {
 
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-start">
             <div>
-              <p className="mb-3 text-xs md:text-sm text-neutral-500">
-                Foto congelados Encomenda Banoffee:
-              </p>
+              <p className="mb-3 text-xs md:text-sm text-neutral-500">{"  "}</p>
 
               <div className="overflow-hidden bg-black/5">
                 <img
@@ -231,7 +213,7 @@ function Frozen() {
 
             <div className="lg:pt-10">
               <h2 className="font-lobster text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-[#b08b4a]">
-                Doces para eventos e almoços/jantares em família
+                Sobremesa para final de semana
               </h2>
 
               <p className="mt-6 text-sm md:text-base leading-relaxed text-neutral-700">

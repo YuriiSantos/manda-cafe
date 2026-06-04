@@ -5,7 +5,7 @@ import gravar from "../assets/grava.jpg";
 
 import ocasioes from "../assets/ocasioes.jpeg";
 
-import video from "../assets/video.mp4";
+import video from "../assets/eventomanda.mp4";
 import headerBg from "../assets/header-bg.jpg";
 
 import MediaCarousel from "../components/ui/MediaCarousel";
@@ -116,7 +116,7 @@ function Events() {
         <div className="relative mx-auto max-w-7xl px-6 md:px-16 py-8 md:py-10">
           <div className="grid gap-5 items-center min-h-[420px] md:grid-cols-[0.85fr_1.15fr]">
             <div className="flex justify-center">
-              <div className="w-full max-w-[320px] md:max-w-[360px] lg:max-w-[300px] overflow-hidden rounded-2xl bg-white/10 ring-1 ring-black/10">
+              <div className="w-full max-w-[6000px] md:max-w-[6000px] lg:max-w-[300px] overflow-hidden rounded-2xl bg-white/10 ring-1 ring-black/10">
                 <div className="aspect-[9/16] w-full bg-black">
                   <video
                     className="h-full w-full object-contain"
@@ -167,21 +167,17 @@ function Events() {
               </p>
 
               <div className="mt-8 border-l-2 border-[#b95f39] pl-5">
-                <p className="font-lobster text-2xl md:text-3xl font-medium text-[#b95f39]">
+                <p className="font-lobster text-2xl font-medium text-[#b95f39]">
                   O que o Manda manda bem?
                 </p>
 
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-1 gap-x-8 gap-y-3">
                   <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
                     Personalizados
                   </p>
 
                   <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
-                    Festa Infantil
-                  </p>
-
-                  <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
-                    Festa Adulto
+                    Festa Adulto e Infantil
                   </p>
 
                   <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
@@ -237,25 +233,21 @@ function Events() {
                   Manda pra Poucos este convite especial !
                 </p>
                 <div className="mt-8 border-l-2 border-[#b95f39] pl-5">
-                  <p className="font-lobster text-2xl md:text-3xl font-medium text-[#b95f39]">
+                  <p className="font-lobster text-2xl font-medium text-[#b95f39]">
                     O que o Manda manda bem?
                   </p>
 
-                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-1 gap-x-8 gap-y-3">
+                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                      Cardápio Manda
+                    </p>
+
+                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
+                      Risoto ou Massa
+                    </p>
+
                     <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
                       Personalizados
-                    </p>
-
-                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
-                      Festa Infantil
-                    </p>
-
-                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
-                      Festa Adulto
-                    </p>
-
-                    <p className="text-sm md:text-base font-semibold tracking-wide text-[#b95f39]">
-                      Manda Brasa
                     </p>
                   </div>
                 </div>
