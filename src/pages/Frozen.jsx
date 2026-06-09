@@ -1,5 +1,12 @@
 import logo from "../assets/congelados/logo.png";
 import congeladosReceitaManda from "../assets/congelados/congelados.jpg";
+import congelados1 from "../assets/congelados/congelados1.jpg";
+import congelados2 from "../assets/congelados/congelados2.jpg";
+import congelados3 from "../assets/congelados/congelados3.jpg";
+import congelados4 from "../assets/congelados/congelados4.jpg";
+import congelados5 from "../assets/congelados/congelados5.jpg";
+import congelados6 from "../assets/congelados/congelados6.jpg";
+import congelados7 from "../assets/congelados/congelados7.jpg";
 import encomendaBanoffee from "../assets/congelados/banoffee.jpg";
 
 function Frozen() {
@@ -38,11 +45,16 @@ function Frozen() {
             </div>
 
             <div className="flex justify-center lg:justify-center lg:pt-2">
-              <img
-                src={logo}
-                alt="Logo"
-                className="h-80 w-80  object-contain"
-              />
+              <div
+                className="overflow-hidden p-2"
+                style={{ backgroundColor: "#fffcf8" }}
+              >
+                <img
+                  src={congelados2}
+                  alt="congelados"
+                  className="h-[500px] w-[500px] max-w-full object-contain transition-transform duration-700 ease-out hover:scale-110 md:h-[620px] md:w-[620px] lg:h-[680px] lg:w-[680px]"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -60,43 +72,73 @@ function Frozen() {
           <div className="mt-3 h-[2px] w-12 bg-[#b08b4a]" />
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="border border-black/10 bg-white/40 p-6">
-              <p className="text-sm tracking-[0.22em] text-[#b08b4a]">01</p>
+            <div className="overflow-hidden border border-black/10 bg-white/40">
+              <div className="h-80 md:h-96 w-full overflow-hidden bg-[#fffcf8] flex items-center justify-center p-4">
+                <img
+                  src={congelados4}
+                  alt="Chame no Zap"
+                  className="max-h-full w-auto max-w-full object-contain transition-transform duration-700 ease-out hover:scale-105"
+                />
+              </div>
 
-              <h3 className="font-lobster mt-3 text-2xl font-light text-[#b08b4a]">
-                Chame no Zap
-              </h3>
+              <div className="p-6">
+                <p className="text-sm tracking-[0.22em] text-[#b08b4a]">01</p>
 
-              <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
-                Vamos te atender, apresentar o cardápio disponível e os valores,
-                ao seu sinal iniciamos a produção do pedido desejado.
-              </p>
+                <h3 className="font-lobster mt-3 text-2xl font-light text-[#b08b4a]">
+                  Chame no Zap
+                </h3>
+
+                <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
+                  Vamos te atender, apresentar o cardápio disponível e os
+                  valores, ao seu sinal iniciamos a produção do pedido desejado.
+                </p>
+              </div>
             </div>
 
-            <div className="border border-black/10 bg-white/40 p-6">
-              <p className="text-sm tracking-[0.22em] text-[#b08b4a]">02</p>
+            <div className="overflow-hidden border border-black/10 bg-white/40">
+              <div className="h-80 md:h-96 w-full overflow-hidden bg-[#fffcf8] flex items-center justify-center p-4">
+                <img
+                  src={congelados5}
+                  alt="Retire na loja"
+                  className="max-h-full w-auto max-w-full object-contain transition-transform duration-700 ease-out hover:scale-105"
+                />
+              </div>
 
-              <h3 className="font-lobster mt-3 text-2xl font-light text-[#b08b4a]">
-                Retire na loja
-              </h3>
+              <div className="p-6">
+                <p className="text-sm tracking-[0.22em] text-[#b08b4a]">02</p>
 
-              <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
-                Vamos marcar o dia e horário para você retirar seu pedido. Na
-                retirada te contamos o passo a passo de como servir em casa.
-              </p>
+                <h3 className="font-lobster mt-3 text-2xl font-light text-[#b08b4a]">
+                  Retire na loja
+                </h3>
+
+                <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
+                  Vamos marcar o dia e horário para você retirar seu pedido. Na
+                  retirada te contamos o passo a passo de como servir em casa.
+                </p>
+              </div>
             </div>
 
-            <div className="border border-black/10 bg-white/40 p-6">
-              <p className="text-sm tracking-[0.22em] text-[#b08b4a]">03</p>
+            <div className="overflow-hidden border border-black/10 bg-white/40">
+              <div className="h-80 md:h-96 w-full overflow-hidden bg-[#fffcf8] flex items-center justify-center p-4">
+                <img
+                  src={congelados7}
+                  alt="Finalize em casa"
+                  className="max-h-full w-auto max-w-full object-contain transition-transform duration-700 ease-out hover:scale-105"
+                />
+              </div>
 
-              <h3 className="font-lobster mt-3 text-2xl font-light text-[#b08b4a]">
-                Finalize em casa
-              </h3>
+              <div className="p-6">
+                <p className="text-sm tracking-[0.22em] text-[#b08b4a]">03</p>
 
-              <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
-                Depois de realizar o passo a passo, é só aproveitar. Gostoso,
-                rápido e fácil.
-              </p>
+                <h3 className="font-lobster mt-3 text-2xl font-light text-[#b08b4a]">
+                  Finalize em casa
+                </h3>
+
+                <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-700">
+                  Depois de realizar o passo a passo, é só aproveitar. Gostoso,
+                  rápido e fácil.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -192,26 +234,25 @@ function Frozen() {
       </section>
 
       {/* =========================
-          DOCES PARA EVENTOS
+          DOCES E STRUDEL
          ========================= */}
       <section className="w-full" style={{ backgroundColor: "#fffcf8" }}>
         <div className="mx-auto max-w-7xl px-6 md:px-16 pb-14 md:pb-20">
           <div className="h-px w-full bg-[#b08b4a]/25 mb-10" />
 
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-start">
-            <div>
-              <p className="mb-3 text-xs md:text-sm text-neutral-500">{"  "}</p>
-
-              <div className="overflow-hidden bg-black/5">
-                <img
-                  src={encomendaBanoffee}
-                  alt="Foto congelados Encomenda Banoffee"
-                  className="h-[320px] w-full object-cover transition-transform duration-700 ease-out hover:scale-110 md:h-[420px] lg:h-[520px]"
-                />
-              </div>
+          <div className="grid gap-10 lg:grid-cols-[1fr_1fr] items-center">
+            <div
+              className="overflow-hidden"
+              style={{ backgroundColor: "#fffcf8" }}
+            >
+              <img
+                src={encomendaBanoffee}
+                alt="Foto congelados Encomenda Banoffee"
+                className="h-[380px] w-full object-cover transition-transform duration-700 ease-out hover:scale-110 md:h-[500px] lg:h-[620px]"
+              />
             </div>
 
-            <div className="lg:pt-10">
+            <div>
               <h2 className="font-lobster text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-[#b08b4a]">
                 Sobremesa para final de semana
               </h2>
@@ -220,66 +261,69 @@ function Frozen() {
                 Pedidos com no mínimo 2 dias de antecedência
               </p>
 
-              <div className="mt-8 border border-black/10 bg-white/40 p-6">
-                <p className="font-medium text-neutral-900">Banoffee Grande</p>
+              <div className="mt-8 border border-black/10 bg-white/40 p-6 md:p-7">
+                <div>
+                  <p className="font-medium text-neutral-900">
+                    Banoffee Grande
+                  </p>
 
-                <p className="mt-1 text-sm md:text-base leading-relaxed text-neutral-700">
-                  ≅3,0kg (serve 20 à 25 pessoas)
-                </p>
+                  <p className="mt-1 text-sm md:text-base leading-relaxed text-neutral-700">
+                    ≅3,0kg (serve 20 à 25 pessoas)
+                  </p>
 
-                <p className="mt-6 font-medium text-neutral-900">
-                  Banoffee Média
-                </p>
+                  <p className="mt-6 font-medium text-neutral-900">
+                    Banoffee Média
+                  </p>
 
-                <p className="mt-1 text-sm md:text-base leading-relaxed text-neutral-700">
-                  ≅2,0kg (serve 12 à 15 pessoas)
-                </p>
+                  <p className="mt-1 text-sm md:text-base leading-relaxed text-neutral-700">
+                    ≅2,0kg (serve 12 à 15 pessoas)
+                  </p>
+                </div>
 
-                <div className="mt-6 h-px w-full bg-black/10" />
+                <div className="my-7 h-px w-full bg-black/10" />
 
-                <p className="mt-6 text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
-                  MANDA STRUDEL
-                </p>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
+                    MANDA STRUDEL
+                  </p>
 
-                <ul className="mt-4 space-y-3 text-sm md:text-base text-neutral-700 list-disc pl-5">
-                  <li>Grande ≅ 800g</li>
-                  <li>Pequeno ≅ 500g</li>
-                </ul>
+                  <p className="mt-3 text-sm md:text-base leading-relaxed text-neutral-700">
+                    Opções de folhados doces e salgados para encomenda.
+                  </p>
+
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    <div className="border border-black/10 bg-[#fffcf8]/70 p-5">
+                      <p className="text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
+                        FOLHADOS SALGADOS
+                      </p>
+
+                      <ul className="mt-4 space-y-3 text-sm md:text-base text-neutral-700 list-disc pl-5">
+                        <li>Frango com Catupiry</li>
+                        <li>Frango</li>
+                        <li>Palmito</li>
+                      </ul>
+                    </div>
+
+                    <div className="border border-black/10 bg-[#fffcf8]/70 p-5">
+                      <p className="text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
+                        FOLHADOS DOCES
+                      </p>
+
+                      <ul className="mt-4 space-y-3 text-sm md:text-base text-neutral-700 list-disc pl-5">
+                        <li>Banana</li>
+                        <li>Maçã</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 h-px w-full bg-black/10" />
+
+                  <ul className="mt-4 space-y-3 text-sm md:text-base text-neutral-700 list-disc pl-5">
+                    <li>Grande ≅ 800g</li>
+                    <li>Pequeno ≅ 500g</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================
-          FOLHADOS
-         ========================= */}
-      <section className="w-full" style={{ backgroundColor: "#fffcf8" }}>
-        <div className="mx-auto max-w-7xl px-6 md:px-16 pb-14 md:pb-20">
-          <div className="h-px w-full bg-[#b08b4a]/25 mb-10" />
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="border border-black/10 bg-white/40 p-6">
-              <p className="text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
-                FOLHADOS SALGADOS
-              </p>
-
-              <ul className="mt-4 space-y-3 text-sm md:text-base text-neutral-700 list-disc pl-5">
-                <li>Frango com Catupiry</li>
-                <li>Frango</li>
-                <li>Palmito</li>
-              </ul>
-            </div>
-
-            <div className="border border-black/10 bg-white/40 p-6">
-              <p className="text-xs md:text-sm font-semibold tracking-wide text-neutral-900">
-                FOLHADOS DOCES
-              </p>
-
-              <ul className="mt-4 space-y-3 text-sm md:text-base text-neutral-700 list-disc pl-5">
-                <li>Banana</li>
-                <li>Maçã</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -292,24 +336,46 @@ function Frozen() {
         <div className="mx-auto max-w-7xl px-6 md:px-16 pb-16 md:pb-24">
           <div className="h-px w-full bg-[#b08b4a]/25 mb-10" />
 
-          <div className="border border-black/10 bg-white/40 p-8 md:p-10">
-            <h2 className="font-lobster text-3xl md:text-4xl font-light text-[#b08b4a]">
-              Quer pedir congelados?
-            </h2>
+          <div className="overflow-hidden border border-black/10 bg-white/40">
+            <div className="grid gap-0 lg:grid-cols-[1fr_1fr] items-stretch">
+              <div
+                className="flex items-center justify-center p-2 md:p-4"
+                style={{ backgroundColor: "#fffcf8" }}
+              >
+                <div
+                  className="h-[500px] w-full overflow-hidden md:h-[640px] lg:h-[760px]"
+                  style={{ backgroundColor: "#fffcf8" }}
+                >
+                  <img
+                    src={congelados6}
+                    alt="Foto para pedido de congelados no WhatsApp"
+                    className="h-full w-full object-contain transition-transform duration-700 ease-out hover:scale-105"
+                  />
+                </div>
+              </div>
 
-            <p className="mt-3 text-neutral-700 text-sm md:text-base leading-relaxed">
-              Chame no WhatsApp e a gente te manda as opções e os prazos da
-              semana.
-            </p>
+              <div className="flex flex-col items-center justify-center px-8 py-10 text-center md:px-12 lg:px-16">
+                <div className="max-w-md">
+                  <h2 className="font-lobster text-3xl md:text-4xl font-light text-[#b08b4a]">
+                    Quer pedir congelados?
+                  </h2>
 
-            <a
-              href="https://wa.me/5511988765337"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex items-center rounded-full bg-[#b08b4a] px-6 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
-            >
-              pedir no WhatsApp
-            </a>
+                  <p className="mt-4 text-neutral-700 text-sm md:text-base leading-relaxed">
+                    Chame no WhatsApp e a gente te manda as opções e os prazos
+                    da semana.
+                  </p>
+
+                  <a
+                    href="https://wa.me/5511988765337"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-8 inline-flex items-center rounded-full bg-[#b08b4a] px-6 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
+                  >
+                    pedir no WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
