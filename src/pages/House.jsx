@@ -11,7 +11,10 @@ import familia from "../assets/house/familia.png";
 import adelia from "../assets/house/adelia.png";
 import ap from "../assets/house/ap.png";
 import nelson from "../assets/house/nelson.png";
+import criancas from "../assets/house/criancas.png";
 import casa1 from "../assets/house/casa1.png";
+import fotocasa1 from "../assets/house/fotocasa1.png";
+import mesafamilia from "../assets/house/mesafamilia.png";
 import vo from "../assets/house/vo_fabio.png";
 import festa from "../assets/house/festa.png";
 import revista from "../assets/house/revista.png";
@@ -41,10 +44,13 @@ import marilda_monte from "../assets/house/marilda_monte.png";
 import raphael from "../assets/house/raphael.png";
 import raphael_oito from "../assets/house/raphael_oito.png";
 
-import cacto from "../assets/house/cacto.png";
+import cacto from "../assets/house/pintura.mp4";
+import florpintura from "../assets/house/florpintura.png";
 
 import decora1 from "../assets/house/decora1.png";
 import logo from "../assets/house/logo.png";
+import artistas from "../assets/house/artistas.jpg";
+import equipe from "../assets/house/equipemanda.png";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
@@ -722,7 +728,7 @@ function House() {
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
                   Tudo começa com a imigração de Antônio Maria Duque (o avô da
-                  vó) e Josefina Tadine (A avó da vó ou a Vovó Pepa) imigrantes
+                  vó) e Josefina Tadini (A avó da vó ou a Vovó Pepa) imigrantes
                   no Brasil, vindos de Portugal e Itália, fugindo da guerra e da
                   crise econômica e política da Europa no final do século XIX e
                   início do século XX em busca de novas oportunidades.
@@ -752,18 +758,17 @@ function House() {
             <div className="order-2 w-full">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Antônio Maria Duque nasceu entre 01/08/1894, (não acreditei
-                  que o moço é de 1800… passada.. fiz as contas baseada no
-                  nascimento do vô Fábio.) o imigrante português veio sozinho
-                  para o Brasil.
+                  Antônio Maria Duque nasceu em 01/08/1894 — Não acreditei que o
+                  moço é de 1800… passada.. fiz as contas baseada no nascimento
+                  do vô Fábio. o imigrante português veio sozinho para o Brasil.
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-8 text-justify">
-                  (Perguntei sobre os pais dele pra vó, e ela conta que não
+                  — Perguntei sobre os pais dele pra vó, e ela conta que não
                   lembra do avô falar de sua família, era caladão.. e
                   detalhe…veio entre os 14-17 anos… Senhorrr! Sabemos que Duque
-                  teve algum letramento, aqui no Brasil ou em Portugal, mas
-                  sabia ler e escrever pelo que a Marildinha (nossa vó) conta e
+                  teve algum letramento, aqui no Brasil ou em Portugal, pois
+                  sabia ler e escrever pelo que a Marildinha, nossa vó, conta e
                   por sua trajetória.
                 </p>
               </div>
@@ -775,8 +780,8 @@ function House() {
             <div className="w-full order-2 md:order-1">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Josefina Tadine Duque, ela italiana, analfabeta, abanava café
-                  na itália, com a família durante a GRANDE IMIGRAÇÃO, que
+                  Josefina Tadini Duque, era italiana, analfabeta, abanava café
+                  na itália, com a família durante a "grande imigração", que
                   ocorreu entre 1880 e 1930, os italianos formaram uma grande
                   parte dos imigrantes, especialmente em São Paulo (café) e Rio
                   Grande do Sul (colônias).
@@ -806,9 +811,9 @@ function House() {
             <div className="w-full">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Não se tem registro dos pais da nossa tataravó Josefina apenas
-                  uma foto de seu irmão.(Achei a foto meio cinematográfica e
-                  resolvi compartilhar com vocês. Rsrsrs...)
+                  Não se tem registro dos pais da nossa tataravó Josefina,
+                  apenas uma foto de seu irmão. — Achei a foto meio
+                  cinematográfica e resolvi compartilhar com vocês. Rsrsrs...
                 </p>
               </div>
             </div>
@@ -819,31 +824,32 @@ function House() {
             <div className="w-full order-2 md:order-1">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Não temos registro da chegada de Josefina. E acredita-se que
-                  Duque chegou no Brasil entre 1904-1915. Com muita
-                  probabilidade de sua chegada ter ocorrido em 1915, mesmo ano
-                  da fundação da a CASA DUQUE, loja especializada nas vendas de
-                  produtos Philips, Electrolux, relógios de parede, pratarias,
-                  cristais e jóias. Ambos se instalaram em Rio Preto e se
-                  casaram em 1920.
+                  Também não temos detalhes referentes a chegada de Josefina no
+                  Brasil. Já seu futuro marido Duque chegou no Brasil entre
+                  1904-1915. Com muita probabilidade de sua chegada ter ocorrido
+                  em 1915, mesmo ano da fundação da a CASA DUQUE, loja
+                  especializada nas vendas de produtos Philips, Electrolux,
+                  relógios de parede, pratarias, cristais e jóias. Ambos se
+                  instalaram em São José do Rio Preto e se casaram em 1920.
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-8 text-justify">
                   “Antonio Maria Duque Comerciante, primeiro tesoureiro da
-                  Associação Comercial, Industrial e Agrícola de Rio Preto
-                  (ACIA, atual ACIRP) de 21 de janeiro de 1923 a 10 de janeiro
-                  de 1926; segundo tesoureiro de 8 de janeiro de 1928 a 11 de
-                  janeiro de 1930; vice-presidente de 11 de janeiro de 1931 a 12
-                  de fevereiro de 1932; e membro do Conselho Administrativo de
-                  10 de janeiro de 1926 a 8 de janeiro de 1928 e de 12 de
-                  fevereiro de 1931 a 12 de fevereiro de 1933.” FONTE.{" "}
+                  Associação Comercial, Industrial e Agrícola de São José do Rio
+                  Preto (ACIA, atual ACIRP) de 21 de janeiro de 1923 a 10 de
+                  janeiro de 1926; segundo tesoureiro de 8 de janeiro de 1928 a
+                  11 de janeiro de 1930; vice-presidente de 11 de janeiro de
+                  1931 a 12 de fevereiro de 1932; e membro do Conselho
+                  Administrativo de 10 de janeiro de 1926 a 8 de janeiro de 1928
+                  e de 12 de fevereiro de 1931 a 12 de fevereiro de 1933.”
+                  FONTE.{" "}
                   <a
                     href="https://rmriopreto.com.br/antonio-maria-duque/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 underline hover:text-blue-800"
                   >
-                    Antonio Maria Duque – RM Rio Preto
+                    Antonio Maria Duque – RM São José do Rio Preto
                   </a>
                 </p>
               </div>
@@ -874,9 +880,9 @@ function House() {
                   Josefina e Antônio Maria tiveram 5 filhos: Miguel, Carlos,
                   Adélia, Mercedes e Nelson.
                 </p>
-
+                São José do Rio Preto
                 <p className="mt-6 text-base md:text-lg leading-8 text-justify">
-                  Foto: Adélia , Mercedes, Josefina e Antônio Maria Em 1936/1937
+                  Foto: Adélia , Mercedes, Josefina e Antônio Maria
                 </p>
               </div>
             </div>
@@ -886,12 +892,12 @@ function House() {
             <div className="w-full">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Em 1936/1937 Adélia se casa com Mario Abrigato em Rio Preto e
-                  tem dois filhos: Marinaldo Abrigato (1938) e Marilda Abrigato
-                  nascida em 29/03/1940, atual dona da casa tombada, lar do
-                  Manda Café Bistrô. Coincidências da vida, Marilda nasceu no
-                  mesmo ano que é construída a casa que décadas depois se
-                  tornaria o Manda.
+                  Em 1936/1937 Adélia se casa com Mario Abrigato em São José do
+                  Rio Preto e tem dois filhos: Marinaldo Abrigato (1938) e
+                  Marilda Abrigato nascida em 29/03/1940, atual dona da casa
+                  tombada, lar do MANDA CAFÉ BRISTRÔ. Coincidências da vida,
+                  Marilda nasceu no mesmo ano que é construída a casa que
+                  décadas depois se tornaria o Manda.
                 </p>
               </div>
             </div>
@@ -933,11 +939,12 @@ function House() {
                   Adélia, marido e filhos.
                 </p>
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Em Rio Preto os núcleos familiares moravam em casas separadas,
-                  mas em São Paulo se adaptaram em um apartamento no bairro Dom
-                  Pedro II na rua Hércules Florence nº41. Dividindo o espaço com
-                  três núcleos famíliares, Duque e Josefina, Adélia, o marido e
-                  dois filhos e Nelson, a esposa e dois filhos.
+                  Em São José do Rio Preto os núcleos familiares moravam em
+                  casas separadas, mas em São Paulo se adaptaram em um
+                  apartamento no bairro Dom Pedro II na rua Hércules Florence
+                  nº41. Dividindo o espaço com três núcleos famíliares, Duque e
+                  Josefina, Adélia, o marido e dois filhos e Nelson, a esposa e
+                  dois filhos.
                 </p>
               </div>
             </div>
@@ -950,9 +957,9 @@ function House() {
                 <p className="text-base md:text-lg leading-8 text-justify">
                   Nelson passou a liderar a empresa e expandi-la em âmbito
                   internacional até se instalar na Zona Franca de Manaus que
-                  passaria a se chamar Jóias Duque. ( Ô gente… e não é que
+                  passaria a se chamar Jóias Duque. — Ô gente… e não é que
                   Nelsinho foi um moço importante? Foi presidente do Palmeiras..
-                  rsrsrs… kd esses QI? rsrsrs…)
+                  rsrsrs… kd esses QI? rsrsrs…
                 </p>
                 <p className="text-base md:text-lg leading-8 text-justify">
                   “Nelson Tadini Duque, ou simplesmente Nelson Duque, que morreu
@@ -985,7 +992,7 @@ function House() {
           <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
             <div className="flex justify-center">
               <img
-                src={casa1}
+                src={fotocasa1}
                 alt="Raphael, infância e memórias da casa"
                 className="h-auto w-full max-w-xl rounded-sm object-contain"
               />
@@ -995,22 +1002,40 @@ function House() {
                 <p className="text-base md:text-lg leading-8 text-justify">
                   Os negócios passaram a trazer um retorno financeiro mais
                   estável, e a família se mudou em 1948 para o sobrado na Dona
-                  Germanie Buchard 374 ( Foi demolida com outras casinhas lindas
-                  em 2021 para virar prédio… tristeza!! ).
-                </p>
-                <p className="text-base md:text-lg leading-8 text-justify">
-                  Em 1950 a filha Mercedes também se muda para São Paulo, em um
-                  sobrado na Dr. Costa Júnior com seus filhos Fábio e Izelte
-                  (Nossos queridinhos.. vô e vó primos, frequentam bastante o
-                  Manda).
-                </p>
-                <p className="text-base md:text-lg leading-8 text-justify">
-                  Ainda em 1950, Nelson compra um sobrado na Germaine (casinha
-                  demolida para os grandes prédios) e em 1953 Duque compra a A
-                  CASA na R. Dona Germaine Burchard, 458 e se muda com Josefina,
-                  sua filha Adélia com o marido e os dois filhos.
+                  Germanie Buchard 374. — Foi demolida com outras casinhas
+                  lindas em 2021.
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* BLOCO 11 */}
+          <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="w-full">
+              <div className="mx-auto max-w-2xl text-neutral-700">
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  Em 1950 a filha Mercedes também se muda para São Paulo, em um
+                  sobrado na Rua Dona Ana Pimentel 281, com seus filhos Fábio e
+                  Izelte — Nossos queridinhos.. vô e vó primos, frequentam
+                  bastante o Manda. <br />
+                  Ainda em 1950, Nelson compra um sobrado na Germaine e se muda
+                  com sua esposa e os dois filhos. A casa foi demolida em 2021.
+                </p>
+                <p className="text-base md:text-lg leading-8 text-justify">
+                  E em <span className="font-bold">1953</span> Duque compra{" "}
+                  <span className="font-bold">A CASA</span> na R. Dona Germaine
+                  Burchard, 458 e se muda com Josefina, sua filha Adélia com o
+                  marido e os dois filhos. — Esta é a casa do nosso querido
+                  MANDA CAFÉ BISTRÔ.
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <img
+                src={casa1}
+                alt="Raphael, infância e memórias da casa"
+                className="h-auto w-full max-w-xl rounded-sm object-contain"
+              />
             </div>
           </div>
 
@@ -1026,16 +1051,16 @@ function House() {
               <figure className="group overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
-                    src={casa1}
+                    src={mesafamilia}
                     alt="Frente da Casa 1956"
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 </div>
                 <figcaption className="border-t border-[#b08b4a]/20 px-5 py-4">
                   <p className="text-sm uppercase tracking-[0.18em] text-[#b08b4a]">
-                    Frente da Casa
+                    Almoço
                   </p>
-                  <p className="mt-1 text-sm text-neutral-600">1956</p>
+                  <p className="mt-1 text-sm text-neutral-600">Década de 50</p>
                 </figcaption>
               </figure>
 
@@ -1077,7 +1102,7 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 11 */}
+          {/* BLOCO 12 */}
           <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
             <div className="w-full order-2 md:order-1">
               <div className="mx-auto max-w-2xl text-neutral-700">
@@ -1149,7 +1174,7 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 12 */}
+          {/* BLOCO 13 */}
           <div className="mx-auto mt-20">
             <div className="mb-10 text-center">
               <div className="mx-auto mt-4 h-[2px] w-14 bg-[#b08b4a]" />
@@ -1158,9 +1183,9 @@ function House() {
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Em 1965 Marilda se casa com Amaury Fagundes Carvalho, (e
+                  Em 1965 Marilda se casa com Amaury Fagundes Carvalho. — E
                   adivinhem onde ela se casa? Aqui… a casa é toda decorada e
-                  recebe sua festa de casamento)
+                  recebe sua festa de casamento.
                 </p>
               </div>
 
@@ -1189,7 +1214,7 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 13 */}
+          {/* BLOCO 14 */}
           <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
             <div className="flex justify-center">
               <div className="relative w-full max-w-xl">
@@ -1221,7 +1246,7 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 14 */}
+          {/* BLOCO 15 */}
           <div className="mx-auto mt-20 max-w-6xl">
             <div className="grid gap-6 md:grid-cols-3">
               <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
@@ -1265,7 +1290,7 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 15 */}
+          {/* BLOCO 16 */}
           <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
             <div className="w-full order-2 md:order-1">
               <div className="mx-auto max-w-2xl text-neutral-700">
@@ -1301,15 +1326,22 @@ function House() {
             </div>
 
             <div className="order-1 md:order-2 flex justify-center">
-              <img
-                src={nelson}
-                alt="Família no Parque da Água Branca"
-                className="h-auto w-full max-w-xl rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
-              />
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="overflow-hidden">
+                  <img
+                    src={criancas}
+                    alt="Daniela Abrigato e seu irmão Marcelo Abrigato"
+                    className="h-auto w-full max-w-xl object-contain"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Daniela Abrigato e seu irmão Marcelo Abrigato
+                </figcaption>
+              </figure>
             </div>
           </div>
 
-          {/* BLOCO 16 */}
+          {/* BLOCO 17 */}
           <div className="mx-auto mt-20 mb-30 grid max-w-6xl items-start gap-10 md:grid-cols-2 lg:gap-16">
             <div className="w-full">
               <div className="mx-auto max-w-xl">
@@ -1370,7 +1402,7 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 17 */}
+          {/* BLOCO 18 */}
           <div className="mx-auto mt-20 max-w-6xl">
             <div className="grid gap-6 md:grid-cols-3">
               <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
@@ -1417,7 +1449,7 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 18 */}
+          {/* BLOCO 19 */}
           <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
             <div className="w-full order-2 md:order-1">
               <div className="mx-auto max-w-2xl text-neutral-700">
@@ -1460,52 +1492,77 @@ function House() {
             </div>
           </div>
 
-          {/* BLOCO 19 */}
-          <div className="mx-auto mt-20 grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
-            <div className="flex justify-center">
-              <img
-                src={cacto}
-                alt="Cacto"
-                className="flex h-[700px] max-w-xl rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
-              />
-            </div>
+          {/* BLOCO 20 */}
+          <div className="mx-auto mt-20 max-w-6xl">
+            <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+              {/* VÍDEO */}
+              <div className="flex justify-center">
+                <video
+                  src={cacto}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-auto w-full max-w-md rounded-sm object-contain shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                />
+              </div>
 
-            <div className="w-full">
-              <div className="mx-auto max-w-2xl text-neutral-700">
-                <p className="text-base md:text-lg leading-8 text-justify">
-                  Em 2000, Marilda iniciou seus trabalhos para a MONTE CRISTO
-                  JOALHEIROS e foi dispensada em 2018, após 18 anos de trabalho
-                  a loja fechou e seu desligamento foi inevitável aos 78 anos.
-                  Raphael aos 22 anos inicia um processo de burnout e volta a
-                  morar na casa em que nasceu. Descobre respiro na arte para se
-                  expressar e passou a pintar quadros e plantar mudas no cacto,
-                  se encontrando com sua espiritualidade e essência.
-                </p>
+              {/* TEXTO */}
+              <div className="w-full">
+                <div className="mx-auto max-w-2xl text-neutral-700">
+                  <p className="text-base md:text-lg leading-8 text-justify">
+                    Em 2000, Marilda iniciou seus trabalhos para a MONTE CRISTO
+                    JOALHEIROS e foi dispensada em 2018, após 18 anos de
+                    trabalho a loja fechou e seu desligamento foi inevitável aos
+                    78 anos. Raphael aos 22 anos inicia um processo de burnout e
+                    volta a morar na casa em que nasceu. Descobre respiro na
+                    arte para se expressar e passou a pintar quadros e plantar
+                    mudas no cacto, se encontrando com sua espiritualidade e
+                    essência.
+                  </p>
+
+                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                    Durante três anos, sua amiga Fernanda Motta morou na edícula
+                    da casa, uma artista extremamente sensível e criativa, ela
+                    seria uma grande inspiração para as pinturas que Raphael
+                    faria… e futuramente nos ajudaria com o designer gráfico do
+                    Manda Café Bistrô. — Te amamos Fê!.
+                  </p>
+                </div>
+                <div className="mt-6 h-[500px] w-full overflow-hidden rounded-sm">
+                  <img
+                    src={florpintura}
+                    alt="Flor pintada"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* BLOCO 20 */}
+          {/* BLOCO 21 */}
           <div className="mx-auto mt-20 max-w-6xl">
             <div className="grid items-start gap-10 md:grid-cols-2 lg:gap-16">
               <div className="w-full">
                 <div className="mx-auto max-w-2xl text-neutral-700">
-                  <p className="text-base md:text-lg leading-8 text-justify">
-                    Durante três anos, sua amiga Fernanda Motta morou na edícula
-                    da casa,FOTO FERNANDA + SITE uma artista extremamente
-                    sensível e criativa, ela seria uma grande inspiração para as
-                    pinturas que Raphael faria… e futuramente se tornaria a
-                    designer gráfica do Manda Café Bistrô. (Te amamos Fê!).
-                  </p>
-
-                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  <p className=" text-base md:text-lg leading-8 text-justify">
                     Mas em 2018 tudo muda, quando em uma conversa com a vó
                     Marilda, ela desabafa, se abrindo e sendo clara, “estou mal
-                    meu neto”. Depois de anos trabalhando e em movimento até
-                    seus 78 anos, era natural que a mudança repentina lhe
-                    deixasse baqueada. Raphael como uma fênix, sai da sua bat
-                    garagem, ao retornar para casa de sua avó, ele adaptou a
-                    garagem.. rsrsrs.. esta que se tornaria o garaloft.
+                    meu neto”. Depois de anos trabalhando e se movimentando pela
+                    cidade - até seus 78 anos - era natural que a mudança
+                    repentina lhe deixasse baqueada, pois agora estava em casa e
+                    sem trabalho. Raphael Cury como uma fênix, sai da sua
+                    batcaverna ou melhor garaloft, e cria o Manda Café.
+                  </p>
+                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                    O nome garaloft surge devido uma curiosidade, a participação
+                    de Cury no programa DECORA da GNT - 2015. Por meio de uma
+                    carta, Cury foi selecionado e sua garagem/garaloft foi
+                    transformada pelo apresentador e arquiteto Marcelo Rosenbaum
+                    deixando sua marca registrada ao valorizar o espaço por meio
+                    de soluções acessíveis e com design brasileiro, além de
+                    valorizar a história do morador por meio de objetos com
+                    fortes conexões afetivas
                   </p>
                 </div>
               </div>
@@ -1533,7 +1590,7 @@ function House() {
               </div>
             </div>
 
-            <div className="mx-auto mt-20 grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="mx-auto mt-5 grid items-center gap-10 md:grid-cols-2 lg:gap-16">
               <div className="flex justify-center">
                 <div className="w-full max-w-md">
                   <img
@@ -1541,10 +1598,6 @@ function House() {
                     alt="Logo Manda Café"
                     className="h-auto w-full max-w-sm rounded-sm object-contain"
                   />
-
-                  <p className="mt-4 text-center text-xs uppercase tracking-[0.24em] text-[#b08b4a]">
-                    LOGO MANDA CAFÉ
-                  </p>
                 </div>
               </div>
 
@@ -1566,25 +1619,25 @@ function House() {
                     Abriram a casa e o espaço sempre elogiado, vó Marilda e
                     Raphael revitalizam e o sorriso no rosto ganha espaço! E a
                     turbulência da pandemia aparece atormentando uma nação
-                    inteira. ( É… a vida é mesmo um jogo desafiador!)
+                    inteira. — É… a vida é mesmo um jogo desafiador!
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mx-auto mt-20 grid items-start gap-10 md:grid-cols-2 lg:gap-16">
-              <div className="w-full order-2 md:order-1">
-                <div className="mx-auto max-w-2xl text-neutral-700">
-                  <p className="text-base md:text-lg leading-8 text-justify">
+            <div className="mx-auto mt-20 grid max-w-6xl items-start gap-10 md:grid-cols-2 lg:gap-16">
+              <div className="w-full">
+                <div className="max-w-2xl text-neutral-700">
+                  <p className="text-base leading-8 text-justify md:text-lg">
                     Neste mesmo ano o Manda não consegue manter sua equipe
                     inicial, e reduz drasticamente para apenas os integrantes da
-                    família. Raphael na administração e como garçom, Daniela
+                    família. Raphael na administração e atendimento, Daniela
                     assumindo a cozinha, Vó Marilda nos detalhes de reposição e
                     arrumação do espaço e Tia Cristina na decoração, se tornando
                     um lugar que sobreviveu através da persistência.
                   </p>
 
-                  <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  <p className="mt-6 text-base leading-8 text-justify md:text-lg">
                     Em 2023 surge a parceria entre Raphael e Mayara Dornas, e
                     inauguram o Manda Bar, com o sonho de fazer desse espaço uma
                     casa que movimente a energia da alegria, do amor, da
@@ -1595,10 +1648,42 @@ function House() {
                   </p>
                 </div>
               </div>
+
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="overflow-hidden">
+                  <img
+                    src={artistas}
+                    alt="Amigos do Cenário Teatral Paulistano no Manda Café"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Amigos do Cenário Teatral Paulistano no Manda Café
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div className="mx-auto mt-20 grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+            <div className="flex justify-center">
+              <figure className="overflow-hidden rounded-sm bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+                <div className="overflow-hidden">
+                  <img
+                    src={equipe}
+                    alt="Equipe Manda Café"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+
+                <figcaption className="px-5 py-4 text-sm text-neutral-600">
+                  Equipe Manda Café
+                </figcaption>
+              </figure>
             </div>
 
-            <div className="mx-auto mt-20 max-w-5xl border-t border-[#b08b4a]/20 pt-12">
-              <div className="mx-auto max-w-3xl text-neutral-700">
+            <div className="w-full">
+              <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
                   Atualmente seguimos com mais parceiros na equipe do Manda, no
                   entanto, ainda somos uma estrutura pequena e gerida pela
@@ -1607,11 +1692,16 @@ function House() {
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-8 text-justify">
-                  Criamos este site como um registro histórico da família e como
-                  agradecimento aos nossos ancestrais que se foram e aos
-                  familiares que ainda estão conosco. Valorizar histórias é
-                  fundamental para entendermos de onde viemos e para onde
-                  queremos caminhar.
+                  Em 2019 inicia as obras na casa para a criação do Manda Café,
+                  tudo pronto para abrir as portas, com sete funcionários
+                  treinados, seria sim o novo grande empreendimento da família.
+                </p>
+
+                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
+                  Abriram a casa e o espaço sempre elogiado, vó Marilda e
+                  Raphael revitalizam e o sorriso no rosto ganha espaço! E a
+                  turbulência da pandemia aparece atormentando uma nação
+                  inteira. — É… a vida é mesmo um jogo desafiador!
                 </p>
               </div>
             </div>
@@ -1620,8 +1710,9 @@ function House() {
           {/* FECHAMENTO VISUAL */}
           <div className="mx-auto mt-24 max-w-5xl border-y border-[#b08b4a]/20 py-12 text-center">
             <p className="font-lobster text-3xl md:text-4xl text-[#b08b4a]">
-              Muito obrigada à você que chegou até aqui!!! Esperamos te conhecer
-              em breve, para que possamos trocar e contar histórias.
+              Muito obrigada à você que chegou até aqui!!! <br />
+              Esperamos te conhecer em breve, para que possamos trocar e contar
+              histórias.
             </p>
           </div>
         </div>
