@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
-import { X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { galleryCategories, galleryImages } from "../datas/galleryImages";
 
@@ -11,8 +11,8 @@ function GalleryImage({ image, index, onSelect }) {
 
   return (
     <div
-      className="relative mb-4 break-inside-avoid overflow-hidden rounded-lg cursor-pointer group bg-black/5"
-      onClick={() => onSelect(image)}
+      className="relative mb-3 sm:mb-4 break-inside-avoid overflow-hidden rounded-lg cursor-pointer group bg-black/5"
+      onClick={() => onSelect(index)}
       style={
         hasDimensions
           ? {
@@ -30,7 +30,6 @@ function GalleryImage({ image, index, onSelect }) {
         alt={image.alt}
         loading={index < 8 ? "eager" : "lazy"}
         decoding="async"
-        fetchPriority={index < 4 ? "high" : "auto"}
         width={image.width}
         height={image.height}
         onLoad={() => setLoaded(true)}
@@ -66,34 +65,103 @@ function GalleryImage({ image, index, onSelect }) {
   );
 }
 
-function GalleryModal({ image, onClose }) {
+function GalleryModal({
+  image,
+  totalImages,
+  currentPosition,
+  onClose,
+  onPrevious,
+  onNext,
+}) {
+  const [touchStart, setTouchStart] = useState(null);
+
+  function handleTouchStart(event) {
+    setTouchStart(event.touches[0].clientX);
+  }
+
+  function handleTouchEnd(event) {
+    if (touchStart === null) return;
+
+    const touchEnd = event.changedTouches[0].clientX;
+    const distance = touchStart - touchEnd;
+
+    if (distance > 50) {
+      onNext();
+    }
+
+    if (distance < -50) {
+      onPrevious();
+    }
+
+    setTouchStart(null);
+  }
+
   return createPortal(
     <div
-      className="fixed inset-0 w-screen h-screen bg-black/95 z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 w-screen h-screen bg-black/90 z-[9999] flex items-center justify-center p-4"
       onClick={onClose}
     >
       <button
         type="button"
-        className="fixed top-6 right-6 text-white hover:opacity-70 transition-opacity z-[10000]"
+        className="fixed top-5 right-5 text-white hover:opacity-70 transition-opacity z-[10000]"
         onClick={onClose}
         aria-label="Fechar"
       >
-        <X size={32} strokeWidth={2} />
+        <X size={34} strokeWidth={2} />
       </button>
 
       <div
-        className="inline-flex max-w-[95vw] max-h-[90vh] flex-col items-center"
+        className="relative w-[92vw] max-w-[820px]"
         onClick={(event) => event.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        <img
-          src={image.url}
-          alt={image.alt}
-          decoding="async"
-          className="block w-auto h-auto max-w-[95vw] max-h-[82vh] rounded-lg"
-        />
+        {/* CONTAINER FIXO DA IMAGEM */}
+        <div className="relative flex items-center justify-center w-full h-[58vh] min-h-[360px] max-h-[580px] rounded-xl overflow-hidden bg-black/25">
+          <img
+            src={image.url}
+            alt={image.alt}
+            decoding="async"
+            className="block max-w-full max-h-full w-auto h-auto object-contain rounded-xl"
+          />
 
-        <div className="text-center mt-6">
-          <p className="text-white text-xl font-medium">{image.alt}</p>
+          {/* BOTÃO ANTERIOR */}
+          <button
+            type="button"
+            className="absolute left-3 top-1/2 -translate-y-1/2 h-11 w-11 flex items-center justify-center rounded-full bg-black/45 text-white hover:bg-black/65 transition-colors"
+            onClick={(event) => {
+              event.stopPropagation();
+              onPrevious();
+            }}
+            aria-label="Imagem anterior"
+          >
+            <ChevronLeft size={28} />
+          </button>
+
+          {/* BOTÃO PRÓXIMO */}
+          <button
+            type="button"
+            className="absolute right-3 top-1/2 -translate-y-1/2 h-11 w-11 flex items-center justify-center rounded-full bg-black/45 text-white hover:bg-black/65 transition-colors"
+            onClick={(event) => {
+              event.stopPropagation();
+              onNext();
+            }}
+            aria-label="Próxima imagem"
+          >
+            <ChevronRight size={28} />
+          </button>
+        </div>
+
+        {/* RODAPÉ FIXO DO MODAL */}
+        <div className="h-20 flex items-center justify-center text-center">
+          <div>
+            <p className="text-white text-lg md:text-xl font-medium">
+              {image.alt}
+            </p>
+            <p className="text-white/60 text-sm mt-1">
+              {currentPosition} de {totalImages}
+            </p>
+          </div>
         </div>
       </div>
     </div>,
@@ -102,7 +170,7 @@ function GalleryModal({ image, onClose }) {
 }
 
 function Gallery() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredImages = useMemo(() => {
@@ -110,6 +178,29 @@ function Gallery() {
 
     return galleryImages.filter((image) => image.category === activeCategory);
   }, [activeCategory]);
+
+  const selectedImage =
+    selectedIndex !== null ? filteredImages[selectedIndex] : null;
+
+  function closeModal() {
+    setSelectedIndex(null);
+  }
+
+  function showPreviousImage() {
+    setSelectedIndex((currentIndex) => {
+      if (currentIndex === null) return null;
+
+      return currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
+    });
+  }
+
+  function showNextImage() {
+    setSelectedIndex((currentIndex) => {
+      if (currentIndex === null) return null;
+
+      return currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
+    });
+  }
 
   useEffect(() => {
     if (!selectedImage) return;
@@ -123,20 +214,32 @@ function Gallery() {
   }, [selectedImage]);
 
   useEffect(() => {
-    function handleEscape(event) {
+    if (!selectedImage) return;
+
+    function handleKeyDown(event) {
       if (event.key === "Escape") {
-        setSelectedImage(null);
+        closeModal();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPreviousImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextImage();
       }
     }
 
-    if (selectedImage) {
-      window.addEventListener("keydown", handleEscape);
-    }
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("keydown", handleEscape);
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedImage]);
+  }, [selectedImage, filteredImages.length]);
+
+  useEffect(() => {
+    setSelectedIndex(null);
+  }, [activeCategory]);
 
   return (
     <div className="min-h-screen bg-[#fffcf8]">
@@ -177,15 +280,15 @@ function Gallery() {
         </div>
       </div>
 
-      {/* GALERIA RESPONSIVA SEM ESPAÇOS BRANCOS */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+      {/* GALERIA RESPONSIVA COM MASONRY */}
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-10">
+        <div className="columns-2 sm:columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-4">
           {filteredImages.map((image, index) => (
             <GalleryImage
               key={image.id}
               image={image}
               index={index}
-              onSelect={setSelectedImage}
+              onSelect={setSelectedIndex}
             />
           ))}
         </div>
@@ -195,7 +298,11 @@ function Gallery() {
       {selectedImage && (
         <GalleryModal
           image={selectedImage}
-          onClose={() => setSelectedImage(null)}
+          totalImages={filteredImages.length}
+          currentPosition={selectedIndex + 1}
+          onClose={closeModal}
+          onPrevious={showPreviousImage}
+          onNext={showNextImage}
         />
       )}
     </div>
