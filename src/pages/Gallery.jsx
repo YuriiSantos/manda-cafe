@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { X, ChevronRight } from "lucide-react";
+import { X } from "lucide-react";
 
 // Manda Natureza
 import natureza1 from "../assets/galeria/flores/flor1.jpg";
@@ -10,6 +10,7 @@ import natureza4 from "../assets/galeria/flores/flor4.jpg";
 import natureza5 from "../assets/galeria/flores/flor5.jpg";
 import natureza6 from "../assets/galeria/flores/flor6.jpg";
 import natureza7 from "../assets/galeria/flores/flor7.jpg";
+import natureza8 from "../assets/galeria/flores/flor8.jpg";
 
 // Manda Dia a Dia
 import dia1 from "../assets/galeria/dia/dia1.jpg";
@@ -19,6 +20,7 @@ import dia4 from "../assets/galeria/dia/dia4.jpg";
 import dia5 from "../assets/galeria/dia/dia5.jpg";
 import dia6 from "../assets/galeria/dia/dia6.jpg";
 import dia7 from "../assets/galeria/dia/dia7.jpg";
+import dia8 from "../assets/galeria/dia/dia8.jpg";
 
 // Manda Casa
 import casa1 from "../assets/galeria/casa/casa1.jpg";
@@ -28,6 +30,7 @@ import casa4 from "../assets/galeria/casa/casa4.jpg";
 import casa5 from "../assets/galeria/casa/casa5.jpg";
 import casa6 from "../assets/galeria/casa/casa6.jpg";
 import casa7 from "../assets/galeria/casa/casa7.jpg";
+import casa8 from "../assets/galeria/casa/casa8.jpg";
 
 // Manda Pet
 import pet1 from "../assets/galeria/pet/pet1.jpg";
@@ -37,6 +40,7 @@ import pet4 from "../assets/galeria/pet/pet4.jpg";
 import pet5 from "../assets/galeria/pet/pet5.jpg";
 import pet6 from "../assets/galeria/pet/pet6.jpg";
 import pet7 from "../assets/galeria/pet/pet7.jpg";
+import pet8 from "../assets/galeria/pet/pet8.jpg";
 
 // Manda Memórias
 import memorias1 from "../assets/galeria/memorias/memorias1.jpg";
@@ -46,6 +50,7 @@ import memorias4 from "../assets/galeria/memorias/memorias4.jpg";
 import memorias5 from "../assets/galeria/memorias/memorias5.jpg";
 import memorias6 from "../assets/galeria/memorias/memorias6.jpg";
 import memorias7 from "../assets/galeria/memorias/memorias7.jpg";
+import memorias8 from "../assets/galeria/memorias/memorias8.jpg";
 
 // Manda Festas
 import festa1 from "../assets/galeria/festa/festa1.jpg";
@@ -126,7 +131,7 @@ function Gallery() {
     },
     {
       id: 9,
-      url: casa2,
+      url: casa7,
       alt: "A Casa Manda",
       category: "casa-manda",
     },
@@ -208,6 +213,7 @@ function Gallery() {
       alt: "A Casa Manda",
       category: "casa-manda",
     },
+    ,
     {
       id: 23,
       url: festa6,
@@ -324,7 +330,7 @@ function Gallery() {
     },
     {
       id: 42,
-      url: casa7,
+      url: casa2,
       alt: "A Casa Manda",
       category: "casa-manda",
     },
@@ -357,6 +363,36 @@ function Gallery() {
       url: festa12,
       alt: "Manda Festas",
       category: "manda-festas",
+    },
+    {
+      id: 48,
+      url: pet8,
+      alt: "Manda Pet",
+      category: "manda-pet",
+    },
+    {
+      id: 49,
+      url: casa8,
+      alt: "A Casa Manda",
+      category: "casa-manda",
+    },
+    {
+      id: 50,
+      url: dia8,
+      alt: "Dia a Dia do Manda",
+      category: "dia-a-dia",
+    },
+    {
+      id: 51,
+      url: memorias8,
+      alt: "Memórias do Manda",
+      category: "memorias-manda",
+    },
+    {
+      id: 52,
+      url: natureza8,
+      alt: "Manda Natureza",
+      category: "manda-natureza",
     },
   ];
 
@@ -448,14 +484,6 @@ function Gallery() {
                   </button>
                 );
               })}
-
-              <button
-                type="button"
-                className="px-4 py-2 rounded-full whitespace-nowrap text-sm font-semibold transition-all border border-[#b08b4a]/40 text-[#b08b4a] hover:bg-[#b08b4a] hover:text-white flex items-center"
-                aria-label="Mais categorias"
-              >
-                <ChevronRight size={20} />
-              </button>
             </div>
           </div>
         </div>

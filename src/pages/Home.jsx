@@ -39,7 +39,8 @@ function Home() {
               {/* controla largura do texto e mantém tudo centralizado */}
               <div className="space-y-4 w-full max-w-md sm:max-w-lg">
                 <h3 className="font-lobster text-[30px] sm:text-[36px] text-[#b08b4a]">
-                  O MANDA CAFÉ - (A CASA)
+                  O MANDA CAFÉ - <br />
+                  (A CASA)
                 </h3>
 
                 <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">

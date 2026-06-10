@@ -181,11 +181,7 @@ export default function Sidebar() {
               active={is("/contact")}
             />
 
-            <div className="pt-14">
-              <p className="font-raleway text-[11px] tracking-[0.18em] text-white/90 uppercase text-center drop-shadow-sm">
-                Manda Café
-              </p>
-            </div>
+            <div className="pt-14"></div>
           </nav>
         </div>
       </aside>

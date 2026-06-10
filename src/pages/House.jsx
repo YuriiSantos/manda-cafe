@@ -1124,7 +1124,7 @@ function House() {
 
                 <p className="mt-6 text-base md:text-lg leading-8 text-justify">
                   No navio foram batizadas ao passar pela linha do Equador e na
-                  segunda foto ela sentou ao lado dos pescadores, e conta que
+                  terceira foto ela sentou ao lado dos pescadores, e conta que
                   todos riam.
                 </p>
               </div>
@@ -1611,15 +1611,15 @@ function House() {
                   <p className="mt-6 text-base md:text-lg leading-8 text-justify">
                     Em 2019 inicia as obras na casa para a criação do Manda
                     Café, tudo pronto para abrir as portas, com sete
-                    funcionários treinados, seria sim o novo grande
+                    colaboradores treinados, seria sim o novo grande
                     empreendimento da família.
                   </p>
 
                   <p className="mt-6 text-base md:text-lg leading-8 text-justify">
-                    Abriram a casa e o espaço sempre elogiado, vó Marilda e
-                    Raphael revitalizam e o sorriso no rosto ganha espaço! E a
-                    turbulência da pandemia aparece atormentando uma nação
-                    inteira. — É… a vida é mesmo um jogo desafiador!
+                    Abriram a casa, o espaço sempre elogiado, vó Marilda e
+                    Raphael revitalizaram o sorriso no rosto! Mas... a pandemia
+                    chega atormentando uma nação inteira. — É… a vida é mesmo um
+                    jogo desafiador!
                   </p>
                 </div>
               </div>
@@ -1685,23 +1685,18 @@ function House() {
             <div className="w-full">
               <div className="mx-auto max-w-2xl text-neutral-700">
                 <p className="text-base md:text-lg leading-8 text-justify">
-                  Atualmente seguimos com mais parceiros na equipe do Manda, no
-                  entanto, ainda somos uma estrutura pequena e gerida pela
-                  família, e é neste momento que o Bistrô entra em cena e
-                  passamos a ser nominados como MANDA CAFÉ BISTRÔ.
+                  Atualmente seguimos com um pequena equipe atuando no MANDA e
+                  vários amigos ajudando nesta construção diária, no entanto,
+                  ainda somos uma estrutura pequena e gerida pela família, e é
+                  neste momento que o termo "bistrô" entra em cena, e nos
+                  tornamos MANDA CAFÉ BISTRÔ.
                 </p>
-
                 <p className="mt-6 text-base md:text-lg leading-8 text-justify">
-                  Em 2019 inicia as obras na casa para a criação do Manda Café,
-                  tudo pronto para abrir as portas, com sete funcionários
-                  treinados, seria sim o novo grande empreendimento da família.
-                </p>
-
-                <p className="mt-6 text-base md:text-lg leading-8 text-justify">
-                  Abriram a casa e o espaço sempre elogiado, vó Marilda e
-                  Raphael revitalizam e o sorriso no rosto ganha espaço! E a
-                  turbulência da pandemia aparece atormentando uma nação
-                  inteira. — É… a vida é mesmo um jogo desafiador!
+                  Criamos este site como um registro histórico da família, e
+                  assim agradecemos aos nossos ancestrais que por aqui passaram
+                  e aos familiares que ainda estão conosco. Valorizar histórias
+                  é fundamental para entendermos de onde viemos e para onde
+                  queremos caminhar.
                 </p>
               </div>
             </div>

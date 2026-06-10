@@ -30,28 +30,22 @@ function Footer() {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Company */}
             <div>
-              <h4 className="text-xs tracking-widest text-white/90 mb-3 uppercase">
-                Companhia
-              </h4>
-
               <ul className="space-y-2">
                 <li>
-                  <a className="hover:underline" href="#about">
+                  <a className="hover:underline" href="/manda-cafe/house">
                     Sobre nós
                   </a>
                 </li>
 
                 <li>
-                  <a className="hover:underline" href="#services">
+                  <a className="hover:underline" href="/manda-cafe/events">
                     Nosso serviço
                   </a>
                 </li>
-
                 <li>
-                  <a className="hover:underline" href="#team">
-                    Nosso time
+                  <a className="hover:underline" href="/manda-cafe/gallery">
+                    Nossa galeria
                   </a>
                 </li>
               </ul>
