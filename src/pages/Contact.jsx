@@ -1,6 +1,45 @@
-import casaevents from "../assets/casaevents.jpg";
+import { useState } from "react";
+import { contatoImagem } from "../datas/contatoImagem";
+
+function ContactImage({ image, index }) {
+  const [loaded, setLoaded] = useState(false);
+
+  const hasDimensions = image.width && image.height;
+
+  return (
+    <div
+      className="relative w-full max-w-2xl overflow-hidden bg-black/5"
+      style={
+        hasDimensions
+          ? {
+              aspectRatio: `${image.width} / ${image.height}`,
+            }
+          : undefined
+      }
+    >
+      {!loaded && (
+        <div className="absolute inset-0 bg-[#efe7da] animate-pulse" />
+      )}
+
+      <img
+        src={image.url}
+        alt={image.alt}
+        loading={index < 8 ? "eager" : "lazy"}
+        decoding="async"
+        width={image.width}
+        height={image.height}
+        onLoad={() => setLoaded(true)}
+        className={`w-full h-auto block transition-all duration-500 ${
+          loaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
+        }`}
+      />
+    </div>
+  );
+}
 
 function Contact() {
+  const casaImagem = contatoImagem[0];
+
   return (
     <div
       className="w-full overflow-x-hidden"
@@ -10,7 +49,7 @@ function Contact() {
           SEÇÃO 1 — CONTATO (texto + foto)
          ========================= */}
       <section className="w-full" style={{ backgroundColor: "#fffcf8" }}>
-        <div className="mx-auto max-w-7xl px-6 md:px-16 py-14 md:py-20">
+        <div className="mx-auto max-w-7xl px-6 py-14 md:px-16 md:py-20">
           <div className="grid items-center gap-12 md:grid-cols-2">
             {/* LEFT CONTENT */}
             <div>
@@ -40,6 +79,7 @@ function Contact() {
                     @mandacafe_
                   </a>
                 </p>
+
                 <p className="text-sm md:text-base">
                   <span className="block text-neutral-900">WhatsApp</span>
                   <a
@@ -52,6 +92,7 @@ function Contact() {
                     +55 11 988765337
                   </a>
                 </p>
+
                 <p className="text-sm md:text-base">
                   <span className="block text-neutral-900">E-mail</span>
                   <a
@@ -90,13 +131,7 @@ function Contact() {
 
             {/* RIGHT IMAGE */}
             <div className="flex justify-end">
-              <div className="w-full max-w-2xl overflow-hidden bg-black/5">
-                <img
-                  src={casaevents}
-                  alt="Manda Café - ambiente"
-                  className="h-[320px] w-full object-cover md:h-[420px] lg:h-[480px]"
-                />
-              </div>
+              <ContactImage image={casaImagem} index={0} />
             </div>
           </div>
         </div>
@@ -110,22 +145,22 @@ function Contact() {
         className="w-full"
         style={{ backgroundColor: "#fffcf8" }}
       >
-        <div className="mx-auto max-w-7xl px-6 md:px-16 pb-14 md:pb-20">
-          <div className="h-px w-full bg-[#b08b4a]/25 mb-10" />
+        <div className="mx-auto max-w-7xl px-6 pb-14 md:px-16 md:pb-20">
+          <div className="mb-10 h-px w-full bg-[#b08b4a]/25" />
 
           <p className="text-sm tracking-[0.25em] text-[#b08b4a]">
             LOCALIZAÇÃO
           </p>
           <div className="mt-3 h-[2px] w-12 bg-[#b08b4a]" />
 
-          <h2 className="font-lobster mt-8 text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-[#b08b4a]">
+          <h2 className="font-lobster mt-8 text-3xl font-light leading-tight text-[#b08b4a] md:text-4xl lg:text-5xl">
             Como chegar
           </h2>
 
           <div className="mt-10 overflow-hidden bg-black/5">
             <iframe
               title="Mapa - Manda Café"
-              className="w-full h-[380px] md:h-[460px] lg:h-[520px]"
+              className="h-[380px] w-full md:h-[460px] lg:h-[520px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=R.%20Dona%20Germaine%20Burchard,%20458%20-%20%C3%81gua%20Branca,%20S%C3%A3o%20Paulo%20-%20SP,%2005002-062&output=embed"

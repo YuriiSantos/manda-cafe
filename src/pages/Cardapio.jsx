@@ -1,99 +1,161 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  CARDAPIO_OFICIAL_URL,
+  DELIVERY_URL,
+  cardapioImagens,
+} from "../datas/cardapioImagens";
 
-import pratoc1 from "../assets/cardapio/pratoc1.jpg";
-import pratoc2 from "../assets/cardapio/pratoc2.jpg";
-import pratoc3 from "../assets/cardapio/pratoc3.jpg";
-import pratoc4 from "../assets/cardapio/pratoc4.jpg";
-import pratoc5 from "../assets/cardapio/pratoc5.jpg";
-import pratoc6 from "../assets/cardapio/pratoc6.jpg";
-import pratoc7 from "../assets/cardapio/pratoc7.jpg";
-import pratoc8 from "../assets/cardapio/pratoc8.jpg";
-import pratoc9 from "../assets/cardapio/pratoc9.jpg";
-import pratoc10 from "../assets/cardapio/pratoc10.jpg";
-import pratoc11 from "../assets/cardapio/pratoc11.jpg";
-import pratoc12 from "../assets/cardapio/pratoc12.jpg";
-import pratoc13 from "../assets/cardapio/pratoc13.jpg";
-import pratoc14 from "../assets/cardapio/pratoc14.jpg";
-import pratoc15 from "../assets/cardapio/pratoc15.jpg";
-import pratoc16 from "../assets/cardapio/pratoc16.jpg";
-import pratoc17 from "../assets/cardapio/pratoc17.jpg";
-import pratoc18 from "../assets/cardapio/pratoc18.jpg";
-import pratoc19 from "../assets/cardapio/pratoc19.jpg";
-import pratoc20 from "../assets/cardapio/pratoc20.jpg";
+function CardapioSlide({ slide, index, offset, isActive, onSelect }) {
+  const [loaded, setLoaded] = useState(false);
 
-const CARDAPIO_OFICIAL_URL =
-  "https://drive.google.com/drive/u/0/folders/1rDie7Qz6-Cl34sLO0ReUTStuOnR6a_Db";
-const delivery = "https://linktr.ee/mandacafe.foradacasinha";
+  const translateX = offset * 220;
+  const rotateY = offset * -38;
+  const translateZ = isActive ? 0 : -220;
+  const scale = isActive ? 1 : 0.82;
+  const opacity = Math.abs(offset) > 2 ? 0 : isActive ? 1 : 0.55;
+  const zIndex = 50 - Math.abs(offset);
 
-const carouselImages = [
-  { src: pratoc1, title: "Linguine à Bolonhesa" },
-  { src: pratoc2, title: "Linguine Três Queijos com Filé Mignon" },
-  { src: pratoc3, title: "Linguine ao Sugo com Filé Mingnon" },
-  { src: pratoc4, title: "Raviolloni" },
-  { src: pratoc5, title: "Salada de Grãos" },
-  { src: pratoc6, title: "Salada Manda" },
-  { src: pratoc7, title: "Filé de Frango Grelhado" },
-  { src: pratoc8, title: "Saint Peter Empanado" },
-  { src: pratoc9, title: "Kibe de Carne" },
-  { src: pratoc10, title: "Kibe de Abóbora" },
-  { src: pratoc11, title: "Omelete com Salada" },
-  { src: pratoc12, title: "Strogonoff de Mignon" },
-  { src: pratoc13, title: "Strogonoff de Frango" },
-  { src: pratoc14, title: "Strogonoff de Cogumelos" },
-  { src: pratoc15, title: "Americano" },
-  { src: pratoc16, title: "Ciabata Caprese" },
-  { src: pratoc17, title: "Brigadeiro" },
-  { src: pratoc18, title: "Torta de Maracujá" },
-  { src: pratoc19, title: "Torta de Limão" },
-  { src: pratoc20, title: "Banoffee" },
-];
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(index)}
+      className="
+        absolute left-1/2 top-1/2
+        h-[310px] w-[250px]
+        overflow-hidden
+        rounded-[28px]
+        border border-white/30
+        bg-black/5
+        shadow-2xl
+        md:h-[460px] md:w-[380px]
+      "
+      style={{
+        transform: `
+          translate3d(-50%, -50%, ${translateZ}px)
+          translateX(${translateX}px)
+          rotateY(${rotateY}deg)
+          scale(${scale})
+        `,
+        opacity,
+        zIndex,
+        transition:
+          "transform 0.6s ease, opacity 0.6s ease, box-shadow 0.6s ease",
+      }}
+      aria-label={`Ver imagem: ${slide.title}`}
+    >
+      {!loaded && (
+        <div className="absolute inset-0 bg-[#efe7da] animate-pulse" />
+      )}
+
+      <img
+        src={slide.url}
+        alt={slide.alt}
+        loading={index < 8 ? "eager" : "lazy"}
+        decoding="async"
+        width={slide.width}
+        height={slide.height}
+        onLoad={() => setLoaded(true)}
+        className={`h-full w-full object-cover transition-all duration-500 ${
+          loaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
+        }`}
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+
+      <div className="absolute bottom-0 left-0 w-full p-5 text-left md:p-6">
+        <p className="mb-2 text-[10px] uppercase tracking-[0.32em] text-[#f1ddae] md:text-xs">
+          Manda Café
+        </p>
+
+        <h3 className="text-2xl font-semibold text-white drop-shadow md:text-3xl">
+          {slide.title}
+        </h3>
+      </div>
+
+      {isActive && (
+        <div className="absolute inset-0 rounded-[28px] ring-4 ring-[#b08b4a]/40" />
+      )}
+    </button>
+  );
+}
 
 export default function Cardapio() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const btnRef = useRef(null);
-  const menuRef = useRef(null);
+  const pauseTimeoutRef = useRef(null);
+
+  function pauseAutoPlay() {
+    setIsPaused(true);
+
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 10000);
+  }
+
+  function selectImage(index) {
+    pauseAutoPlay();
+    setActiveIndex(index);
+  }
+
+  function goPrev() {
+    pauseAutoPlay();
+
+    setActiveIndex((prev) =>
+      prev === 0 ? cardapioImagens.length - 1 : prev - 1,
+    );
+  }
+
+  function goNext() {
+    pauseAutoPlay();
+
+    setActiveIndex((prev) => (prev + 1) % cardapioImagens.length);
+  }
 
   useEffect(() => {
-    const onDocMouseDown = (e) => {
-      const btn = btnRef.current;
-      const menu = menuRef.current;
-      if (!btn || !menu) return;
-      if (btn.contains(e.target) || menu.contains(e.target)) return;
-    };
+    if (isPaused) return;
 
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % cardapioImagens.length);
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isPaused]);
+
+  useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "ArrowRight") {
-        setActiveIndex((prev) => (prev + 1) % carouselImages.length);
+        goNext();
       }
+
       if (e.key === "ArrowLeft") {
-        setActiveIndex((prev) =>
-          prev === 0 ? carouselImages.length - 1 : prev - 1,
-        );
+        goPrev();
       }
     };
 
-    document.addEventListener("mousedown", onDocMouseDown);
     document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.removeEventListener("mousedown", onDocMouseDown);
       document.removeEventListener("keydown", onKeyDown);
     };
   }, []);
 
-  const goPrev = () => {
-    setActiveIndex((prev) =>
-      prev === 0 ? carouselImages.length - 1 : prev - 1,
-    );
-  };
-
-  const goNext = () => {
-    setActiveIndex((prev) => (prev + 1) % carouselImages.length);
-  };
+  useEffect(() => {
+    return () => {
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const getOffset = (index) => {
-    const total = carouselImages.length;
+    const total = cardapioImagens.length;
     let diff = index - activeIndex;
 
     if (diff > total / 2) diff -= total;
@@ -103,9 +165,9 @@ export default function Cardapio() {
   };
 
   return (
-    <section className="bg-[#faf8f4] px-4 py-16 min-h-[100vh] overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="font-lobster text-5xl md:text-6xl text-center text-[#b08b4a]">
+    <section className="min-h-[100vh] overflow-hidden bg-[#faf8f4] px-4 py-16">
+      <div className="mx-auto max-w-6xl">
+        <h1 className="text-center font-lobster text-5xl text-[#b08b4a] md:text-6xl">
           Cardápio
         </h1>
 
@@ -118,11 +180,11 @@ export default function Cardapio() {
               inline-flex items-center gap-2
               rounded-full
               bg-white/40
-              backdrop-blur
               px-3.5 py-1.5
-              text-[11px] tracking-[0.22em] uppercase
+              text-[11px] uppercase tracking-[0.22em]
               text-[#7a5d2b]
               shadow-sm
+              backdrop-blur
               transition
               hover:bg-white/60
               hover:shadow
@@ -138,7 +200,7 @@ export default function Cardapio() {
           </a>
 
           <a
-            href={delivery}
+            href={DELIVERY_URL}
             target="_blank"
             rel="noreferrer"
             className="
@@ -146,7 +208,7 @@ export default function Cardapio() {
               rounded-full
               bg-[#ea1d2c]/10
               px-3.5 py-1.5
-              text-[11px] tracking-[0.22em] uppercase
+              text-[11px] uppercase tracking-[0.22em]
               text-black
               shadow-sm
               transition
@@ -164,7 +226,7 @@ export default function Cardapio() {
           </a>
         </div>
 
-        <p className="mt-8 max-w-2xl mx-auto text-sm leading-relaxed text-neutral-700 text-justify hyphens-auto">
+        <p className="mx-auto mt-8 max-w-2xl text-justify text-sm leading-relaxed text-neutral-700 hyphens-auto">
           O cardápio do Manda foi criado para acolher e surpreender, com muita
           brasilidade e toques contemporâneos. Para dar vida a uma cozinha
           simples e refinada, recorremos aos caderninhos de receitas das
@@ -186,67 +248,41 @@ export default function Cardapio() {
             <button
               type="button"
               onClick={goPrev}
-              className="z-30 mr-2 md:mr-6 h-11 w-11 rounded-full border border-[#d9c6a3] bg-white/70 backdrop-blur text-[#7a5d2b] shadow-md transition hover:scale-105 hover:bg-white"
+              className="
+                z-30 mr-2 h-11 w-11
+                rounded-full
+                border border-[#d9c6a3]
+                bg-white/70
+                text-[#7a5d2b]
+                shadow-md
+                backdrop-blur
+                transition
+                hover:scale-105
+                hover:bg-white
+                md:mr-6
+              "
               aria-label="Imagem anterior"
             >
               ‹
             </button>
 
             <div
-              className="relative w-full max-w-5xl h-[340px] md:h-[500px]"
+              className="relative h-[340px] w-full max-w-5xl md:h-[500px]"
               style={{ perspective: "1800px" }}
             >
-              {carouselImages.map((slide, index) => {
+              {cardapioImagens.map((slide, index) => {
                 const offset = getOffset(index);
                 const isActive = offset === 0;
 
-                const translateX = offset * 220;
-                const rotateY = offset * -38;
-                const translateZ = isActive ? 0 : -220;
-                const scale = isActive ? 1 : 0.82;
-                const opacity = Math.abs(offset) > 2 ? 0 : isActive ? 1 : 0.55;
-                const zIndex = 50 - Math.abs(offset);
-
                 return (
-                  <button
-                    key={`${slide.title}-${index}`}
-                    type="button"
-                    onClick={() => setActiveIndex(index)}
-                    className="absolute left-1/2 top-1/2 w-[250px] h-[310px] md:w-[380px] md:h-[460px] rounded-[28px] overflow-hidden shadow-2xl border border-white/30"
-                    style={{
-                      transform: `
-                        translate3d(-50%, -50%, ${translateZ}px)
-                        translateX(${translateX}px)
-                        rotateY(${rotateY}deg)
-                        scale(${scale})
-                      `,
-                      opacity,
-                      zIndex,
-                      transition:
-                        "transform 0.6s ease, opacity 0.6s ease, box-shadow 0.6s ease",
-                    }}
-                  >
-                    <img
-                      src={slide.src}
-                      alt={slide.title}
-                      className="w-full h-full object-cover"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
-
-                    <div className="absolute left-0 bottom-0 w-full p-5 md:p-6 text-left">
-                      <p className="text-[10px] md:text-xs tracking-[0.32em] uppercase text-[#f1ddae] mb-2">
-                        Manda Café
-                      </p>
-                      <h3 className="text-white text-2xl md:text-3xl font-semibold drop-shadow">
-                        {slide.title}
-                      </h3>
-                    </div>
-
-                    {isActive && (
-                      <div className="absolute inset-0 rounded-[28px] ring-4 ring-[#b08b4a]/40" />
-                    )}
-                  </button>
+                  <CardapioSlide
+                    key={slide.id}
+                    slide={slide}
+                    index={index}
+                    offset={offset}
+                    isActive={isActive}
+                    onSelect={selectImage}
+                  />
                 );
               })}
             </div>
@@ -254,21 +290,34 @@ export default function Cardapio() {
             <button
               type="button"
               onClick={goNext}
-              className="z-30 ml-2 md:ml-6 h-11 w-11 rounded-full border border-[#d9c6a3] bg-white/70 backdrop-blur text-[#7a5d2b] shadow-md transition hover:scale-105 hover:bg-white"
+              className="
+                z-30 ml-2 h-11 w-11
+                rounded-full
+                border border-[#d9c6a3]
+                bg-white/70
+                text-[#7a5d2b]
+                shadow-md
+                backdrop-blur
+                transition
+                hover:scale-105
+                hover:bg-white
+                md:ml-6
+              "
               aria-label="Próxima imagem"
             >
               ›
             </button>
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-2 flex-wrap">
-            {carouselImages.map((_, index) => {
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+            {cardapioImagens.map((_, index) => {
               const active = index === activeIndex;
+
               return (
                 <button
                   key={index}
                   type="button"
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => selectImage(index)}
                   className={`h-2.5 rounded-full transition-all ${
                     active ? "w-8 bg-[#b08b4a]" : "w-2.5 bg-[#d8c7a8]"
                   }`}
