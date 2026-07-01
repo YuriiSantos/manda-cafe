@@ -39,12 +39,11 @@ function Home() {
               {/* controla largura do texto e mantém tudo centralizado */}
               <div className="space-y-4 w-full max-w-md sm:max-w-lg">
                 <h3 className="font-lobster text-[30px] sm:text-[36px] text-[#b08b4a]">
-                  O MANDA CAFÉ - <br />
-                  (A CASA)
+                  Manda Café
                 </h3>
 
                 <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">
-                  ✻ ✻ Manda Café
+                  A casa
                 </p>
 
                 <div className="flex justify-center">
@@ -90,7 +89,7 @@ function Home() {
                 </h3>
 
                 <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">
-                  ✻ ✻ Cardápio
+                  Cardápio
                 </p>
 
                 <div className="flex justify-center">
@@ -135,7 +134,7 @@ function Home() {
                 </h3>
 
                 <p className="text-[11px] uppercase tracking-[0.2em] text-[#b08b4a]/80">
-                  ✻ Celebre sonhos <br />✻ & crie memórias
+                  Celebre sonhos <br />& crie memórias
                 </p>
 
                 <div className="flex justify-center">

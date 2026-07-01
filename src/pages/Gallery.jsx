@@ -117,7 +117,7 @@ function GalleryModal({
         onTouchEnd={handleTouchEnd}
       >
         {/* CONTAINER FIXO DA IMAGEM */}
-        <div className="relative flex items-center justify-center w-full h-[58vh] min-h-[360px] max-h-[580px] rounded-xl overflow-hidden bg-black/25">
+        <div className="relative flex items-center justify-center w-full h-[58vh] min-h-[360px] max-h-[580px] rounded-xl overflow-hidden bg-black/05">
           <img
             src={image.url}
             alt={image.alt}

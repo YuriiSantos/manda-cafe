@@ -90,7 +90,7 @@ function Events() {
                   <li>Ambiente acolhedor e agradável</li>
                   <li>Serviço de buffet</li>
                   <li>Bar </li>
-                  <li>Equipamento de som profissional para voz e violão</li>
+                  <li>Equip. de som profissional</li>
                   <li>Espaço adaptável para até 80 pessoas</li>
                 </ul>
               </div>

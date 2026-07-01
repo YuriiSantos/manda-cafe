@@ -106,7 +106,7 @@ export default function Sidebar() {
         <div className="absolute inset-0 z-[3] bg-gradient-to-b from-black/5 via-transparent to-black/10" />
 
         <div className="relative z-[10] h-full flex flex-col text-white">
-          <div className="flex items-center justify-between px-5 pt-5 pb-6">
+          <div className="relative flex items-center justify-between px-5 pt-5 pb-6">
             <Link
               to="/"
               onClick={closeMenu}
@@ -116,21 +116,17 @@ export default function Sidebar() {
               <img
                 src={LogoManda}
                 alt="Manda Café"
-                className="h-[100px] w-[80px] object-contain drop-shadow-lg"
+                className="h-[150px] w-[100px] object-contain drop-shadow-lg"
               />
-
-              <span className="font-raleway text-[24px] font-semibold tracking-wide drop-shadow-sm">
-                Menu
-              </span>
             </Link>
 
             <button
               onClick={closeMenu}
-              className="rounded-full p-2 hover:bg-white/15 transition-colors"
+              className=" rounded-full p-2 hover:bg-white/15 transition-colors"
               aria-label="Fechar menu"
               type="button"
             >
-              <X className="w-5 h-5" strokeWidth={1.8} />
+              <X className="w-7 h-7" strokeWidth={1.8} />
             </button>
           </div>
 
